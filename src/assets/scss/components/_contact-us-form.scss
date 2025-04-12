@@ -1,0 +1,181 @@
+
+
+.wpcf7-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    overflow-x: clip;
+    position: relative;
+
+    &:has(input:invalid){
+        button{
+            background: var(--support-color);
+            color: var(--prime-color);
+            right: -140px;
+            pointer-events: none;
+        }
+    }
+    button{
+        cursor: pointer;
+        position: absolute;
+        z-index: 5;
+        right: 0;
+        top: 16px;
+        transition: right 0.4s ease, background 0.4s ease;
+        outline: none;
+    }
+    &.failed{
+        button{
+            background: #ca0707!important;
+            color: #fff!important;;
+        }
+    }
+    &.sent{
+        button{
+            background: #46b450!important;
+            color: #fff!important;;
+        }
+    }
+    .wpcf7-response-output{
+    //    display: none!important;
+    }
+
+    .two-input-blocks{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap:24px;
+    }
+
+    .this-input-block {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+
+        label {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5em;
+        }
+
+        input {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5em;
+            padding: 11px 24px;
+            width: 100%;
+            border-radius: 25px;
+            background: var(--prime-color);
+            border: 1px solid #DFE0E1;
+            outline: none;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0 30px var(--prime-color) inset !important;
+                -webkit-text-fill-color: var(--second-color);
+                caret-color: var(--second-color);
+            }
+        }
+    }
+
+
+}
+
+
+
+@media (max-width: 1440px) {
+    .wpcf7-form {
+        button {
+            position: static;
+        }
+    }
+}
+
+
+
+
+#pop-up{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    background: rgb(0 0 0 / 40%);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .pop-up-form{
+        padding: 72px;
+        padding-bottom: 102px;
+        border-radius: 20px;
+        height: fit-content;
+        max-width: 744px;
+        width: 100%;
+        background: #fff;
+        position: relative;
+    }
+    .btn-pop-up{
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        cursor: pointer;
+    }
+
+    .wpcf7-form{
+        button{
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: calc(100% + 20px);
+            margin: auto;
+        }
+    }
+
+    h3{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2em;
+        text-align: center;
+        margin-bottom: 0.6em;
+    }
+    p{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5em;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #pop-up{
+        .pop-up-form{
+            padding: 20px;
+            padding-bottom: 102px;
+            .btn-pop-up{
+                right: 12px;
+                top: -30px;
+            }
+        }
+    }
+}

@@ -1,4 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import './assets/scss/main.scss';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+// Use tsparticles plugin if needed, or directly add Particles component inside your Vue components
+
+app.mount('#app');

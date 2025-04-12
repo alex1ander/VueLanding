@@ -1,26 +1,71 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+      <HeaderSection />
+      <main class="dark-style1">
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+      <HeroSection />
+      <SliderStack />
+      <OurBenefits />
+      <SliderProducts />
+      <OurAdvantages />
+      <PillArea />
+      <RunningString />
+      <ContactForm />
+      <ServicesCard />
+      <PopUp />
+      </main>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+      <ScriptJs />
+      <AnimationsJs />
+
+      <div v-html="sprite"></div>
+  </template>
+  
+  <script>
+    import { ref, onMounted } from 'vue';
+    import ScriptJs from './assets/js/script.js';
+    import AnimationsJs from './assets/js/animations.js';
+    import HeaderSection from './components/HeaderSection.vue';
+    import HeroSection from './components/HeroSection.vue';
+    import RunningString from './components/RunningString.vue';
+    import OurBenefits from './components/OurBenefits.vue';
+    import SliderProducts from './components/SliderProducts.vue';
+    import PillArea from './components/PillArea.vue';
+    import SliderStack from './components/SliderStack.vue';
+    import ContactForm from './components/ContactForm';
+    import OurAdvantages from './components/OurAdvantages.vue';
+    import ServicesCard from './components/ServicesCard.vue';
+    import PopUp from './components/PopUp.vue';
+
+  
+    export default {
+        name: 'App',
+        components: {
+            ScriptJs,
+            AnimationsJs,
+            PopUp,
+            HeaderSection,
+            HeroSection,
+            RunningString,
+            OurAdvantages,
+            SliderProducts,
+            PillArea,
+            SliderStack,
+            ContactForm,
+            OurBenefits,
+            ServicesCard,
+        },
+        setup() {
+            const sprite = ref('');
+            onMounted(async () => {
+            const spriteUrl = new URL('@/assets/icon/sprite.svg', import.meta.url).href;
+            const response = await fetch(spriteUrl);
+            sprite.value = await response.text();
+            });
+    
+            return { sprite };
+        },
+        
+    };
+  </script>
+  

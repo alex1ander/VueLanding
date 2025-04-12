@@ -1,0 +1,53 @@
+$dark-color: #3F4041;
+$dark-gray-color:#707070;
+
+$white-color: #fff;
+$white-gray-color:#EBEDEF;
+
+:root {
+    --prime-color: #{$white-color};
+    --second-color: #{$dark-color};
+    --support-color: #{$white-gray-color};
+    .reverse-style{
+        --prime-color: #{$dark-color};
+        --second-color: #{$white-color};
+    }
+}
+
+.white-style{
+    --prime-color: #{$white-color};
+    --second-color: #{$dark-color};
+    --support-color: #{$white-gray-color};
+    .reverse-style{
+        --prime-color: #{$dark-color};
+        --second-color: #{$white-color};
+    }
+}
+.dark-style {
+    background: rgba(17, 17, 17, 0.4);
+    --prime-color: #{$dark-color};
+    --second-color: #{$white-color};
+    --support-color: #{$dark-gray-color};
+    .reverse-style{
+        --prime-color: #{$white-color};
+        --second-color: #{$dark-color};
+    }
+}
+
+
+
+
+@mixin list-element {
+    > li{
+        display: flex;
+    }
+    > li > a{
+        display: flex;
+        align-items: center;
+        height: 48px;
+        width: 100%;
+    }
+    > li:not(:last-child) > a{
+        border-bottom: 1px solid #E8EAF3;
+    }
+}
