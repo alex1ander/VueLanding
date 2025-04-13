@@ -260,14 +260,7 @@ section .background-svg{
     width: 100%;
     gap: 48px;
 }
-.pill-place-mobile{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 24px;
-}
+
 
 .pill-area {
     display: flex;
@@ -276,6 +269,7 @@ section .background-svg{
     border-radius: 0 32px 32px 0;
     background: var(--prime-color);
     padding: 60px;
+    max-height: 160px;
     width: 100%;
     overflow: hidden;
 

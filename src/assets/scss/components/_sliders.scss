@@ -38,6 +38,13 @@ $slider-btn-size:56px;
     gap: 32px;
 }
 
+.sliderNumber-1 {
+    .swiper-slide{
+        transform: translate(0px, 100%);
+    }
+}
+
+
 @media(max-width: 500px) {
     .sliderNumber-1-top-part {
         .slider-buttons{

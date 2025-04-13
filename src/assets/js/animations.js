@@ -10,22 +10,26 @@ export default {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     // Анимация для swiper-slide
-                    if (entry.target.classList.contains('swiper-slide')) {
-                        if (entry.isIntersecting) {
-                            gsap.to(entry.target, {
-                                opacity: 1,
-                                y: 0,
-                                duration: 1,
-                                ease: 'power3.out',
-                            });
-                        } else {
-                            gsap.to(entry.target, {
-                                opacity: 0,
-                                y: 50,
-                                duration: 1,
-                                ease: 'power3.out',
-                            });
-                        }
+                    if (entry.target.classList.contains('sliderNumber-1')) {
+
+                        const children = entry.target.querySelectorAll('.swiper-slide');  // Замените .child-element на нужный селектор
+
+                        children.forEach(child => {
+                            if (entry.isIntersecting) {                 
+                                gsap.to(child, {
+                                    y: 0,
+                                    duration: 1,
+                                    ease: 'power3.out',
+                                });
+                            } else {
+                                // Если swiper-slide выходит из области видимости, скрываем дочерний элемент
+                                gsap.to(child, {
+                                    y: '100%',
+                                    duration: 0,
+                                    ease: 'none',
+                                });
+                            }
+                        });
                     }
 
                     // Анимация для h2 (появление слева)
@@ -104,46 +108,120 @@ export default {
                     }
 
                     if (entry.target.classList.contains('pill-area')) {
+
+                        // Начальная позиция с использованием translateX
+                        gsap.to(entry.target, {
+                            scaleY: 0,
+                            duration: 0,
+                            ease: 'none',
+                            delay: 0,
+                        });
+    
                         if (entry.isIntersecting) {
                             gsap.to(entry.target, {
-                                x: 0,
-                                duration: 1,
+                                scaleY: 1,
                                 ease: 'power3.out',
+                                duration: 1,
+                                delay: 0.5,
                             });
                         } else {
                             gsap.to(entry.target, {
-                                x: -50,
+                                scaleY: 0,
+                                ease: 'none',
+                                duration: 0,
+                                delay: 0,
+                            });
+                        }
+                    }
+                    
+                    
+                    
+                    if (entry.target.classList.contains('pill-btn')) {
+
+                        gsap.to(entry.target, {
+                            opacity: 0,
+                            x: -320,
+                            duration: 0,
+                            ease: 'none',
+                            delay: 0,
+                        });
+
+                        if (entry.isIntersecting) {
+                            gsap.to(entry.target, {
+                                opacity: 1,
+                                x: 0,
                                 duration: 1,
                                 ease: 'power3.out',
+                                delay: 1,
+                            });
+                        } else{
+                            gsap.to(entry.target, {
+                                x: 0,
+                                duration: 0,
+                                ease: 'none',
+                                delay: 0,
                             });
                         }
                     }
 
-                    if (entry.target.classList.contains('pill-btn')) {
+
+                    if (entry.target.classList.contains('first-line')) {
+                        gsap.to(entry.target, {
+                            rotate: 0,
+                            duration: 0,
+                            ease: 'none',
+                            delay: 0,
+                        });
+
                         if (entry.isIntersecting) {
                             gsap.to(entry.target, {
-                                x: 0,
-                                duration: 1,
+                                rotate: -3,
+                                duration: 1.5,
                                 ease: 'power3.out',
+                                delay: 1,
                             });
-                        } else {
+                        } else{
                             gsap.to(entry.target, {
-                                x: -150,
-                                duration: 1,
+                                rotate: 0,
+                                duration: 0,
+                                ease: 'none',
+                                delay: 0,
+                            });
+                        }
+                    }
+
+                    if (entry.target.classList.contains('second-line')) {
+                        gsap.to(entry.target, {
+                            rotate: 0,
+                            duration: 0,
+                            ease: 'none',
+                            delay: 0,
+                        });
+
+                        if (entry.isIntersecting) {
+                            gsap.to(entry.target, {
+                                rotate: 7,
+                                duration: 1.5,
                                 ease: 'power3.out',
+                                delay: 1,
+                            });
+                        } else{
+                            gsap.to(entry.target, {
+                                rotate: 0,
+                                duration: 0,
+                                ease: 'none',
+                                delay: 0,
                             });
                         }
                     }
                    
-
-                 
                 });
             }, {
-                threshold: 0.1,
+                threshold: 0.5,
             });
 
             // Наблюдение за всеми элементами, которые нужно анимировать
-            document.querySelectorAll('.swiper-slide,.two-part-content,.the-grid-card,.advantage,.pill-area,.pill-btn,.service-card').forEach((element) => {
+            document.querySelectorAll('.sliderNumber-1,.two-part-content,.the-grid-card,.advantage,.pill-area,.pill-btn,.service-card,.container-lines').forEach((element) => {
                 observer.observe(element);
             });
         },

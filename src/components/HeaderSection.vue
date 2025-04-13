@@ -13,20 +13,35 @@
                             <li class="menu-item menu-item-has-children"><a href="#">Ціни</a></li>
                         </ul>
                     </div>
-                    <div class="content-header-part overflow-auto">
-                        <a href="#" class="text-with-svg">
-                            <svg width="24" height="24"  class="sprite-svg-fill">
-                                <use href="#location_on"></use>
-                            </svg>
-                            Львів
-                        </a>
+
+
+                    <div class="content-header-part">
+                        <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
+                            <div class="dropdown-head text-with-svg">
+                                <svg width="30" height="30" class="sprite-svg-fill">
+                                    <use href="#earth"></use>
+                                </svg>
+                                <span>{{ $t('currentLanguage') }}</span>
+                            </div>
+                            <div class="dropdown-body">
+                                <ul class="selected-list">
+                                    <li @click="switchLanguage('ua')">Українська</li>
+                                    <li @click="switchLanguage('ru')">Русский</li>
+                                    <li @click="switchLanguage('en')">English</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    
 
                         <a href="#" class="text-with-svg">
                             <svg width="24" height="24" class="sprite-svg-fill">
                                 <use href="#call"></use>
                             </svg>
-                            +38 (067) 777 68 93
+                            <span>+38 (067) 777 68 93</span>
+
                         </a>
+
                     </div>
                 </div>
                 <div class="content content-header mobile">
@@ -41,12 +56,12 @@
                                 <span></span>
                             </div>
 
-
+                            
                             <div class="burger-menu-list">
                                 <div class="content-burger-part">
                                     <ul id="main-menu-mobile" class="main-menu content">
-                                        <li class="menu-item menu-item-has-children"><a href="#">Наші послуги</a></li>
-                                        <li class="menu-item menu-item-has-children"><a href="#">Наші роботи</a></li>
+                                        <li class="menu-item"><a href="#">Наші послуги</a></li>
+                                        <li class="menu-item"><a href="#">Наші роботи</a></li>
                                         <li class="menu-item"><a href="#">Про нас</a></li>
                                         <li class="menu-item"><a href="#">Блог</a></li>
                                         <li class="menu-item"><a href="#">Ціни</a></li>
@@ -56,24 +71,7 @@
                                 <div class="content-burger-part">
 
                                     <div class="contact-us-block content">
-                                        <ul class="contact-us-link">
-                                            <li>
-                                                <a href="#" class="text-with-svg">
-                                                    <svg width="24" height="24" class="sprite-svg-fill">
-                                                        <use href="#location_on"></use>
-                                                    </svg>
-                                                    Львів
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="text-with-svg">
-                                                    <svg width="24" height="24" class="sprite-svg-fill">
-                                                        <use href="#call"></use>
-                                                    </svg>
-                                                    +38 (067) 777 68 93
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        
 
                                         <a href="#" class="btn-120-circle reverse-style">Отримати консультацію</a>
                                     </div>
@@ -91,7 +89,55 @@
             </div>
         </div>
     </header>
+
 </template>
+
+
+<script>
+import { useI18n } from 'vue-i18n';
+import { gsap } from 'gsap';
+import { ref } from 'vue';
+
+export default {
+  name: 'App',
+  setup() {
+    const { locale } = useI18n();  // Получаем доступ к текущему языку
+    const isDropdownActive = ref(false); // Используем ref для состояния dropdown
+
+    // Функция для переключения языка
+    const switchLanguage = (language) => {
+      locale.value = language;  // Переключаем язык
+    };
+
+    // Функция для переключения состояния dropdown
+    const toggleDropdown = () => {
+      isDropdownActive.value = !isDropdownActive.value;
+      animateItems(); 
+    };
+    
+
+
+    const animateItems = () => {
+        gsap.killTweensOf('.selected-list li');
+
+      gsap.set('.selected-list li', { opacity: 0, y: 20 });
+
+      // Анимация элементов
+      gsap.timeline()
+        .to('.selected-list li', {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          ease: 'power3.out',
+        });
+    };
+    return { switchLanguage, toggleDropdown, isDropdownActive };
+  }
+};
+</script>
+
+
+
 
 <style scoped lang="scss">
 
@@ -514,6 +560,61 @@ $sizeCirlce: 5px;
 .burger.active span::after {
     transform: rotateZ(-45deg) translateY(0);
 }
+
+
+
+.text-with-svg{
+        cursor:  pointer;
+        &:hover {
+
+            svg{
+                fill: rgb(255, 189, 46);
+            }
+            span{
+                color: rgb(255, 189, 46);
+            }
+
+        }
+    }
+
+.dropdown-list {
+    position: relative;
+
+    &.active{
+        .dropdown-body{
+            display: block;
+        }
+    }
+
+    .dropdown-body {
+        position: absolute;
+        top: calc(100% + 26px);
+        display: none;
+
+
+        .selected-list{
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+
+            background: rgb(17 17 17 / 74%);
+            padding: 20px;
+            border-radius: 20px;
+
+            li{
+                cursor: pointer;
+                &:hover{
+                    color: rgb(255, 189, 46);
+                }
+            }
+
+        }
+    }
+}
+
+
 
 
 </style>

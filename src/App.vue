@@ -7,6 +7,7 @@
       <SliderStack />
       <OurBenefits />
       <SliderProducts />
+      
       <OurAdvantages />
       <PillArea />
       <RunningString />
@@ -14,6 +15,8 @@
       <ServicesCard />
       <PopUp />
       </main>
+
+      <FooterSection />
 
       <ScriptJs />
       <AnimationsJs />
@@ -36,6 +39,7 @@
     import OurAdvantages from './components/OurAdvantages.vue';
     import ServicesCard from './components/ServicesCard.vue';
     import PopUp from './components/PopUp.vue';
+    import FooterSection from './components/FooterSection.vue';
 
   
     export default {
@@ -54,6 +58,7 @@
             ContactForm,
             OurBenefits,
             ServicesCard,
+            FooterSection,
         },
         setup() {
             const sprite = ref('');

@@ -3,14 +3,14 @@
         <div class="promo-lines">
             <div class="container-lines first-line">
                 <div class="line-help line">
-                    <div class="line-text"><span>Допоможемо вирішити вашу проблему!</span></div>
-                    <div class="line-text"><span>Допоможемо вирішити вашу проблему!</span></div>
+                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
+                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
                 </div>
             </div>
             <div class="container-lines second-line">
                 <div class="line-help line">
-                    <div class="line-text"><span>Допоможемо вирішити вашу проблему!</span></div>
-                    <div class="line-text"><span>Допоможемо вирішити вашу проблему!</span></div>
+                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
+                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
                 </div>
             </div>
 
@@ -60,13 +60,9 @@ section{
 }
 
 
-.line-text {
-    padding: 16px 0;
-}
 
-.line-text span{
-    border-top: 4px solid #000;
-    border-bottom: 4px solid #000;
+
+.line-text {
     font-size: 62px;
     text-align: center;
     color: #1D1932;
@@ -75,6 +71,7 @@ section{
     padding: 4px 40px;
     will-change: transform;
     flex: 1;
+    padding: 16px 0;
 }
 .first-line .line-text {
     animation: animate-first-screen 80s -80s linear infinite;
@@ -94,6 +91,26 @@ section{
     display: flex;
     background: rgba(140, 105, 172, 1);
     transform: translateX(24%);
+}
+
+.line::before{
+    content: '';
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    background: #000;
+    z-index: 1;
+}
+
+.line::after{
+    content: '';
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    background: #000;
+    z-index: 1;
 }
 
 
@@ -140,15 +157,9 @@ section{
 
 
 @media (max-width: 769px){
-      .promo-lines {
-
+    .promo-lines {
         .line-text {
-            padding: 10px 0;
-        }
-        span{
             font-size: 36px;
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
         }
     }
 }
