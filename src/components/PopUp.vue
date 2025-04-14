@@ -5,21 +5,41 @@
         <use href="#close"></use>
       </svg>
       <div class="pop-up-container">
-        <form class="wpcf7-form" style="flex:6;">
-
-            <div class="this-input-block">
-              <label for="name">Ваше ім’я:</label>
-              <input type="text" id="name" name="name" placeholder="Ваше ім’я:" required>
-            </div>
-            <div class="this-input-block">
-              <label for="phone">Ваш телефон:</label>
-              <input type="tel" id="phone" name="phone" placeholder="+38 ____ ___ ___" required>
-            </div>
-
-          <button type="submit" class="btn-160-circle reverse-style">Отримати консультацію</button>
-        </form>
+        <ContactForm />
       </div>
     </div>
   </div>
 </template>
-  
+
+<script>
+    import ContactForm from './ContactForm.vue';
+
+    export default {
+        components: {
+            ContactForm,
+        },
+    };
+</script>
+
+
+<style>
+
+.contact-selector {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.contact-type-select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  appearance: none; /* Убирает стандартный стиль в браузерах */
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  outline: none;
+}
+</style>

@@ -1,9 +1,9 @@
 <template>
-  <section class="dark-style information-section container">
+  <section class="information-section">
 
       <div class="content">
-          <div class="servise-grid-wrapper">
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+          <div class="servise-grid-wrapper animScroll">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3>Дизайн сайтов</h3>
@@ -17,7 +17,7 @@
                   </div>
               </a>  
 
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3>Интернет-магазины</h3>
@@ -31,7 +31,7 @@
                   </div>
               </a>  
 
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3>Блоги и контентные сайты</h3>
@@ -45,7 +45,7 @@
                   </div>
               </a>  
 
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3>Корпоративные сайты</h3>
@@ -60,7 +60,7 @@
               </a>  
 
 
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3> UX/UI-дизайн</h3>
@@ -74,7 +74,7 @@
                   </div>
               </a>  
 
-              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid" ref="card">
+              <a href="https://dev.onutchak.com.ua/nashi-poslugy/plastychna-hirurgiya/rynoplastyka/" class="the-grid-card page-card-grid cardAnim" ref="card">
                   <div class="row flex-start">
                       <div class="benefit-text-part">
                           <h3>Поддержка и развитие</h3>

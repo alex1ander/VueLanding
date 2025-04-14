@@ -15,9 +15,6 @@
         overflow: visible;
     }
 
-    position: relative;
-    overflow: hidden;
-
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -259,26 +256,31 @@ section .background-svg{
     justify-content: space-between;
     width: 100%;
     gap: 48px;
-}
+    min-height: 160px;
+    transform-origin: left;
 
-
-.pill-area {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    border-radius: 0 32px 32px 0;
-    background: var(--prime-color);
-    padding: 60px;
-    max-height: 160px;
-    width: 100%;
-    overflow: hidden;
-
-    h2{
-        min-width: 100%;
+    .pill-area {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        border-radius: 0 32px 32px 0;
+        background: var(--prime-color);
+        padding: 60px;
+        max-height: 160px;
+        width: 100%;
+        overflow: hidden;
+        z-index: 2;
+        transform-origin: left;
+        h2{
+            min-width: 100%;
+        }
     }
+
+    .pill-btn{
+        transform-origin: left;
+    }
+
 }
-
-
 
 
 @media(max-width: 600px){

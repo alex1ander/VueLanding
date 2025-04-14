@@ -1,27 +1,20 @@
-
-
-.wpcf7-form {
+.contact-from {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 24px;
-
-    overflow-x: clip;
     position: relative;
 
     &:has(input:invalid){
         button{
             background: var(--support-color);
             color: var(--prime-color);
-            right: -140px;
-            pointer-events: none;
         }
     }
     button{
         cursor: pointer;
-        position: absolute;
         z-index: 5;
         right: 0;
         top: 16px;
@@ -90,7 +83,7 @@
 
 
 @media (max-width: 1440px) {
-    .wpcf7-form {
+    .contact-from {
         button {
             position: static;
         }
@@ -141,7 +134,7 @@
         cursor: pointer;
     }
 
-    .wpcf7-form{
+    .contact-from{
         button{
             position: absolute;
             right: 0;
@@ -177,5 +170,25 @@
                 top: -30px;
             }
         }
+    }
+}
+
+
+
+.wrapper-input{
+
+    position: relative;
+    .dropdown-list{
+        position: absolute;
+        right: 21px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        background: rgba(17, 17, 17, 0.74);
+        border-radius: 25px;
+        padding: 16px;
+        height: 80%;
     }
 }

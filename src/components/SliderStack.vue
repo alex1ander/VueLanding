@@ -1,5 +1,5 @@
 <template>
-    <section class="dark-style information-section container padding-0">
+    <section class="information-section padding-0">
 
         <swiper
         :slidesPerView="8"

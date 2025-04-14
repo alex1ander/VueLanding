@@ -94,41 +94,6 @@ section {
         line-height: 1.2em;
     }
 
-
-    ul{
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-
-        li {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-
-            &::before {
-                content: "";
-                display: inline-block;
-                width: 24px;
-                height: 24px;
-                aspect-ratio: 1;
-                background-image: url('../icon/arrow-slider.svg');
-            }
-        }
-    }
-
-    ol {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        margin-left: 24px;
-    }
-
-    div.place-for-table {
-        overflow: auto;
-    }
-
-
 }
 
 @media (max-width: 1024px) {
@@ -148,11 +113,13 @@ section {
 
 $content-padding: 64px;
 .container{
+    overflow: hidden;
     margin: auto;
     width: 100%;
     max-width: 1440px;
 }
 .container-small{
+    overflow: hidden;
     margin: auto;
     width: 100%;
     max-width: calc(920px + $content-padding * 2);
@@ -328,7 +295,7 @@ $content-padding: 64px;
 }
 
 .btn-240:hover, .btn-120-circle:hover, .btn-160-circle:hover{
-    transform : translateY(-3px);
+    transform : translateY(-3px)!important;
     animation: pulse 0.5s ease-in-out 1;
 }
   
@@ -418,3 +385,58 @@ $content-padding: 64px;
     }
 }
 
+
+
+
+.dropdown-list {
+    position: relative;
+
+    &.active{
+        .dropdown-body{
+            display: block;
+        }
+    }
+
+    .dropdown-body {
+        position: absolute;
+        top: calc(100% + 26px);
+        display: none;
+
+
+        .selected-list{
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+
+            background: rgb(17 17 17 / 74%);
+            padding: 20px;
+            border-radius: 20px;
+
+            li{
+                cursor: pointer;
+                &:hover{
+                    color: rgb(255, 189, 46);
+                }
+            }
+
+        }
+    }
+}
+
+
+
+.text-with-svg{
+    cursor:  pointer;
+    &:hover {
+
+        svg{
+            fill: rgb(255, 189, 46);
+        }
+        span{
+            color: rgb(255, 189, 46);
+        }
+
+    }
+}

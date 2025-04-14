@@ -1,5 +1,5 @@
 <template>
-    <section class="information-section dark-style container">
+    <section class="information-section">
 
 
         <div class="content padding-left-0 padding-right-plus">

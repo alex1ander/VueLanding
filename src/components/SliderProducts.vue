@@ -1,5 +1,5 @@
 <template>
-    <section class="dark-style information-section container">
+    <section class="information-section">
 
         <div class="content top-part-section sliderNumber-3-top-part">
 

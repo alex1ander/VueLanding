@@ -1,18 +1,18 @@
 <template>
-    <section class="dark-style information-section container">
+    <section class="information-section">
 
 
-        <div id="hero-content" class="hero-content">
+        <div id="hero-content" class="hero-content threeBlockAnim">
 
 
-            <div class="hero-name">
+            <div class="hero-name topAnim">
                 <p class="fw-700">Alex Digital Agency</p>
                 <p>Студія розробки сайтів</p>
             </div>
 
 
 
-            <div class="hero-titles">
+            <div class="hero-titles leftAnim">
                 <div class="this-titles">
                     <h1 class="title">{{ $t('mainTitle') }}</h1>
                     <span class="sub-title">{{ $t('mainSubTitle') }}</span>
@@ -24,7 +24,7 @@
 
 
 
-            <div class="code-svg box" :style="boxStyle" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+            <div class="code-svg box rightAnim" :style="boxStyle" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
                 
                 <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#1e1e1e; border-radius: 10px;">
                     <!-- Заголовок окна -->

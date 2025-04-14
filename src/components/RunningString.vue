@@ -1,5 +1,5 @@
 <template>
-    <section class="dark-style information-section container  overflow-visible">
+    <section class="information-section overflow-visible">
         <div class="promo-lines">
             <div class="container-lines first-line">
                 <div class="line-help line">
@@ -33,22 +33,20 @@ section{
 .container-lines{
     position: absolute;
     top: 0;
-    left: -50%;
+    left: -5%;
     right: 0;
     margin: auto;
     overflow: hidden;
     z-index: 5;
-    width: 200%;
+    width: 120%;
 }
 
 .first-line{
     transform-origin: center;
-    transform: rotate(7deg);
 }
 
 .second-line {
     transform-origin: center;
-    transform: rotate(-3deg);
 }
 
 .first-line .line-text{
@@ -71,7 +69,7 @@ section{
     padding: 4px 40px;
     will-change: transform;
     flex: 1;
-    padding: 16px 0;
+    padding: 16px 40px;
 }
 .first-line .line-text {
     animation: animate-first-screen 80s -80s linear infinite;
@@ -90,7 +88,6 @@ section{
 .line {
     display: flex;
     background: rgba(140, 105, 172, 1);
-    transform: translateX(24%);
 }
 
 .line::before{

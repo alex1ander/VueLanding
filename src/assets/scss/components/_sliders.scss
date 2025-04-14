@@ -44,6 +44,12 @@ $slider-btn-size:56px;
     }
 }
 
+.sliderNumber-2 {
+    .swiper-slide{
+        transform: translate(0px, 100%);
+    }
+}
+
 
 @media(max-width: 500px) {
     .sliderNumber-1-top-part {

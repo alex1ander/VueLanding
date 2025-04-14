@@ -1,5 +1,5 @@
 <template>
-    <section class="dark-style information-section container">
+    <section class="information-section">
 
         <div class="content top-part-section">
             <div class="two-part-content">
@@ -9,35 +9,35 @@
 
         <div class="content">
 
-            <div class="servise-grid-wrapper">
-            <div class="advantage reverse-style">
+            <div class="servise-grid-wrapper our-advantages animScroll">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-1"></use></svg>
 
                 <h3>Индивидуальный подход</h3>
                 <p>Каждый проект — уникальный. Мы подбираем решения под конкретные цели вашего бизнеса.</p>
                 <div class="fill-overlay"></div>
             </div>
-            <div class="advantage reverse-style">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-2"></use></svg>
                 <h3>Дизайн с акцентом на результат</h3>
                 <p>Создаём не просто красиво, а эффективно: чтобы сайт продавал, привлекал и запоминался.</p>
             </div>
-            <div class="advantage reverse-style">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-3"></use></svg>
                 <h3>Прозрачность и сроки</h3>
                 <p>Чёткий план, понятные этапы и соблюдение дедлайнов — мы ценим ваше время.</p>
             </div>
-            <div class="advantage reverse-style">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-4"></use></svg>
                 <h3>Гибкость и вовлечённость</h3>
                 <p>Легко подстраиваемся под изменения, предлагаем идеи и всегда на связи.</p>
             </div>
-            <div class="advantage reverse-style">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-5"></use></svg>
                 <h3>Глубокая экспертиза</h3>
                 <p>Опыт в WordPress, eCommerce, UX/UI и SEO позволяет делать качественные решения "под ключ".</p>
             </div>
-            <div class="advantage reverse-style">
+            <div class="advantage cardAnim reverse-style">
                 <svg width="100" height="100" class="sprite-svg-fill"><use href="#bf-6"></use></svg>
                 <h3>Сопровождение после запуска</h3>
                 <p>Мы не исчезаем после сдачи проекта — поддерживаем, развиваем и помогаем расти.</p>

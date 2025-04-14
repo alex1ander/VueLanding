@@ -1,7 +1,7 @@
 <template>
 
       <HeaderSection />
-      <main class="dark-style1">
+      <main class="dark-style container">
 
       <HeroSection />
       <SliderStack />
@@ -11,7 +11,7 @@
       <OurAdvantages />
       <PillArea />
       <RunningString />
-      <ContactForm />
+      <FormSection />
       <ServicesCard />
       <PopUp />
       </main>
@@ -35,11 +35,12 @@
     import SliderProducts from './components/SliderProducts.vue';
     import PillArea from './components/PillArea.vue';
     import SliderStack from './components/SliderStack.vue';
-    import ContactForm from './components/ContactForm';
+    import FormSection from './components/FormSection';
     import OurAdvantages from './components/OurAdvantages.vue';
     import ServicesCard from './components/ServicesCard.vue';
     import PopUp from './components/PopUp.vue';
     import FooterSection from './components/FooterSection.vue';
+    
 
   
     export default {
@@ -55,7 +56,7 @@
             SliderProducts,
             PillArea,
             SliderStack,
-            ContactForm,
+            FormSection,
             OurBenefits,
             ServicesCard,
             FooterSection,

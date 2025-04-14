@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="header-container dark-style container">
+        <div class="header-container dark-style">
             <div class="two-part-content">
                 <div class="content content-header desktop">
                     <div class="content-header-part">
@@ -96,45 +96,40 @@
 <script>
 import { useI18n } from 'vue-i18n';
 import { gsap } from 'gsap';
-import { ref } from 'vue';
 
 export default {
   name: 'App',
-  setup() {
-    const { locale } = useI18n();  // Получаем доступ к текущему языку
-    const isDropdownActive = ref(false); // Используем ref для состояния dropdown
-
-    // Функция для переключения языка
-    const switchLanguage = (language) => {
-      locale.value = language;  // Переключаем язык
+  data() {
+    return {
+      isDropdownActive: false,
     };
-
-    // Функция для переключения состояния dropdown
-    const toggleDropdown = () => {
-      isDropdownActive.value = !isDropdownActive.value;
-      animateItems(); 
-    };
-    
-
-
-    const animateItems = () => {
-        gsap.killTweensOf('.selected-list li');
-
+  },
+  created() {
+    this.locale = useI18n().locale; // получаем доступ к locale
+  },
+  methods: {
+    switchLanguage(language) {
+      this.locale.value = language; // переключение языка
+    },
+    toggleDropdown() {
+      this.isDropdownActive = !this.isDropdownActive;
+      this.animateItems();
+    },
+    animateItems() {
+      gsap.killTweensOf('.selected-list li');
       gsap.set('.selected-list li', { opacity: 0, y: 20 });
 
-      // Анимация элементов
-      gsap.timeline()
-        .to('.selected-list li', {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          ease: 'power3.out',
-        });
-    };
-    return { switchLanguage, toggleDropdown, isDropdownActive };
-  }
+      gsap.timeline().to('.selected-list li', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        ease: 'power3.out',
+      });
+    },
+  },
 };
 </script>
+
 
 
 
@@ -194,6 +189,9 @@ header{
     top:0;
 }
 .header-container{
+    max-width: 1440px;
+    margin: auto;
+    width: 100%;
     text-wrap:nowrap;
     display: flex;
     align-items: center;
@@ -396,8 +394,6 @@ $sizeCirlce: 5px;
 
                     width: 100%;
                     @include list-element;
-                    .text-with-svg {
-                    }
                 }
             }
         }
@@ -559,59 +555,6 @@ $sizeCirlce: 5px;
 
 .burger.active span::after {
     transform: rotateZ(-45deg) translateY(0);
-}
-
-
-
-.text-with-svg{
-        cursor:  pointer;
-        &:hover {
-
-            svg{
-                fill: rgb(255, 189, 46);
-            }
-            span{
-                color: rgb(255, 189, 46);
-            }
-
-        }
-    }
-
-.dropdown-list {
-    position: relative;
-
-    &.active{
-        .dropdown-body{
-            display: block;
-        }
-    }
-
-    .dropdown-body {
-        position: absolute;
-        top: calc(100% + 26px);
-        display: none;
-
-
-        .selected-list{
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            gap:20px;
-
-            background: rgb(17 17 17 / 74%);
-            padding: 20px;
-            border-radius: 20px;
-
-            li{
-                cursor: pointer;
-                &:hover{
-                    color: rgb(255, 189, 46);
-                }
-            }
-
-        }
-    }
 }
 
 

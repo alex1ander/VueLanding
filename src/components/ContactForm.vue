@@ -1,47 +1,112 @@
 <template>
-    <section class="information-section dark-style overflow-visible white-style container">
-        <svg class="background-svg">
-            <use href="#circle"></use>
-        </svg>
+    <form class="contact-from" style="flex:6;" @submit.prevent="handleSubmit">
+      <!-- Поле имени -->
+      <div class="this-input-block">
+        <label for="name">Ваше ім’я:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Ваше ім’я:"
+          required
+          v-model="name"
+        />
+      </div>
+  
+      <!-- Кастомный дропдаун + поле -->
+      <div class="this-input-block">
+        <label>Ваш контакт:</label>
 
-        <div class="content">
-
-
-            <div class="two-part-content mobile-column">
-
-                <div class="info-wrapper" style="flex:4;">
-                    <div class="info">
-                        <h2>Залишились питання?</h2>
-                        <div class="section-text">
-                            <p>Якщо у Вас виникли питання чи Ви хочете отримати консультацію, залиште дані у формі. І ми з радістю з вами зв’яжемось.</p>
-                        </div>
-                    </div>
+        <div class="wrapper-input">
+          <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
+                <div class="dropdown-head text-with-svg">
+                    <span>{{ currentType.label }}</span>
                 </div>
-
-
-                <form class="wpcf7-form" style="flex:6;">
-
-                    <div class="this-input-block">
-                        <label for="name">Ваше ім’я:</label>
-                        <input type="text" id="name" name="name" placeholder="Ваше ім’я:" required>
-                    </div>
-                    <div class="this-input-block">
-                        <label for="phone">Ваш телефон:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+38 ____ ___ ___" required>
-                    </div>
-
-
-
-                    <button type="submit" class="btn-160-circle reverse-style">Отримати консультацію</button>
-                </form>
-
-
-            </div>
-
+        
+                <div class="dropdown-body" v-if="isDropdownActive">
+                <ul class="selected-list">
+                    <li v-for="type in contactTypes" :key="type.value" @click.stop="selectType(type)">
+                    {{ type.label }}
+                    </li>
+                </ul>
+                </div>
+          </div>
+    
+          <input
+            v-if="currentType.value === 'email'"
+            type="email"
+            v-model="contactValue"
+            placeholder="example@example.com"
+            required
+          />
+          <input
+            v-else-if="currentType.value === 'tel'"
+            type="tel"
+            v-model="contactValue"
+            placeholder="+38 ____ ___ ___"
+            required
+          />
+          <input
+            v-else-if="currentType.value === 'tg'"
+            type="text"
+            v-model="contactValue"
+            placeholder="@telegram_username"
+            required
+          />
         </div>
+      </div>
+  
+      <!-- Кнопка -->
+      <button type="submit" class="btn-160-circle reverse-style">Отримати консультацію</button>
+    </form>
+  </template>
+  
+  <script>
 
-    </section>
-</template>
+import { gsap } from 'gsap';
+  export default {
+    data() {
+      return {
+        name: '',
+        contactValue: '',
+        isDropdownActive: false,
+        
+        contactTypes: [
+          { value: 'email', label: 'Email' },
+          { value: 'tel', label: 'Телефон' },
+          { value: 'tg', label: 'Telegram' },
+        ],
+        currentType: { value: 'tel', label: 'Телефон' },
+      };
+    },
+    methods: {
+        selectType(type) {
+            this.currentType = type;
+            this.contactValue = '';
+            this.isDropdownActive = false;
+        },
+        handleSubmit() {
+            console.log('Имя:', this.name);
+            console.log('Тип:', this.currentType.value);
+            console.log('Контакт:', this.contactValue);
+        },
+        toggleDropdown() {
+            this.isDropdownActive = !this.isDropdownActive;
+            this.animateItems();
+        },
+        animateItems() {
+            gsap.killTweensOf('.selected-list li');
+            gsap.set('.selected-list li', { opacity: 0, y: 20 });
 
-<script>
-</script>
+            gsap.timeline().to('.selected-list li', {
+                opacity: 1,
+                y: 0,
+                stagger: 0.2,
+                ease: 'power3.out',
+            });
+        },
+    },
+  };
+  </script>
+  
+  

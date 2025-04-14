@@ -1,8 +1,8 @@
 <template>
-    <section class="information-section dark-style container">
+    <section class="information-section">
         <div class="content">
-            <div class="servise-grid-wrapper">
-                <div class="service-card reverse-style">
+            <div class="servise-grid-wrapper animScroll">
+                <div class="service-card reverse-style cardAnim ">
                     <div class="content-part">
                         <h3>Разработка<br> Лендинга</h3>
                         <p class="service-description">Мы создадим для вас современный и функциональный лендинг или сайт-визитку, который эффективно представит ваш бизнес и поможет вам выделиться на фоне конкурентов.</p>
@@ -29,7 +29,7 @@
                     <img src="../assets/upload/bg (5).png" alt="" class="bg-abs bg-abs-5">
                 </div>
 
-                <div class="service-card reverse-style">
+                <div class="service-card reverse-style cardAnim ">
                     <div class="content-part">
                         <h3>Создание<br> Бизнес сайта</h3>
                         <p class="service-description">Мы разрабатываем удобные и привлекательные сайты для публикации ваших статей или демонстрации вашего портфолио. Идеально подходит для профессионалов, желающих продемонстрировать свои знания и услуги.</p>
@@ -55,7 +55,7 @@
                     <img src="../assets/upload/bg (10).png" alt="" class="bg-abs bg-abs-10">
                 </div>
 
-                <div class="service-card reverse-style">
+                <div class="service-card reverse-style cardAnim ">
                     <div class="content-part">
                         <h3>Разработка<br> Интернет-магазина</h3>
                         <p class="service-description">Создадим для вас удобный интернет-магазин или маркетплейс с полным функционалом для успешной продажи товаров онлайн.</p>
@@ -97,7 +97,6 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 40px 30px 20px;
-    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -107,10 +106,7 @@
     overflow: hidden;
 }
 
-
-
 .service-card:hover {
-    transform: translateY(-10px);
     animation: pulse 0.5s ease-in-out 1;
 }
 
