@@ -18,7 +18,10 @@
                     <span class="sub-title">{{ $t('mainSubTitle') }}</span>
                 </div>
                 <div class="hero-button">
-                    <span class="btn-240 gr-fill btn-pop-up" @click="animateBox">{{ $t('consultBtn') }}</span>
+                    <span class="btn-240 gr-fill btn-pop-up" @click="animateBox">
+                        <span class="btn-text">{{ $t('consultBtn') }}</span>
+                        <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
+                    </span>
                 </div>
             </div>
 

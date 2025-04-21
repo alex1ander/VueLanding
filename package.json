@@ -10,7 +10,10 @@
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
     "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
     "core-js": "^3.8.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "gsap": "^3.12.7",
     "swiper": "^11.2.6",
     "tsparticles": "^3.8.1",

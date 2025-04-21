@@ -5,25 +5,6 @@ $white-color: #fff;
 $white-gray-color:#EBEDEF;
 
 :root {
-    --prime-color: #{$white-color};
-    --second-color: #{$dark-color};
-    --support-color: #{$white-gray-color};
-    .reverse-style{
-        --prime-color: #{$dark-color};
-        --second-color: #{$white-color};
-    }
-}
-
-.white-style{
-    --prime-color: #{$white-color};
-    --second-color: #{$dark-color};
-    --support-color: #{$white-gray-color};
-    .reverse-style{
-        --prime-color: #{$dark-color};
-        --second-color: #{$white-color};
-    }
-}
-.dark-style {
     background: rgba(17, 17, 17, 0.4);
     --prime-color: #{$dark-color};
     --second-color: #{$white-color};
@@ -32,6 +13,10 @@ $white-gray-color:#EBEDEF;
         --prime-color: #{$white-color};
         --second-color: #{$dark-color};
     }
+}
+
+.dark-style {
+    background: rgba(17, 17, 17, 0.4);
 }
 
 

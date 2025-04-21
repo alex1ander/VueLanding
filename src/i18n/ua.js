@@ -1,7 +1,13 @@
 export default {
+    meta: {
+      title: 'Укра',
+      description: 'Украина'
+    },
+    currentLanguageCode: 'Ua',
     currentLanguage: 'Українська',
-    mainTitle: 'Вместе создаем будущее вашего бизнеса',
-    mainSubTitle: 'Найдем оптимальное решение для вашего бизнеса',
-    consultBtn: 'Получить консультацию',
+    mainTitle: 'Разом створюємо майбутнє вашого бізнесу',
+    mainSubTitle: 'Знайдемо оптимальне рішення для вашого бізнесу',
+    consultBtn: 'Отримати консультацію',
+    
   };
   

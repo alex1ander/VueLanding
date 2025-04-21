@@ -2,6 +2,18 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default {
     mounted() {
+
+        gsap.killTweensOf('.selected-list li');
+        gsap.set('.selected-list li', { opacity: 0, y: 20 });
+    
+        gsap.timeline().to('.selected-list li', {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            ease: 'power3.out',
+        });
+
+
         this.setupObserver();
         this.setupObserverHeader();
         this.setupObserverThreeBlock();

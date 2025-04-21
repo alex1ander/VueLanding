@@ -2,8 +2,10 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n'; // Импортируем vue-i18n
 import App from './App.vue';
 import './assets/scss/main.scss';
-
+// import { gsap } from 'gsap';
 // Импорт переводов
+
+import router from './router/index.js';
 
 import ua from './i18n/ua';
 import ru from './i18n/ru'
@@ -22,7 +24,48 @@ const i18n = createI18n({
 
 const app = createApp(App);
 
+
+app.mixin({
+  data() {
+    return {
+      isDropdownActive: false
+    }
+  },
+  methods: {
+    toggleDropdown(event) {
+      event.stopPropagation() // чтобы не сработало закрытие сразу после открытия
+      this.isDropdownActive = !this.isDropdownActive;
+    },
+    closeDropdown() {
+      this.isDropdownActive = false;
+    },
+    handleClickAnywhere() {
+      this.closeDropdown();
+    }
+  },
+  mounted() {
+    document.addEventListener('click', this.handleClickAnywhere)
+  },
+  unmounted() {
+    document.removeEventListener('click', this.handleClickAnywhere)
+  }
+})
+
+
+
+
+// Определим язык в зависимости от домена
+const pathLocale = window.location.pathname.split('/')[1]
+let lang = 'ua'
+
+if (['ru', 'en'].includes(pathLocale)) {
+  lang = pathLocale
+}
+
+// Установим локаль в i18n
+i18n.global.locale.value = lang;
 // Использование vue-i18n в приложении
+app.use(router);
 app.use(i18n);
 
 app.mount('#app');

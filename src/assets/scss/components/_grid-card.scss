@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--support-color);
+    // background: var(--support-color);
     padding: $benefit-padding;
 }
 
@@ -21,6 +21,22 @@
 }
 .big-benefit { grid-area: big-benefit; }
 
+
+
+.gr-transition{
+    background-image: linear-gradient(
+        134deg,
+        var(--color-gradient-start) 0%, 
+        var(--color-gradient-end) 100%
+      );
+    transition: 
+    --color-gradient-start 1s,
+    --color-gradient-end 1s;
+    &:hover, &.simulated-hover{
+        --color-gradient-start:#3EB0D4;
+        --color-gradient-end: #9663C8;
+    }
+}
 
 @property --color-gradient-start {
     syntax: '<color>';
@@ -40,19 +56,6 @@ initial-value: #707070;
     $benefit-padding: 24px;
     gap:16px;
     border-bottom-right-radius: 20px;
-
-    background-image: linear-gradient(
-        134deg,
-        var(--color-gradient-start) 0%, 
-        var(--color-gradient-end) 100%
-      );
-    transition: 
-    --color-gradient-start 1s,
-    --color-gradient-end 1s;
-    &:hover, &.simulated-hover{
-        --color-gradient-start:#3EB0D4;
-        --color-gradient-end: #9663C8;
-    }
     .row{
         display:flex;
         gap:32px;

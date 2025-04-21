@@ -1,6 +1,6 @@
 <template>
   <div id="pop-up">
-    <div class="pop-up-form">
+    <div class="pop-up-form reverse-style">
       <svg width="13" height="13" class="btn-pop-up">
         <use href="#close"></use>
       </svg>

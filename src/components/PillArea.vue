@@ -7,7 +7,7 @@
                 <div class="pill-area">
                     <h2>Залишіть заявку і ми створимо сайт вашої мрії</h2>
                 </div>
-                <a href="#" class="btn-160-circle pill-btn">Отримати консультацію</a>
+                <a href="#" class="btn-160-circle pill-btn btn-pop-up">Отримати консультацію</a>
             </div>
 
         </div>

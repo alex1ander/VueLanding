@@ -1,31 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.btn-pop-up').forEach(button => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault(); 
-        document.querySelector('#pop-up').classList.toggle('active');
-      });
-    });
-});
-
-
+// src/assets/js/script.js
 
 import Lenis from '@studio-freight/lenis';
 
-export default {
-  mounted() {
-    // Инициализация Lenis
-    const lenis = new Lenis({
-      lerp: 0.1, // Параметр для плавности (от 0 до 1)
-      smoothWheel: true, // Включение плавной прокрутки колесиком мыши
-      smoothTouch: true, // Плавность для сенсорных экранов
-    });
+// Функция для инициализации плавного скролла
+export function initSmoothScroll() {
+  const lenis = new Lenis({
+    duration: 1.2,
+    smooth: true,
+    smoothTouch: true,
+  });
 
-    // Анимация прокрутки
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  const raf = (time) => {
+    lenis.raf(time);
     requestAnimationFrame(raf);
-  }
-  
+  };
+
+  requestAnimationFrame(raf);
+}
+
+// Функция для обработки кликов на кнопки попапа
+export function initPopup() {
+  document.querySelectorAll('.btn-pop-up').forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector('#pop-up').classList.toggle('active');
+    });
+  });
 }

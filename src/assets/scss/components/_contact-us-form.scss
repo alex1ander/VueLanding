@@ -13,29 +13,22 @@
             color: var(--prime-color);
         }
     }
+    &:not(:has(input:invalid)){
+        button{
+            color:#fff;
+            --color-gradient-start:#3EB0D4;
+            --color-gradient-end: #9663C8;
+        }
+    }
     button{
+        background-color: none;
         cursor: pointer;
         z-index: 5;
         right: 0;
         top: 16px;
-        transition: right 0.4s ease, background 0.4s ease;
         outline: none;
     }
-    &.failed{
-        button{
-            background: #ca0707!important;
-            color: #fff!important;;
-        }
-    }
-    &.sent{
-        button{
-            background: #46b450!important;
-            color: #fff!important;;
-        }
-    }
-    .wpcf7-response-output{
-    //    display: none!important;
-    }
+
 
     .two-input-blocks{
         display: flex;
@@ -186,9 +179,15 @@
         margin: auto;
         display: flex;
         justify-content: center;
-        background: rgba(17, 17, 17, 0.74);
+        background: var(--second-color);
         border-radius: 25px;
         padding: 16px;
         height: 80%;
+
+        .dropdown-head {
+            span{
+                color: var(--prime-color);
+            }
+        }
     }
 }

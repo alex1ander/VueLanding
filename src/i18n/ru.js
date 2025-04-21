@@ -1,7 +1,12 @@
 export default {
+  meta: {
+    title: 'Рос',
+    description: 'Рос'
+  },
+  currentLanguageCode: 'Ru',
   currentLanguage: 'Русский',
-  mainTitle: 'Разом створюємо майбутнє вашого бізнесу',
-  mainSubTitle: 'Знайдемо оптимальне рішення для вашого бізнесу',
-  consultBtn: 'Отримати консультацію',
+  mainTitle: 'Вместе создаем будущее вашего бизнеса',
+  mainSubTitle: 'Найдем оптимальное решение для вашего бизнеса',
+  consultBtn: 'Получить консультацию',
   };
   

@@ -24,15 +24,29 @@
                                 <span>{{ $t('currentLanguage') }}</span>
                             </div>
                             <div class="dropdown-body">
-                                <ul class="selected-list">
-                                    <li @click="switchLanguage('ua')">Українська</li>
-                                    <li @click="switchLanguage('ru')">Русский</li>
-                                    <li @click="switchLanguage('en')">English</li>
+                                <ul class="selected-list animated-list">
+                                    <li :class="{ active: locale.value === 'ua' }" @click="switchLanguage('ua')">
+                                        Українська
+                                        <svg v-if="locale.value === 'ua'" width="16" height="16" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
+                                    <li :class="{ active: locale.value === 'ru' }" @click="switchLanguage('ru')">
+                                        Русский
+                                        <svg v-if="locale.value === 'ru'" width="24" height="24" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
+                                    <li :class="{ active: locale.value === 'en' }" @click="switchLanguage('en')">
+                                        English
+                                        <svg v-if="locale.value === 'en'" width="24" height="24" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
                                 </ul>
                             </div>
-
                         </div>
-                    
+                
 
                         <a href="#" class="text-with-svg">
                             <svg width="24" height="24" class="sprite-svg-fill">
@@ -50,40 +64,44 @@
                             <use href="#logo"></use>
                         </svg>
                     </div>
+
+
                     <div class="content-header-part">
-                        <div class="burger-menu">
-                            <div class="burger">
-                                <span></span>
+                        <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
+                            <div class="dropdown-head text-with-svg">
+                                <svg width="30" height="30" class="sprite-svg-fill">
+                                    <use href="#earth"></use>
+                                </svg>
+                                <span>{{ $t('currentLanguageCode') }}</span>
                             </div>
-
-                            
-                            <div class="burger-menu-list">
-                                <div class="content-burger-part">
-                                    <ul id="main-menu-mobile" class="main-menu content">
-                                        <li class="menu-item"><a href="#">Наші послуги</a></li>
-                                        <li class="menu-item"><a href="#">Наші роботи</a></li>
-                                        <li class="menu-item"><a href="#">Про нас</a></li>
-                                        <li class="menu-item"><a href="#">Блог</a></li>
-                                        <li class="menu-item"><a href="#">Ціни</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="content-burger-part">
-
-                                    <div class="contact-us-block content">
-                                        
-
-                                        <a href="#" class="btn-120-circle reverse-style">Отримати консультацію</a>
-                                    </div>
-
-                                    <aside class="top-bar mobile"><span class="top-bar-text">Забронюй свій перший візит зі знижкою <span>-5%</span> на будь яку послугу</span></aside>
-                                </div>
-
+                            <div class="dropdown-body">
+                                <ul class="selected-list animated-list">
+                                    <li :class="{ active: locale.value === 'ua' }" @click="switchLanguage('ua')">
+                                        Ua
+                                        <svg v-if="locale.value === 'ua'" width="16" height="16" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
+                                    <li :class="{ active: locale.value === 'ru' }" @click="switchLanguage('ru')">
+                                        Ru
+                                        <svg v-if="locale.value === 'ru'" width="24" height="24" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
+                                    <li :class="{ active: locale.value === 'en' }" @click="switchLanguage('en')">
+                                        En
+                                        <svg v-if="locale.value === 'en'" width="24" height="24" class="sprite-svg-fill">
+                                            <use href="#check"></use>
+                                        </svg>
+                                    </li>
+                                </ul>
                             </div>
-
-
                         </div>
+                        
 
+                        <div class="content-header-part">
+                            <BurgerMenu />                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,38 +113,33 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import { gsap } from 'gsap';
+import BurgerMenu from './BurgerMenu.vue';
 
 export default {
-  name: 'App',
-  data() {
-    return {
-      isDropdownActive: false,
-    };
-  },
-  created() {
-    this.locale = useI18n().locale; // получаем доступ к locale
-  },
-  methods: {
-    switchLanguage(language) {
-      this.locale.value = language; // переключение языка
-    },
-    toggleDropdown() {
-      this.isDropdownActive = !this.isDropdownActive;
-      this.animateItems();
-    },
-    animateItems() {
-      gsap.killTweensOf('.selected-list li');
-      gsap.set('.selected-list li', { opacity: 0, y: 20 });
+    name: 'App',
 
-      gsap.timeline().to('.selected-list li', {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        ease: 'power3.out',
-      });
+    components: {
+        BurgerMenu,
     },
-  },
+    created() {
+        this.locale = useI18n().locale;
+    },
+    methods: {
+        switchLanguage(language) {
+            // Изменяем локаль в вашем состоянии (например, в Vuex или reactive переменной)
+            this.locale.value = language;
+
+            // Обновляем URL с новым языковым параметром
+            this.$router.push(`/${language}`); // Переходим на новый путь с языковым параметром
+
+            // Дополнительно: можно сохранить язык в локальном хранилище
+            localStorage.setItem('lang', language);
+
+            // Обновляем атрибут lang в HTML для корректной локализации
+            document.documentElement.lang = language;
+        }
+
+    },
 };
 </script>
 
@@ -207,16 +220,9 @@ header{
         height: 100%;
     }
 
-    .content{
-        $content-padding: 64px;
-        padding-left: $content-padding;
-        padding-right: $content-padding;
-    }
+
 
     .content-header{
-        $content-padding: 64px;
-        padding-left: $content-padding;
-        padding-right: $content-padding;
 
         width: 100%;
         display: flex;
@@ -234,11 +240,17 @@ header{
     .text-with-svg{
         font-weight: 600;
     }
+
+    $content-padding: 64px;
+    .content {
+        padding-left: $content-padding;
+        padding-right: $content-padding;
+    }
 }
 
 @media (max-width: 1024px) {
 
-    header {
+    .header-container {
         $content-padding: 20px;
 
         .content {
@@ -503,61 +515,5 @@ $sizeCirlce: 5px;
 
 
 }
-
-.burger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 12px;
-    cursor: pointer;
-    right: 2rem;
-    top: 2rem;
-    z-index: 20;
-}
-
-.burger span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--second-color);
-    display: block;
-    transition: background-color 0.5s ease-in-out;
-}
-
-.burger span::before,
-.burger span::after {
-    content: "";
-    width: 100%;
-    background-color: var(--second-color);
-    display: block;
-    transition: all 0.5s ease-in-out;
-    height: 2px;
-}
-
-.burger span::before {
-    transform: translateY(-5px);
-
-}
-
-.burger span::after {
-    transform: translateY(5px);
-    margin-top: -2px;
-}
-
-
-.burger.active span {
-    background-color: transparent;
-}
-
-.burger.active span::before {
-    transform: rotateZ(45deg) translateY(0);
-}
-
-.burger.active span::after {
-    transform: rotateZ(-45deg) translateY(0);
-}
-
-
-
 
 </style>
