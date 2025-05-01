@@ -496,14 +496,16 @@ $content-padding: 64px;
 
     &.active{
         .dropdown-body{
-            display: block;
+            transform: scaleY(1);
         }
     }
 
     .dropdown-body {
         position: absolute;
         top: calc(100% + 26px);
-        display: none;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.4s ease;
 
 
         .selected-list{

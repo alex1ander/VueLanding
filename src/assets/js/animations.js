@@ -16,6 +16,7 @@ export default {
 
         this.setupObserver();
         this.setupObserverHeader();
+        this.setupObserverFooter();
         this.setupObserverThreeBlock();
 
 
@@ -272,6 +273,41 @@ export default {
                 observer.observe(element);
             });
         },
+
+        setupObserverFooter() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.target.classList.contains('footer-container')) {
+                        if (entry.isIntersecting) {
+                            gsap.fromTo(entry.target,
+                                { y: 100 },
+                                {
+                                    y: 0,
+                                    duration: 1,
+                                    delay: 0.1,
+                                    ease: 'power3.out',
+                                }
+                            );
+                        } else {
+                            // Если хочешь, можешь спрятать футер обратно вниз, когда он уходит из видимости
+                            gsap.to(entry.target, {
+                                y: 100,
+                                duration: 1,
+                                ease: 'power3.out',
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0,
+            });
+        
+            // Наблюдение за всеми .footer-container-элементами
+            document.querySelectorAll('.footer-container').forEach((element) => {
+                observer.observe(element);
+            });
+        },
+        
 
 
         setupObserverThreeBlock() {

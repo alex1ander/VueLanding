@@ -199,7 +199,7 @@ $header-height:68;
 header{
     position: sticky;
     z-index: 1000;
-    top: 1;
+    top: 0px;
 }
 .header-container{
     max-width: 1440px;
