@@ -58,6 +58,29 @@ img{
 
 section {
 
+    .content-part{
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            li{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                &::before{
+                    content: '';
+                    height: 8px;
+                    width: 8px;
+                    aspect-ratio: 1;
+                    display: block;
+                    transform: rotate(45deg);
+                    background: $purple-color;
+                }
+            }
+        }
+    }
+
     h1{
         font-weight: 600;
         font-size: 36px;
@@ -220,6 +243,38 @@ $content-padding: 64px;
     display: flex;
     align-items: center;
     gap:8px;
+    cursor: pointer;
+    svg{
+        transition: transform 0.4s ease;
+    }
+    &:hover, &.active{
+        svg{
+            fill:rgb(255, 189, 46);
+            transform: rotate(45deg);
+        }
+        span{
+            color: rgb(255, 189, 46);
+        }
+    }
+}
+.dropdown-list.active{
+    .text-with-svg{
+        svg{
+            fill:rgb(255, 189, 46);
+            transform: rotate(45deg);
+        }
+        span{
+            color: rgb(255, 189, 46);
+        }
+    }
+}
+.selected-list{
+    .active{
+        color: rgb(255, 189, 46)!important;
+        svg{
+            fill:rgb(255, 189, 46);
+        }
+    }
 }
 
 
@@ -320,7 +375,10 @@ $content-padding: 64px;
     .btn-text{
         color: #fff;
     }
-  }
+    &:hover{
+        animation: pulsePurple 0.5s ease-in-out 1!important;
+    }
+}
   
   
 .gr-fill:hover:before {
@@ -331,7 +389,7 @@ $content-padding: 64px;
     animation: pulse 0.5s ease-in-out 1;
 }
   
-  @keyframes pulse {
+@keyframes pulse {
     0% {
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
     }
@@ -341,7 +399,20 @@ $content-padding: 64px;
     100% {
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
     }
-  }
+}
+
+@keyframes pulsePurple {
+    0% {
+      box-shadow: 0 0 5px rgba(121,124,204, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(121,124,204, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(121,124,204, 0.7);
+    }
+}
+
 
 .scroll-to-top-btn{
     $btn-size: 144px;
@@ -451,29 +522,7 @@ $content-padding: 64px;
                 gap: 8px;
                 height: 24px;
                 cursor: pointer;
-                color:#fff;
-                &:hover, &.active{
-                    color: rgb(255, 189, 46);
-                    svg{
-                        fill:rgb(255, 189, 46);
-                    }
-                }
-            }
-
-        }
-    }
-}
-
-
-.dropdown-list{
-    &:hover {
-        cursor:  pointer;
-        .text-with-svg{
-            svg{
-                fill: rgb(255, 189, 46)!important;
-            }
-            span{
-                color: rgb(255, 189, 46)!important;
+                color:#fff;       
             }
 
         }

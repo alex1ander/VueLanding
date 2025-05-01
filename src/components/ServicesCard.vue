@@ -1,20 +1,19 @@
 <template>
     <section class="information-section">
         <div class="content">
-            <div class="servise-grid-wrapper animScroll">
-                <div class="service-card reverse-style cardAnim ">
+
+
+            <input type="checkbox" id="toggle" class="toggleCheckbox" />
+            <label for="toggle" class='toggleContainer'>
+                <div>Development</div>   
+                <div>Support</div>
+            </label>
+
+
+            <div class="servise-grid-wrapper developmentCards">
+                <div class="service-card reverse-style cardAnimShow ">
                     <div class="content-part">
-                        <h3>Разработка<br> Лендинга</h3>
-                        <p class="service-description">Мы создадим для вас современный и функциональный лендинг или сайт-визитку, который эффективно представит ваш бизнес и поможет вам выделиться на фоне конкурентов.</p>
-                        <ul class="service-features">
-                            <li>Быстрая адаптация под мобильные устройства</li>
-                            <li>Привлекательный и функциональный дизайн</li>
-                            <li>Легкость в управлении контентом</li>
-                            <li>SEO-оптимизация для продвижения</li>
-                        </ul>
-                        <p class="service-benefits">
-                            Увеличение конверсий, простой и понятный интерфейс для пользователя, быстрая загрузка страниц.
-                        </p>
+                        <h3>Разработка<br> Лендинга</h3> <p>Создадим современный лендинг или сайт-визитку для эффективного представления вашего бизнеса.</p> <ul> <li>Адаптивность для мобильных устройств</li> <li>Стильный и удобный дизайн</li> <li>Простое управление контентом</li> <li>SEO-оптимизация</li> </ul> <p>Быстрая загрузка и высокий уровень конверсии.</p>
                     </div>
                     <div class="content-part">
                         <p class="price">Від 149$</p>
@@ -32,19 +31,9 @@
                     <img src="../assets/upload/bg (5).png" alt="" class="bg-abs bg-abs-5">
                 </div>
 
-                <div class="service-card reverse-style cardAnim ">
+                <div class="service-card reverse-style cardAnimShow ">
                     <div class="content-part">
-                        <h3>Создание<br> Бизнес сайта</h3>
-                        <p class="service-description">Мы разрабатываем удобные и привлекательные сайты для публикации ваших статей или демонстрации вашего портфолио. Идеально подходит для профессионалов, желающих продемонстрировать свои знания и услуги.</p>
-                        <ul class="service-features">
-                            <li>Интуитивно понятная система управления контентом</li>
-                            <li>Интеграция с соцсетями</li>
-                            <li>Поддержка мультимедийного контента</li>
-                            <li>SEO-оптимизация</li>
-                        </ul>
-                        <p class="service-benefits">
-                            Привлечение аудитории, улучшение авторитета в нише, расширение возможности для бренда.
-                        </p>
+                        <h3>Разработка<br> Бизнес-сайта</h3> <p>Разрабатываем удобные сайты для публикации статей и портфолио — идеальное решение для профессионалов.</p> <ul> <li>Простое управление контентом</li> <li>Интеграция соцсетей</li> <li>Поддержка мультимедиа</li> <li>SEO-оптимизация</li> </ul> <p>Помогаем привлекать аудиторию и усиливать бренд.</p>
                     </div>
                     <div class="content-part">
                         <p class="price">Від 499$</p>
@@ -61,19 +50,9 @@
                     <img src="../assets/upload/bg (10).png" alt="" class="bg-abs bg-abs-10">
                 </div>
 
-                <div class="service-card reverse-style cardAnim ">
+                <div class="service-card reverse-style cardAnimShow ">
                     <div class="content-part">
-                        <h3>Разработка<br> Интернет-магазина</h3>
-                        <p class="service-description">Создадим для вас удобный интернет-магазин или маркетплейс с полным функционалом для успешной продажи товаров онлайн.</p>
-                        <ul class="service-features">
-                            <li>Многофункциональная корзина</li>
-                            <li>Интеграция с платёжными системами</li>
-                            <li>Поддержка многовариантности товаров</li>
-                            <li>Легкость в управлении товарами и заказами</li>
-                        </ul>
-                        <p class="service-benefits">
-                            Увеличение продаж, улучшение пользовательского опыта, интеграция с маркетплейсами.
-                        </p>
+                        <h3>Разработка<br> Интернет-магазина</h3> <p>Создадим удобный интернет-магазин или маркетплейс для успешных онлайн-продаж.</p> <ul> <li>Функциональная корзина</li> <li>Интеграция оплат</li> <li>Поддержка вариантов товаров</li> <li>Простое управление заказами</li> </ul> <p>Увеличение продаж и интеграция с маркетплейсами.</p>
                     </div>
                     <div class="content-part">
                         <p class="price">Від 999$</p>
@@ -90,6 +69,52 @@
                     <img src="../assets/upload/bg (15).png" alt="" class="bg-abs bg-abs-15">
                 </div>
             </div>
+
+
+
+            <div class="servise-grid-wrapper supportCards">
+                <div class="service-card cardAnimShow ">
+                    <div class="content-part">
+                        <h3>Создание<br> Дизайна Сайта</h3> <p>Создаем стильные и удобные дизайны, которые подчёркивают ваш бренд и удерживают внимание пользователей.</p> <ul> <li>Индивидуальный стиль</li> <li>UX/UI-дизайн для удобства</li> <li>Адаптивность для всех устройств</li> <li>Быстрая загрузка страниц</li> </ul> <p>Привлекательный внешний вид и рост доверия клиентов.</p>
+                    </div>
+                    <div class="content-part">
+                        <p class="price">Від 149$</p>
+                        <span class="btn-240 btn-pop-up" @click="animateBox">
+                            <span class="btn-text">{{ $t('consultBtn') }}</span>
+                            <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="service-card cardAnimShow ">
+                    <div class="content-part">
+                        <h3>SEO &<br> Продвижение Сайта</h3> <p>Повышаем позиции сайта в поисковиках для увеличения трафика и роста бизнеса.</p> <ul> <li>Аудит и оптимизация сайта</li> <li>Работа с контентом</li> <li>Линкбилдинг и внешние ссылки</li> <li>Отчёты и аналитика</li> </ul> <p>Больше клиентов и видимость в поиске.</p>
+                    </div>
+                    <div class="content-part">
+                        <p class="price">Від 499$</p>
+                        <span class="btn-240 btn-pop-up" @click="animateBox">
+                            <span class="btn-text">{{ $t('consultBtn') }}</span>
+                            <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="service-card cardAnimShow ">
+                    <div class="content-part">
+                        <h3>IT-услуги<br> для Бизнеса</h3> <p>Помогаем компаниям наладить онлайн-процессы: от консультаций до полной цифровизации бизнеса.</p> <ul> <li>Техническая поддержка</li> <li>Интеграция CRM-систем</li> <li>Настройка рекламы</li> <li>Консультации по развитию IT</li> </ul> <p>Оптимизация работы и рост прибыли.</p>
+                    </div>
+                    <div class="content-part">
+                        <p class="price">Від 999$</p>
+                        <span class="btn-240 btn-pop-up" @click="animateBox">
+                            <span class="btn-text">{{ $t('consultBtn') }}</span>
+                            <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 </template>
@@ -122,14 +147,9 @@
 .service-card h3 {
     font-size: 1.6em;
     align-self: self-start;
-    background: linear-gradient(180deg, #3EB0D4 0%, #9663C8 100%);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
-.service-description {
+p {
     line-height: 1.5;
 }
 
@@ -137,10 +157,6 @@
     list-style: none;
 }
 
-
-.service-benefits {
-
-}
 .content-part{
     display: flex;
     flex-direction: column;
@@ -152,11 +168,6 @@
     font-size: 32px;
     margin: 20px 0;
     font-weight: 600;
-    background: linear-gradient(180deg, #3EB0D4 0%, #9663C8 100%);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 @media (max-width: 768px) {
@@ -274,5 +285,129 @@
     }
 }
 
+
+
+
+.toggleContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    border-radius: 30px;
+    background: rgb(255, 189, 46);
+    /* background: #fff; */
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    margin: 20px auto;
+
+    div {
+        padding: 12px;
+        text-align: center;
+        z-index: 1;
+        transition: color 0.3s;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        left: 0;
+        border-radius: 30px;
+        background: #fff;
+        transition: all 0.3s;
+    }
+
+    .toggleCheckbox:checked + &::before {
+        left: 50%;
+    }
+    .toggleCheckbox:checked + & {
+        background: #797CCC;
+    }
+
+    .toggleCheckbox:checked + & div:first-child {
+        color: #fff;
+    }
+
+    .toggleCheckbox:checked + & div:last-child {
+        color: #000;
+    }
+
+    .toggleCheckbox + & div:first-child {
+        color: #000;
+    }
+
+    .toggleCheckbox + & div:last-child {
+        color: #fff;
+    }
+    
+}
+
+.toggleCheckbox {
+  display: none;
+}
+
+
+.toggleCheckbox ~ .supportCards{  
+    display: none;
+}
+.toggleCheckbox:checked~ .supportCards{  
+    display: grid;
+}
+.toggleCheckbox ~ .developmentCards{  
+    display: grid;
+}
+.toggleCheckbox:checked~ .developmentCards{  
+    display: none;
+}
+
+.developmentCards{
+    .service-card{
+        border: 3px solid #797CCC;
+        h3{
+            background: linear-gradient(180deg, #3EB0D4 0%, #9663C8 100%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .price{
+            background: linear-gradient(180deg, #3EB0D4 0%, #9663C8 100%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+.supportCards{
+    .service-card{
+        background: linear-gradient(340deg, #3EB0D4 0%, #9663C8 100%);
+        background: linear-gradient(340deg, rgba(92, 168, 194, 1) 0%, rgba(140, 105, 172, 1) 100%);
+        border: 3px solid #fff;
+
+        h3{
+            color: #fff;
+        }
+        .price{
+            color: #fff;
+        }
+        .btn-240{
+            background: var(--second-color);
+            .btn-text{
+                color: var(--prime-color);
+            }
+        }
+        ul{
+            li{
+                &::before{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
 
 </style>

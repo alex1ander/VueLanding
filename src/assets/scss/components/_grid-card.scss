@@ -189,12 +189,6 @@ initial-value: #707070;
 
 }
 
-.container-small .servise-grid-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap:25px;
-}
-
 @media (max-width: 1024px) {
     .servise-grid-wrapper {
         display: grid;

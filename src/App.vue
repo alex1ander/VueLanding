@@ -10,9 +10,9 @@
     
     <OurAdvantages />
     <PillArea />
+    <ServicesCard />
     <RunningString />
     <FormSection />
-    <ServicesCard />
     <PopUp />
     </main>
 

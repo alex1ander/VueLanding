@@ -2,17 +2,17 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default {
     mounted() {
+        let gridCount;
 
-        gsap.killTweensOf('.selected-list li');
-        gsap.set('.selected-list li', { opacity: 0, y: 20 });
-    
-        gsap.timeline().to('.selected-list li', {
-            opacity: 1,
-            y: 0,
-            stagger: 0.2,
-            ease: 'power3.out',
-        });
+        const screenWidth = window.innerWidth;
 
+        if (screenWidth <= 500) {
+            gridCount = 1;
+        } else if (screenWidth <= 1024) {
+            gridCount = 2;
+        } else {
+            gridCount = 3;
+        }
 
         this.setupObserver();
         this.setupObserverHeader();
@@ -25,25 +25,28 @@ export default {
         const containers = document.querySelectorAll('.animScroll');
 
         containers.forEach(container => {
-        const cards = container.querySelectorAll('.cardAnim');
-        
-          cards.forEach((card, index) => {
-            gsap.fromTo(card, {
-              opacity: 0,
-              y: '20%',
-            }, {
-              opacity: 1,
-              y: 0,
-              scrollTrigger: {
-                trigger: card,
-                start: `top+=${index * 50} bottom`,
-                end: `bottom+=${index * 20} bottom`,
-                scrub: true,
-                // markers: true,
-              }
+            const cards = container.querySelectorAll('.cardAnim');
+
+            cards.forEach((card, index) => {
+                gsap.fromTo(card, {
+                    opacity: 0,
+                    y: 0,
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: `top+=${(index % gridCount) * 100} bottom`,
+                        end: `bottom bottom`,
+                        scrub: true,
+                        // markers: true,
+                    }
+                });
             });
-          });
         });
+
+
+
 
 
         const promoContainers = document.querySelectorAll('.promo-lines');
@@ -99,7 +102,7 @@ export default {
                 start: `top+=100 bottom`,
                 end: `center center`,
                 scrub: true,
-                markers: true,
+                // markers: true,
                 }
             });
 
@@ -117,7 +120,7 @@ export default {
                 start: `top center`,
                 end: `center center`,
                 scrub: true,
-                markers: true,
+                // markers: true,
                 }
             });
         });

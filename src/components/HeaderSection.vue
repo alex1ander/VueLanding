@@ -199,7 +199,7 @@ $header-height:68;
 header{
     position: sticky;
     z-index: 1000;
-    top:0;
+    top: 1;
 }
 .header-container{
     max-width: 1440px;
@@ -209,8 +209,11 @@ header{
     display: flex;
     align-items: center;
     height:  #{$header-height}px;
-    backdrop-filter: blur(10px);
-    background: linear-gradient(134deg, #3EB0D45c 0%, #9663C85c 100%)!important;
+
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    background: linear-gradient(134deg, rgba(62, 176, 212, 0.4) 0%, rgba(150, 99, 200, 0.4) 100%) !important;
+
 
 
     .container{
@@ -278,85 +281,29 @@ $sizeCirlce: 5px;
             content: '';
             position: absolute;
             left: - math.div($main-menu-gap, 2) - math.div($sizeCirlce, 2);
-            top: 50%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
             transform: translateY(-50%);
             width: $sizeCirlce;
             height: $sizeCirlce;
-            background-color: var(--second-color);
-            border-radius: 50%;
+            background-color: var(--second-color); 
+            transform: rotate(45deg);
         }
 
         > a {
             font-weight: 600;
             position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: -6px;
-                width: 100%;
-                height: 2px;
-                background: var(--second-color);
-                transform: scaleX(0);
-                transition: transform 0.4s ease;
-            }
-
-            &:hover::after {
-                transform: scaleX(1);
-            }
         }
-        &:hover .sub-menu{
-            transform: scaleY(1);
-        }
-        .sub-menu{
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.4s ease;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 60px;
-            grid-auto-columns: 1fr;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px 100px;
-
-            position: absolute;
-            width: 100%;
-            background: var(--support-color);
-            left: 0;
-            top: 100%;
-            order: 1;
-            li{
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                width: calc(50% - 50px);
-
-                a{
-                    color: var(--second-color);
-                    font-weight: 600;
-                    font-size: 36px;
-                    line-height: 1.2em;
-                    text-wrap: balance;
-                }
-                span{
-                    color: var(--second-color);
-                    font-weight: 400;
-                    font-size: 20px;
-                    line-height: 1.2em;
-                    text-wrap: balance;
-                }
-            }
-            .menu-all-cat-btn{
-                order: 0;
-                width: 100%;
-                a{
-                    font-weight: 300;
-                    font-size: 36px;
-                    line-height: 1.2em;
+        &:hover{
+            a{
+                color: rgb(255, 189, 46);
+                &::before{
+                    background-color: rgb(255, 189, 46); 
                 }
             }
         }
+    
         
     }
 

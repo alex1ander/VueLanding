@@ -70,7 +70,6 @@
 <style lang="scss">
 $gradient-start: #3EB0D4;
 $gradient-end: #9663C8;
-$border-color: #797CCC;
 $hover-bg: #fff;
 $box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
@@ -105,7 +104,7 @@ $box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   padding: 20px;
   box-shadow: $box-shadow;
-  border: 3px solid $border-color;
+  border: 3px solid #797CCC;
 
   &:hover, &.simulated-hover {
     border: 3px solid $hover-bg;
