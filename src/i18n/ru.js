@@ -3,7 +3,7 @@ export default {
     title: 'Рос',
     description: 'Рос'
   },
-  currentLanguageCode: 'Ru',
+  currentLanguageCode: 'RU',
   currentLanguage: 'Русский',
   mainTitle: 'Вместе создаем будущее вашего бизнеса',
   mainSubTitle: 'Найдем оптимальное решение для вашего бизнеса',

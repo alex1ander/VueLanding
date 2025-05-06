@@ -25,31 +25,19 @@ const i18n = createI18n({
 const app = createApp(App);
 
 
-app.mixin({
-  data() {
-    return {
-      isDropdownActive: false
-    }
-  },
-  methods: {
-    toggleDropdown(event) {
-      event.stopPropagation() // чтобы не сработало закрытие сразу после открытия
-      this.isDropdownActive = !this.isDropdownActive;
-    },
-    closeDropdown() {
-      this.isDropdownActive = false;
-    },
-    handleClickAnywhere() {
-      this.closeDropdown();
-    }
-  },
-  mounted() {
-    document.addEventListener('click', this.handleClickAnywhere)
-  },
-  unmounted() {
-    document.removeEventListener('click', this.handleClickAnywhere)
-  }
-})
+// app.mixin({
+//   data() {
+//     return {
+//       isDropdownActive: false
+//     }
+//   },
+//   mounted() {
+//     document.addEventListener('click', this.handleClickAnywhere)
+//   },
+//   unmounted() {
+//     document.removeEventListener('click', this.handleClickAnywhere)
+//   }
+// })
 
 
 

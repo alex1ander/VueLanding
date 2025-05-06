@@ -4,7 +4,9 @@
             <div class="two-part-content">
                 <div class="content content-header desktop">
                     <div class="content-header-part">
-                        <!-- <img class="main-logo" src="./assets/icon/logo.svg" alt=""> -->
+                        <div class="place-for-logo">
+                            <LogoText />                
+                        </div>
                         <ul id="main-menu-desktop" class="main-menu">
                             <li class="menu-item menu-item-has-children"><a href="#">Наші послуги</a></li>
                             <li class="menu-item menu-item-has-children"><a href="#">Наші роботи</a></li>
@@ -16,39 +18,11 @@
 
 
                     <div class="content-header-part">
-                        <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
-                            <div class="dropdown-head text-with-svg">
-                                <svg width="30" height="30" class="sprite-svg-fill">
-                                    <use href="#earth"></use>
-                                </svg>
-                                <span>{{ $t('currentLanguage') }}</span>
-                            </div>
-                            <div class="dropdown-body">
-                                <ul class="selected-list animated-list">
-                                    <li :class="{ active: locale.value === 'ua' }" @click="switchLanguage('ua')">
-                                        Українська
-                                        <svg v-if="locale.value === 'ua'" width="16" height="16" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                    <li :class="{ active: locale.value === 'ru' }" @click="switchLanguage('ru')">
-                                        Русский
-                                        <svg v-if="locale.value === 'ru'" width="24" height="24" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                    <li :class="{ active: locale.value === 'en' }" @click="switchLanguage('en')">
-                                        English
-                                        <svg v-if="locale.value === 'en'" width="24" height="24" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <LanguageDropdown />
                 
 
-                        <a href="#" class="text-with-svg">
+                        <a href="#" class="text-with-svg btn-backarea">
                             <svg width="24" height="24" class="sprite-svg-fill">
                                 <use href="#call"></use>
                             </svg>
@@ -60,45 +34,11 @@
                 </div>
                 <div class="content content-header mobile">
                     <div class="content-header-part">
-                        <svg width="40" height="40" class="sprite-svg-fill">
-                            <use href="#logo"></use>
-                        </svg>
+                        <LogoText />
                     </div>
 
-
                     <div class="content-header-part">
-                        <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
-                            <div class="dropdown-head text-with-svg">
-                                <svg width="30" height="30" class="sprite-svg-fill">
-                                    <use href="#earth"></use>
-                                </svg>
-                                <span>{{ $t('currentLanguageCode') }}</span>
-                            </div>
-                            <div class="dropdown-body">
-                                <ul class="selected-list animated-list">
-                                    <li :class="{ active: locale.value === 'ua' }" @click="switchLanguage('ua')">
-                                        Ua
-                                        <svg v-if="locale.value === 'ua'" width="16" height="16" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                    <li :class="{ active: locale.value === 'ru' }" @click="switchLanguage('ru')">
-                                        Ru
-                                        <svg v-if="locale.value === 'ru'" width="24" height="24" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                    <li :class="{ active: locale.value === 'en' }" @click="switchLanguage('en')">
-                                        En
-                                        <svg v-if="locale.value === 'en'" width="24" height="24" class="sprite-svg-fill">
-                                            <use href="#check"></use>
-                                        </svg>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-
+                        <LanguageDropdown />
                         <div class="content-header-part">
                             <BurgerMenu />                        
                         </div>
@@ -111,36 +51,21 @@
 </template>
 
 
-<script>
-import { useI18n } from 'vue-i18n';
-import BurgerMenu from './BurgerMenu.vue';
+<script setup>
+// Импорт компонента LogoText
+import LogoText from './LogoText.vue'
+</script>
 
+<script>
+import BurgerMenu from './BurgerMenu.vue'
+import LanguageDropdown from './LanguageDropdown.vue';
 export default {
     name: 'App',
-
     components: {
         BurgerMenu,
+        LanguageDropdown,
     },
-    created() {
-        this.locale = useI18n().locale;
-    },
-    methods: {
-        switchLanguage(language) {
-            // Изменяем локаль в вашем состоянии (например, в Vuex или reactive переменной)
-            this.locale.value = language;
-
-            // Обновляем URL с новым языковым параметром
-            this.$router.push(`/${language}`); // Переходим на новый путь с языковым параметром
-
-            // Дополнительно: можно сохранить язык в локальном хранилище
-            localStorage.setItem('lang', language);
-
-            // Обновляем атрибут lang в HTML для корректной локализации
-            document.documentElement.lang = language;
-        }
-
-    },
-};
+}
 </script>
 
 
@@ -148,7 +73,6 @@ export default {
 
 
 <style scoped lang="scss">
-
 @use 'sass:math';
 @use '../assets/scss/variables' as *;
 
@@ -212,7 +136,7 @@ header{
 
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
-    background: linear-gradient(134deg, rgba(62, 176, 212, 0.4) 0%, rgba(150, 99, 200, 0.4) 100%) !important;
+    background: linear-gradient(134deg, rgba(62, 176, 212, 0.6) 0%, rgba(150, 99, 200, 0.6) 100%) !important;
 
 
 
@@ -249,6 +173,8 @@ header{
         padding-left: $content-padding;
         padding-right: $content-padding;
     }
+
+
 }
 
 @media (max-width: 1024px) {
@@ -314,8 +240,6 @@ $sizeCirlce: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
 
 
     &:has(.burger.active) .burger-menu-list {
@@ -458,9 +382,7 @@ $sizeCirlce: 5px;
         }
     }
 
-
-
-
 }
+
 
 </style>

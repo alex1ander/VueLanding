@@ -3,7 +3,7 @@ export default {
       title: 'Укра',
       description: 'Украина'
     },
-    currentLanguageCode: 'Ua',
+    currentLanguageCode: 'UA',
     currentLanguage: 'Українська',
     mainTitle: 'Разом створюємо майбутнє вашого бізнесу',
     mainSubTitle: 'Знайдемо оптимальне рішення для вашого бізнесу',

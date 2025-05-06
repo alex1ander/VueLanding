@@ -1,5 +1,6 @@
 <template>
     <form class="contact-from" style="flex:6;" @submit.prevent="handleSubmit">
+
     <!-- Поле имени -->
     <div class="this-input-block">
         <label for="name">Ваше ім’я:</label>
@@ -64,33 +65,36 @@
     </form>
 </template>
     
-    <script>
+<script>
 
 import axios from 'axios';
 
 export default {
-  data() {
+    data() {
     return {
-      name: '',
-      contactValue: '',
-      contactTypes: [
+        service: '',
+        name: '',
+        contactValue: '',
+        contactTypes: [
         { value: 'email', label: 'Email' },
         { value: 'tel', label: 'Телефон' },
         { value: 'tg', label: 'Telegram' },
-      ],
-      currentType: { value: 'tel', label: 'Телефон' },
+        ],
+        currentType: { value: 'tel', label: 'Телефон' },
     };
-  },
-  methods: {
+    },
+    methods: {
     selectType(type) {
-      this.currentType = type;
-      this.contactValue = '';
+        this.currentType = type;
+        this.contactValue = '';
+        this.service = '';
     },
     async handleSubmit() {
-      try {
+        try {
         const payload = {
-          name: this.name,
-          phone: `${this.currentType.label}: ${this.contactValue}`,
+            name: this.name,
+            phone: `${this.currentType.label}: ${this.contactValue}`,
+            service: this.service,
         };
 
         console.log('Отправляемые данные:', payload);  // Логируем отправляемые данные
@@ -98,21 +102,21 @@ export default {
         const res = await axios.post('http://localhost:3000/send-lead', payload);
 
         if (res.data.success) {
-          alert('✅ Лид отправлен!');
-          this.name = '';
-          this.contactValue = '';
+            alert('✅ Лид отправлен!');
+            this.name = '';
+            this.contactValue = '';
         } else {
-          alert('❌ Ошибка при отправке.');
+            alert('❌ Ошибка при отправке.');
         }
-      } catch (error) {
+        } catch (error) {
         console.error('Ошибка при отправке:', error.response ? error.response.data : error.message);
         alert('⚠️ Ошибка сервера.');
-      }
+        }
     }
 
-  }
+    }
 };
 
-    </script>
+</script>
     
     

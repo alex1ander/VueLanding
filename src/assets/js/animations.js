@@ -277,36 +277,37 @@ export default {
         setupObserverFooter() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    if (entry.target.classList.contains('footer-container')) {
-                        if (entry.isIntersecting) {
-                            gsap.fromTo(entry.target,
-                                { y: 100 },
-                                {
-                                    y: 0,
-                                    duration: 1,
-                                    delay: 0.1,
-                                    ease: 'power3.out',
-                                }
-                            );
-                        } else {
-                            // Если хочешь, можешь спрятать футер обратно вниз, когда он уходит из видимости
-                            gsap.to(entry.target, {
-                                y: 100,
+                    const container = entry.target.querySelector('.footer-container');
+                    if (!container) return;
+        
+                    if (entry.isIntersecting) {
+                        gsap.fromTo(container,
+                            { y: 200 },
+                            {
+                                y: 0,
                                 duration: 1,
+                                delay: 0.1,
                                 ease: 'power3.out',
-                            });
-                        }
+                            }
+                        );
+                    } else {
+                        gsap.to(container, {
+                            y: 200,
+                            duration: 1,
+                            ease: 'power3.out',
+                        });
                     }
                 });
             }, {
                 threshold: 0,
             });
         
-            // Наблюдение за всеми .footer-container-элементами
-            document.querySelectorAll('.footer-container').forEach((element) => {
-                observer.observe(element);
+            // Наблюдение за всеми footer-элементами
+            document.querySelectorAll('footer').forEach((footerEl) => {
+                observer.observe(footerEl);
             });
         },
+        
         
 
 
@@ -387,8 +388,7 @@ export default {
             document.querySelectorAll('.threeBlockAnim').forEach((element) => {
                 observer.observe(element);
             });
-        },
-
+        },  
 
     },
 };

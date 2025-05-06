@@ -20,10 +20,16 @@ export function initSmoothScroll() {
 
 // Функция для обработки кликов на кнопки попапа
 export function initPopup() {
+  const popup = document.querySelector('#pop-up');
   document.querySelectorAll('.btn-pop-up').forEach(button => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      document.querySelector('#pop-up').classList.toggle('active');
+
+      // Открыть попап
+      popup?.classList.toggle('active');
+
+      
     });
   });
 }
+
