@@ -29,6 +29,10 @@ body{
     background: rgba(45, 45, 45, 0.95);
 }
 
+main{
+    position: relative;
+    z-index: 1;
+}
 .fw-500{
     font-weight: 500!important;
 }

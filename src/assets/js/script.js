@@ -1,35 +1,56 @@
 // src/assets/js/script.js
+import Lenis from '@studio-freight/lenis'
 
-import Lenis from '@studio-freight/lenis';
+let lenisInstance = null
 
-// Функция для инициализации плавного скролла
+// Инициализация плавного скролла
 export function initSmoothScroll() {
   const lenis = new Lenis({
     duration: 1.2,
     smooth: true,
     smoothTouch: true,
-  });
+  })
+
+  lenisInstance = lenis // Сохраняем для других функций
 
   const raf = (time) => {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  };
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
 
-  requestAnimationFrame(raf);
+  requestAnimationFrame(raf)
 }
 
-// Функция для обработки кликов на кнопки попапа
+// Плавный скролл по якорным ссылкам (например, .main-menu a)
+export function initAnchorLinks() {
+  if (!lenisInstance) return
+
+  document.querySelectorAll('.main-menu a').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      const href = btn.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      const target = document.querySelector(href)
+      if (target) {
+        lenisInstance.scrollTo(target, {
+          offset: 0, // смещение, если есть фиксированный header
+          duration: 1,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        })
+      }
+    })
+  })
+}
+
+// Обработка кнопок попапа
 export function initPopup() {
-  const popup = document.querySelector('#pop-up');
-  document.querySelectorAll('.btn-pop-up').forEach(button => {
+  const popup = document.querySelector('#pop-up')
+  document.querySelectorAll('.btn-pop-up').forEach((button) => {
     button.addEventListener('click', (event) => {
-      event.preventDefault();
-
-      // Открыть попап
-      popup?.classList.toggle('active');
-
-      
-    });
-  });
+      event.preventDefault()
+      popup?.classList.toggle('active')
+    })
+  })
 }
-

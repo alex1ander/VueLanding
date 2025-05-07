@@ -15,11 +15,12 @@
     <FormSection />
     <PopUp />
     </main>
-
     <FooterSection />
 
     <ScriptJs />
     <AnimationsJs />
+    <InverseCircle />
+    <SecondShape />
 
     <div v-html="sprite"></div>
 </template>
@@ -45,6 +46,8 @@
     import ServicesCard from './components/ServicesCard.vue'
     import PopUp from './components/PopUp.vue'
     import FooterSection from './components/FooterSection.vue'
+    import InverseCircle from './components/InverseCircle.vue'
+    import SecondShape from './components/SecondShape.vue'
 
     // i18n: автообновление title и description
     const { t } = useI18n()

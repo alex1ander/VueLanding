@@ -15,17 +15,20 @@ const textArray = text.split('') // Разделение текста на от�
 const textContainer = ref(null)
 
 onMounted(() => {
-  gsap.set('.char', { opacity: 1, color: 'rgb(255, 255, 255)' })
-  gsap.to('.char', {
+  const chars = textContainer.value.querySelectorAll('.char')
+  gsap.set(chars, { opacity: 1, color: 'rgb(255, 50, 150)' })
+  gsap.to(chars, {
     opacity: 1,
     color: 'rgb(255, 189, 46)',
-    duration: 3,
+    duration: 2,
     ease: 'power1.inOut',
-    repeat: -1,  // Бесконечное повторение
+    repeat: -1,
     repeatDelay: 1,
-    yoyo: true,  // Анимация будет двигаться вперед и назад
+    stagger: 0.1,
+    yoyo: true,
   })
 })
+
 </script>
 
 <style scoped>

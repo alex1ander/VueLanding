@@ -31,10 +31,8 @@ export default {
             cards.forEach((card, index) => {
                 gsap.fromTo(card, {
                     opacity: 0,
-                    y: 0,
                 }, {
                     opacity: 1,
-                    y: 0,
                     scrollTrigger: {
                         trigger: card,
                         start: `top+=${(index % gridCount) * 100} bottom`,

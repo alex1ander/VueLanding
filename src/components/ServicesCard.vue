@@ -347,16 +347,18 @@ display: none;
 
 
 .cardAnim{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    transform: scaleX(1);
+    transition: transform 0.6s ease;
+
 }
 
-.toggleCheckbox:checked ~ .service-relative .developmentCards{  
-    /* display: none; */
-    visibility: hidden;
+.toggleCheckbox:checked ~ .service-relative .developmentCards .cardAnim{  
+    transform: scaleX(0);
 }
-.toggleCheckbox:not(:checked) ~ .service-relative .supportCards{  
-    /* display: none; */
-    visibility: hidden;
+.toggleCheckbox:not(:checked) ~ .service-relative .supportCards .cardAnim{  
+    transform: scaleX(0)
 }
 
 .service-relative{
@@ -366,6 +368,7 @@ display: none;
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
 }
 
 .developmentCards {

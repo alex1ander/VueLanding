@@ -25,19 +25,14 @@ const i18n = createI18n({
 const app = createApp(App);
 
 
-// app.mixin({
-//   data() {
-//     return {
-//       isDropdownActive: false
-//     }
-//   },
-//   mounted() {
-//     document.addEventListener('click', this.handleClickAnywhere)
-//   },
-//   unmounted() {
-//     document.removeEventListener('click', this.handleClickAnywhere)
-//   }
-// })
+import { initSmoothScroll, initAnchorLinks, initPopup } from '@/assets/js/script.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+  initSmoothScroll()
+  initAnchorLinks()
+  initPopup()
+})
+
 
 
 

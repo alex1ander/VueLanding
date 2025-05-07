@@ -25,6 +25,10 @@ import LogoText from './LogoText.vue'
 </script>
 
 <style scoped lang="scss">
+    footer{
+        position: relative;
+        z-index: 1;
+    }
     .footer-container{
         max-width: 1440px;
         margin: auto;

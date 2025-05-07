@@ -9,7 +9,7 @@
                         </div>
                         <ul id="main-menu-desktop" class="main-menu">
                             <li class="menu-item menu-item-has-children"><a href="#">Наші послуги</a></li>
-                            <li class="menu-item menu-item-has-children"><a href="#">Наші роботи</a></li>
+                            <li class="menu-item menu-item-has-children"><a href="#our-products">Наші роботи</a></li>
                             <li class="menu-item menu-item-has-children"><a href="#">Про нас</a></li>
                             <li class="menu-item menu-item-has-children"><a href="#">Блог</a></li>
                             <li class="menu-item menu-item-has-children"><a href="#">Ціни</a></li>
