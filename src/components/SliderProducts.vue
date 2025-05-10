@@ -4,7 +4,7 @@
         <div class="content top-part-section sliderNumber-3-top-part">
 
             <div class="two-part-content">
-                <h2>Ми пишаємось цими проектами</h2>
+                <h2>{{ $t('ourCasesTitle') }}</h2>
 
                 <div class="slider-buttons">
                     <div class="arrow-slider-prev slider-btn" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-8b42af03d429eaf8" aria-disabled="false">

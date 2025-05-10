@@ -4,14 +4,7 @@
             <div class="place-for-logo">
                 <LogoText />                
             </div>
-            <ul id="footer-menu" class="main-menu">
-                <li class="menu-item menu-item-has-children"><a href="#">Наші послуги</a></li>
-                <li class="menu-item menu-item-has-children"><a href="#">Наші роботи</a></li>
-                <li class="menu-item menu-item-has-children"><a href="#">Про нас</a></li>
-                <li class="menu-item menu-item-has-children"><a href="#">Блог</a></li>
-                <li class="menu-item menu-item-has-children"><a href="#">Ціни</a></li>
-            </ul>
-
+            <MenuList />
             <p>Copyright © 2025 AlexDIgital. All rights reserved.</p>
         </div>
 
@@ -22,6 +15,7 @@
 <script setup>
 // Импорт компонента LogoText
 import LogoText from './LogoText.vue'
+import MenuList from './MenuList.vue';
 </script>
 
 <style scoped lang="scss">
@@ -67,7 +61,7 @@ import LogoText from './LogoText.vue'
         }
     }
 
-    #footer-menu{
+    .main-menu{
         height: 100%;
         display: flex;
         gap: 45px;

@@ -1,8 +1,8 @@
 <!-- LogoText.vue -->
 <template>
-  <div class="logo-text" ref="textContainer">
+  <a href="#hero-content" class="logo-text" ref="textContainer">
     <span v-for="(char, index) in textArray" :key="index" class="char">{{ char }}</span>
-  </div>
+  </a>
 </template>
 
 <script setup>

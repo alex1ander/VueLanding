@@ -1,13 +1,13 @@
 <template>
-    <section class="information-section">
+    <section id="hero-content" class="information-section">
 
 
-        <div id="hero-content" class="hero-content threeBlockAnim">
+        <div class="hero-content threeBlockAnim">
 
 
             <div class="hero-name topAnim">
                 <p class="fw-700">Alex Digital Agency</p>
-                <p>Студія розробки сайтів</p>
+                <p>{{ $t('studioText') }}</p>
             </div>
 
 
@@ -30,15 +30,11 @@
             <div class="code-svg box rightAnim" :style="boxStyle" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
                 
                 <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#1e1e1e; border-radius: 10px;">
-                    <!-- Заголовок окна -->
                     <rect x="0" y="0" width="700" height="30" rx="10" fill="#2d2d2d"/>
                     <circle cx="580" cy="15" r="6" fill="#ff5f56"/>
                     <circle cx="560" cy="15" r="6" fill="#ffbd2e"/>
                     <circle cx="540" cy="15" r="6" fill="#27c93f"/>
-
-                    <!-- Код -->
                     <text x="20" y="60" font-family="Courier New, monospace" font-size="16" fill="#6a9955">// some OOP in JavaScript</text>
-
                     <text x="20" y="90" font-family="Courier New, monospace" font-size="16">
                         <tspan fill="#569cd6">class</tspan> <tspan fill="#dcdcaa">Animal</tspan> <tspan fill="#dcdcdc">{</tspan>
                     </text>
@@ -50,7 +46,6 @@
                     </text>
                     <text x="40" y="180" font-family="Courier New, monospace" font-size="16" fill="#dcdcdc">}</text>
                     <text x="20" y="210" font-family="Courier New, monospace" font-size="16" fill="#dcdcdc">}</text>
-
                     <text x="20" y="240" font-family="Courier New, monospace" font-size="16">
                         <tspan fill="#569cd6">class</tspan> <tspan fill="#dcdcaa">Dog</tspan> <tspan fill="#569cd6">extends</tspan> <tspan fill="#dcdcaa">Animal</tspan> <tspan fill="#dcdcdc">{</tspan>
                     </text>
@@ -64,7 +59,7 @@
                     </text>
                     <text x="40" y="330" font-family="Courier New, monospace" font-size="16" fill="#dcdcdc">}</text>
                     <text x="20" y="360" font-family="Courier New, monospace" font-size="16" fill="#dcdcdc">}</text>
-                    </svg>
+                </svg>
 
             </div>
 

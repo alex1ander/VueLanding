@@ -3,14 +3,14 @@
         <div class="promo-lines">
             <div class="container-lines first-line">
                 <div class="line-help line">
-                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
-                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
+                    <div class="line-text">{{ $t('lineText') }}</div>
+                    <div class="line-text">{{ $t('lineText') }}</div>
                 </div>
             </div>
             <div class="container-lines second-line">
                 <div class="line-help line">
-                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
-                    <div class="line-text">Допоможемо вирішити вашу проблему!</div>
+                    <div class="line-text">{{ $t('lineText') }}</div>
+                    <div class="line-text">{{ $t('lineText') }}</div>
                 </div>
             </div>
 

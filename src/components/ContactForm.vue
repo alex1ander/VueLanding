@@ -3,12 +3,12 @@
 
         <!-- Поле имени -->
         <div class="this-input-block">
-            <label for="name">Ваше ім’я:</label>
+            <label for="name">{{ $t('formLabelName') }}</label>
             <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Ваше ім’я:"
+                :placeholder="$t('formLabelName')"
                 required
                 v-model="name"
             />
@@ -16,7 +16,7 @@
 
         <!-- Кастомный дропдаун + поле -->
         <div class="this-input-block">
-            <label>Ваш контакт:</label>
+            <label>{{ $t('formLabelContact') }}</label>
 
             <div class="wrapper-input">
                 <div class="dropdown-list" @click="toggleDropdown" :class="{ active: isDropdownActive }">
@@ -47,7 +47,7 @@
                     v-else-if="currentType.value === 'tel'"
                     type="tel"
                     v-model="contactValue"
-                    placeholder="+38 ____ ___ ___"
+                    :placeholder="$t('formPlaceholderType')"
                     required
                 />
                 <input name="telegram"
@@ -61,7 +61,7 @@
         </div>
 
         <!-- Кнопка -->
-        <button type="submit" class="btn-240 gr-transition">Отримати консультацію</button>
+        <button type="submit" class="btn-240 gr-transition">{{ $t('consultBtn') }}</button>
     </form>
 </template>
 
@@ -75,24 +75,32 @@ export default {
             service: '',
             name: '',
             contactValue: '',
-            contactTypes: [
-                { value: 'email', label: 'Email' },
-                { value: 'tel', label: 'Телефон' },
-                { value: 'tg', label: 'Telegram' },
-            ],
-            currentType: { value: 'tel', label: 'Телефон' },
-            isDropdownActive: false,  // Добавляем состояние для дропдауна
+            currentTypeValue: 'tel',
+            isDropdownActive: false,
         };
     },
+    computed: {
+        contactTypes() {
+            return [
+                { value: 'email', label: 'Email' },
+                { value: 'tel', label: this.$t('phone') },
+                { value: 'tg', label: 'Telegram' },
+            ];
+        },
+        currentType() {
+            return this.contactTypes.find(type => type.value === this.currentTypeValue) || this.contactTypes[0];
+        }
+    },
+
     methods: {
         selectType(type) {
-            this.currentType = type;
+            this.currentTypeValue = type.value;
             this.contactValue = '';
             this.service = '';
-            this.isDropdownActive = false;  // Закрываем дропдаун при выборе
+            this.isDropdownActive = false;
         },
         toggleDropdown() {
-            this.isDropdownActive = !this.isDropdownActive;  // Переключаем состояние дропдауна
+            this.isDropdownActive = !this.isDropdownActive;
         },
         async handleSubmit() {
             try {
@@ -102,7 +110,7 @@ export default {
                     service: this.service,
                 };
 
-                console.log('Отправляемые данные:', payload);  // Логируем отправляемые данные
+                console.log('Отправляемые данные:', payload);
 
                 const res = await axios.post('http://localhost:3000/send-lead', payload);
 
@@ -119,6 +127,7 @@ export default {
             }
         }
     }
+
 };
 
 </script>

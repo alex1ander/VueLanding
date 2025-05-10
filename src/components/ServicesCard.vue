@@ -1,22 +1,25 @@
 <template>
-    <section class="information-section">
+    <section id="price" class="information-section">
         <div class="content">
 
 
             <input type="checkbox" id="toggle" class="toggleCheckbox" />
             <label for="toggle" class='toggleContainer'>
-                <div>Development</div>   
-                <div>Support</div>
+                <div>{{ $t('btnDevelopment') }}</div>   
+                <div>{{ $t('btnSupport') }}</div>
             </label>
 
             <div class="service-relative animScroll">
                 <div class="servise-grid-wrapper developmentCards">
                     <div class="service-card reverse-style cardAnim ">
-                        <div class="content-part">
-                            <h3>Разработка<br> Лендинга</h3> <p>Создадим современный лендинг или сайт-визитку для эффективного представления вашего бизнеса.</p> <ul> <li>Адаптивность для мобильных устройств</li> <li>Стильный и удобный дизайн</li> <li>Простое управление контентом</li> <li>SEO-оптимизация</li> </ul> <p>Быстрая загрузка и высокий уровень конверсии.</p>
+
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_1')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_1')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 149$</p>
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_1') }}</p>
                             <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
@@ -32,11 +35,14 @@
                     </div>
 
                     <div class="service-card reverse-style cardAnim ">
-                        <div class="content-part">
-                            <h3>Разработка<br> Бизнес-сайта</h3> <p>Разрабатываем удобные сайты для публикации статей и портфолио — идеальное решение для профессионалов.</p> <ul> <li>Простое управление контентом</li> <li>Интеграция соцсетей</li> <li>Поддержка мультимедиа</li> <li>SEO-оптимизация</li> </ul> <p>Помогаем привлекать аудиторию и усиливать бренд.</p>
+
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_2')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_2')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 499$</p>
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_2') }}</p>
                             <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
@@ -51,11 +57,14 @@
                     </div>
 
                     <div class="service-card reverse-style cardAnim ">
-                        <div class="content-part">
-                            <h3>Разработка<br> Интернет-магазина</h3> <p>Создадим удобный интернет-магазин или маркетплейс для успешных онлайн-продаж.</p> <ul> <li>Функциональная корзина</li> <li>Интеграция оплат</li> <li>Поддержка вариантов товаров</li> <li>Простое управление заказами</li> </ul> <p>Увеличение продаж и интеграция с маркетплейсами.</p>
+                        
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_3')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_3')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 999$</p>
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_3') }}</p>
                             <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
@@ -72,38 +81,49 @@
 
                 <div class="servise-grid-wrapper supportCards">
                     <div class="service-card cardAnim">
-                        <div class="content-part">
-                            <h3>Создание<br> Дизайна Сайта</h3> <p>Создаем стильные и удобные дизайны, которые подчёркивают ваш бренд и удерживают внимание пользователей.</p> <ul> <li>Индивидуальный стиль</li> <li>UX/UI-дизайн для удобства</li> <li>Адаптивность для всех устройств</li> <li>Быстрая загрузка страниц</li> </ul> <p>Привлекательный внешний вид и рост доверия клиентов.</p>
+
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_4')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_4')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 149$</p>
-                            <span class="btn-240 btn-pop-up" @click="animateBox">
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_4') }}</p>
+                            <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                             </span>
                         </div>
+
+
                     </div>
 
                     <div class="service-card cardAnim ">
-                        <div class="content-part">
-                            <h3>SEO &<br> Продвижение Сайта</h3> <p>Повышаем позиции сайта в поисковиках для увеличения трафика и роста бизнеса.</p> <ul> <li>Аудит и оптимизация сайта</li> <li>Работа с контентом</li> <li>Линкбилдинг и внешние ссылки</li> <li>Отчёты и аналитика</li> </ul> <p>Больше клиентов и видимость в поиске.</p>
+
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_5')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_5')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 499$</p>
-                            <span class="btn-240 btn-pop-up" @click="animateBox">
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_5') }}</p>
+                            <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                             </span>
                         </div>
+
                     </div>
 
                     <div class="service-card cardAnim ">
-                        <div class="content-part">
-                            <h3>IT-услуги<br> для Бизнеса</h3> <p>Помогаем компаниям наладить онлайн-процессы: от консультаций до полной цифровизации бизнеса.</p> <ul> <li>Техническая поддержка</li> <li>Интеграция CRM-систем</li> <li>Настройка рекламы</li> <li>Консультации по развитию IT</li> </ul> <p>Оптимизация работы и рост прибыли.</p>
+                        <div class="top-part">
+                            <h3 v-html="$t('serviceCardTitle_6')"></h3>
+                            <div class="content-part" v-html="$t('serviceCardText_6')"></div>
                         </div>
-                        <div class="content-part">
-                            <p class="price">Від 999$</p>
-                            <span class="btn-240 btn-pop-up" @click="animateBox">
+
+                        <div class="bottom-part">
+                            <p class="price">{{ $t('serviceCardPrice_6') }}</p>
+                            <span class="btn-240 gr-fill btn-pop-up">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                             </span>
@@ -121,7 +141,7 @@
 
 
 
-<style scoped>
+<style scoped lang="scss">
 
 .service-card {
     background-color: #f7f7f7;
@@ -154,11 +174,20 @@ p {
     list-style: none;
 }
 
+.top-part{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
 .content-part{
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap:16px;
+}
+.bottom-part{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .price{
@@ -303,6 +332,7 @@ p {
         text-align: center;
         z-index: 1;
         transition: color 0.3s;
+        min-width: 120px;
     }
 
     &::before {
@@ -409,14 +439,8 @@ display: none;
                 color: var(--prime-color);
             }
         }
-        ul{
-            li{
-                &::before{
-                    background: #fff;
-                }
-            }
-        }
-    }
+    } 
 }
+
 
 </style>

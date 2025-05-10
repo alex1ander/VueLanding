@@ -8,9 +8,9 @@
 
                 <div class="info-wrapper" style="flex:4;">
                     <div class="info">
-                        <h2 class="topAnim">Залишились питання?</h2>
+                        <h2 class="topAnim">{{ $t('questionTitle') }}</h2>
                         <div class="section-text leftAnim">
-                            <p>Якщо у Вас виникли питання чи Ви хочете отримати консультацію, залиште дані у формі. І ми з радістю з вами зв’яжемось.</p>
+                            <p>{{ $t('questionText') }}</p>
                         </div>
                     </div>
                 </div>

@@ -19,8 +19,8 @@
 
     <ScriptJs />
     <AnimationsJs />
-    <InverseCircle />
-    <SecondShape />
+    <FigureFirst />
+    <FigureSecond />
 
     <div v-html="sprite"></div>
 </template>
@@ -37,7 +37,7 @@
     import HeaderSection from './components/HeaderSection.vue'
     import HeroSection from './components/HeroSection.vue'
     import RunningString from './components/RunningString.vue'
-    import OurBenefits from './components/OurBenefits.vue'
+    import OurBenefits from './components/OurService.vue'
     import SliderProducts from './components/SliderProducts.vue'
     import PillArea from './components/PillArea.vue'
     import SliderStack from './components/SliderStack.vue'
@@ -46,8 +46,8 @@
     import ServicesCard from './components/ServicesCard.vue'
     import PopUp from './components/PopUp.vue'
     import FooterSection from './components/FooterSection.vue'
-    import InverseCircle from './components/InverseCircle.vue'
-    import SecondShape from './components/SecondShape.vue'
+    import FigureFirst from './components/FigureFirst.vue'
+    import FigureSecond from './components/FigureSecond.vue'
 
     // i18n: автообновление title и description
     const { t } = useI18n()

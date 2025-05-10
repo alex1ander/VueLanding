@@ -6,17 +6,13 @@
         <span></span>
     </div>
     <div v-if="isOpen" class="menu">
-        <ul class="animated-menu">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Услуги</a></li>
-        <li><a href="#">Контакты</a></li>
-        </ul>
+        <!-- <MenuList /> -->
     </div>
     </div>
 </template>
 
 <script>
+// import MenuList from './MenuList.vue';
 export default {
     name: 'BurgerMenu',
     data() {

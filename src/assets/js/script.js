@@ -25,7 +25,7 @@ export function initSmoothScroll() {
 export function initAnchorLinks() {
   if (!lenisInstance) return
 
-  document.querySelectorAll('.main-menu a').forEach((btn) => {
+  document.querySelectorAll('.main-menu a, .logo-text').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault()
 

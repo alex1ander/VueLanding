@@ -84,7 +84,16 @@ section {
             }
         }
     }
-
+    .supportCards{
+        ul{
+            li{
+                &::before{
+                    background: #fff!important;
+                }
+            }
+        }
+    }
+    
     h1{
         font-weight: 600;
         font-size: 36px;
