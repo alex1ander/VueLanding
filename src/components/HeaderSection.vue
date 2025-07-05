@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="header-container dark-style">
+        <div class="header-container">
             <div class="two-part-content">
                 <div class="content content-header desktop">
                     <div class="content-header-part">
@@ -15,13 +15,11 @@
                         
                         <LanguageDropdown />
                 
-
-                        <a href="#" class="text-with-svg btn-backarea">
+                        <a :href="'tel:' + $t('phoneNumber')" class="text-with-svg btn-backarea">
                             <svg width="24" height="24" class="sprite-svg-fill">
                                 <use href="#call"></use>
                             </svg>
-                            <span>+38 (067) 777 68 93</span>
-
+                            <span>{{ $t('phoneNumber') }}</span>
                         </a>
 
                     </div>
@@ -119,6 +117,7 @@ header{
     position: sticky;
     z-index: 1000;
     top: 0px;
+    padding: 14px 20px;
 }
 .header-container{
     max-width: 1440px;
@@ -128,12 +127,16 @@ header{
     display: flex;
     align-items: center;
     height:  #{$header-height}px;
-
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border-radius: 20px;
+    
+    backdrop-filter: blur(6px) saturate(150%);
+    -webkit-backdrop-filter: blur(6px) saturate(150%);
     background: linear-gradient(134deg, rgba(62, 176, 212, 0.6) 0%, rgba(150, 99, 200, 0.6) 100%) !important;
 
 
+    .two-part-content{
+        z-index:1;
+    }
 
     .container{
         background: var(--prime-color);
@@ -154,8 +157,12 @@ header{
         .content-header-part{
             height: 100%;
             display: flex;
-            gap:32px;
+            gap:20px;
             align-items: center;
+
+            .place-for-logo{
+                margin: 0 50px;
+            }
         }
     }
 
@@ -163,7 +170,7 @@ header{
         font-weight: 600;
     }
 
-    $content-padding: 64px;
+    $content-padding: 10px;
     .content {
         padding-left: $content-padding;
         padding-right: $content-padding;
@@ -175,209 +182,8 @@ header{
 @media (max-width: 1024px) {
 
     .header-container {
-        $content-padding: 20px;
-
-        .content {
-            padding-left: $content-padding;
-            padding-right: $content-padding;
-        }
+        border-radius: 30px;
     }
 }
-
-
-
-$main-menu-gap: 45px;
-$sizeCirlce: 5px;
-.desktop .main-menu {
-    height: 100%;
-    display: flex;
-    gap:$main-menu-gap;
-    list-style: none;
-    > li{
-        display: flex;
-        align-items: center;
-        height: 100%;
-
-        &:not(:first-child) a::before {
-            content: '';
-            position: absolute;
-            left: - math.div($main-menu-gap, 2) - math.div($sizeCirlce, 2);
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            transform: translateY(-50%);
-            width: $sizeCirlce;
-            height: $sizeCirlce;
-            background-color: var(--second-color); 
-            transform: rotate(45deg);
-        }
-
-        > a {
-            font-weight: 600;
-            position: relative;
-        }
-        &:hover{
-            a{
-                color: rgb(255, 189, 46);
-                &::before{
-                    background-color: rgb(255, 189, 46); 
-                }
-            }
-        }
-    
-        
-    }
-
-}
-//burger
-
-.burger-menu{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    &:has(.burger.active) .burger-menu-list {
-        transform: scaleY(1);
-    }
-
-    .burger-menu-list{
-        overflow: auto;
-        width: 100%;
-        left: 0;
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: transform 0.5s ease-in-out;
-
-        height:  calc(100dvh - #{$header-height}px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        top:100%;
-        background: var(--prime-color);
-
-        .content-burger-part{
-
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-
-            .contact-us-block {
-
-                display: flex;
-                align-items: center;
-
-                .contact-us-link {
-
-                    width: 100%;
-                    @include list-element;
-                }
-            }
-        }
-    }
-
-    .main-menu {
-        width: 100%;
-        list-style: none;
-        @include list-element;
-        > li {
-
-            &.menu-item-has-children {
-                position: relative;
-                &.active{
-                    > a::before {
-                        width: 40px;
-                        height: 24px;
-                        background-repeat: no-repeat;
-                        background-position: left;
-                    }
-                }
-                &:not(.active){
-                    > a::after {
-                        transform: rotate(180deg);
-                        margin-left: auto;
-                        width: 40px;
-                        height: 24px;
-                        transition: width 0.5s ease-in-out;
-                        background-repeat: no-repeat;
-                    }
-                }
-
-                > a::before,a::after{
-                    content: '';
-                    pointer-events: none;
-                    width: 0;
-                    transition: width 0.5s ease-in-out;
-                    background-image: url('../assets/icon/arrow.svg');
-
-                }
-
-            }
-
-
-
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            > a{
-                width: 100%;
-                font-weight: 500;
-                font-size: 16px;
-                line-height: 1.5em;
-            }
-
-            &.active{
-                .sub-menu-container{
-                    grid-template-rows: 1fr;
-                }
-            }
-            .sub-menu-container {
-                display: grid;
-                grid-template-rows: 0fr;
-                overflow: hidden;
-                transition: grid-template-rows 0.5s ease-in-out;
-            }
-            .sub-menu{
-                min-height: 0;
-                display: flex;
-                flex-direction: column;
-                gap:24px;
-
-                .menu-all-cat-btn{
-                    font-weight: 300;
-                    font-size: 18px;
-                    line-height: 1.5em;
-                    margin-top:24px;
-                }
-                li:last-child{
-                    margin-bottom:24px;
-                }
-                li{
-                    display: flex;
-                    gap: 8px;
-                    flex-direction: column;
-
-                    a{
-                        width: fit-content;
-                        font-weight: 600;
-                        font-size: 18px;
-                        line-height: 1.5em;
-                    }
-                    span{
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 1.5em;
-                        text-wrap: balance;
-                        width: 70%;
-                    }
-                }
-            }
-
-        }
-    }
-
-}
-
 
 </style>

@@ -1,41 +1,57 @@
-<template>
-    <footer class="container dark-style">
-        <div class="footer-container content">
-            <div class="place-for-logo">
-                <LogoText />                
-            </div>
-            <MenuList />
-            <p>Copyright © 2025 AlexDIgital. All rights reserved.</p>
-        </div>
-
-
-    </footer>
-</template>
-
 <script setup>
-// Импорт компонента LogoText
 import LogoText from './LogoText.vue'
-import MenuList from './MenuList.vue';
+import MenuList from './MenuList.vue'
+
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const { t } = useI18n()
+const route = useRoute()
+
+// Реактивный текущий язык из URL, по умолчанию 'ua'
+const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
 </script>
+
+<template>
+  <footer>
+    <div class="footer-container content">
+      <div class="place-for-logo">
+        <LogoText />
+      </div>
+      <MenuList />
+      <p>Copyright © 2025 BitLazur. All rights reserved.</p>
+      <ul class="useful-links">
+        <li>
+          <a :href="`/${currentLang}/privacy-policy`">
+            {{ t('privacy_policy') }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</template>
 
 <style scoped lang="scss">
     footer{
         position: relative;
         z-index: 1;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
     }
     .footer-container{
         max-width: 1440px;
         margin: auto;
         width: 100%;
-        border-radius: 40px 40px 0 0;
+        border-radius: 20px;
         text-wrap:nowrap;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap:40px;
         padding: 60px 0 30px;
-        backdrop-filter: blur(20px) saturate(150%);
-        -webkit-backdrop-filter: blur(20px) saturate(150%);
+        backdrop-filter: blur(6px) saturate(150%);
+        -webkit-backdrop-filter: blur(6px) saturate(150%);
         background: linear-gradient(134deg, rgba(62, 176, 212, 0.4) 0%, rgba(150, 99, 200, 0.4) 100%) !important;
 
         $content-padding: 64px;
@@ -67,5 +83,4 @@ import MenuList from './MenuList.vue';
         gap: 45px;
         list-style: none;
     }
-
 </style>

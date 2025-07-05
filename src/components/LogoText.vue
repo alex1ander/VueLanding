@@ -1,18 +1,14 @@
-<!-- LogoText.vue -->
-<template>
-  <a href="#hero-content" class="logo-text" ref="textContainer">
-    <span v-for="(char, index) in textArray" :key="index" class="char">{{ char }}</span>
-  </a>
-</template>
-
 <script setup>
-import { ref, onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import { useRoute } from 'vue-router'
 
-// Анимация текста
-const text = '<AlexDigital/>'  // Текст для анимации
-const textArray = text.split('') // Разделение текста на отдельные символы
+const text = '<BITLAZUR/>'
+const textArray = text.split('')
 const textContainer = ref(null)
+const route = useRoute()
+
+const currentLang = computed(() => route.params.lang || 'ua')
 
 onMounted(() => {
   const chars = textContainer.value.querySelectorAll('.char')
@@ -28,14 +24,21 @@ onMounted(() => {
     yoyo: true,
   })
 })
-
 </script>
 
+<template>
+  <router-link :to="`/${currentLang}`" class="logo-text">
+    <span ref="textContainer">
+      <span v-for="(char, index) in textArray" :key="index" class="char">{{ char }}</span>
+    </span>
+  </router-link>
+</template>
+
+
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 .logo-text span {
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
   color: rgb(255, 189, 46);
   font-size: 24px;
 }

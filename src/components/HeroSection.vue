@@ -6,7 +6,7 @@
 
 
             <div class="hero-name topAnim">
-                <p class="fw-700">Alex Digital Agency</p>
+                <p class="fw-700">Bitlazur Agency</p>
                 <p>{{ $t('studioText') }}</p>
             </div>
 
@@ -18,18 +18,18 @@
                     <span class="sub-title">{{ $t('mainSubTitle') }}</span>
                 </div>
                 <div class="hero-button">
-                    <span class="btn-240 gr-fill btn-pop-up" @click="animateBox">
+                    <button class="btn-240 gr-fill btn-pop-up"  @click="setService($t('HeroSection'))">
                         <span class="btn-text">{{ $t('consultBtn') }}</span>
                         <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                    </span>
+                    </button>
                 </div>
             </div>
 
 
 
-            <div class="code-svg box rightAnim" :style="boxStyle" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+            <div class="code-svg box rightAnim" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
                 
-                <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="background:#1e1e1e; border-radius: 10px;">
+                <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" :style="boxStyle" style="background:#1e1e1e; border-radius: 10px;">
                     <rect x="0" y="0" width="700" height="30" rx="10" fill="#2d2d2d"/>
                     <circle cx="580" cy="15" r="6" fill="#ff5f56"/>
                     <circle cx="560" cy="15" r="6" fill="#ffbd2e"/>
@@ -75,7 +75,10 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits  } from 'vue';
+
+// ✅ defineEmits вызывается один раз на верхнем уровне
+const emit = defineEmits(['open-contact-form']);
 
 const boxStyle = ref({
   transform: 'perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)',
@@ -98,14 +101,21 @@ function handleMouseMove(e) {
 
   boxStyle.value = {
     transform: `perspective(525px) translateZ(${Z}px) rotateX(${xAngle}deg) rotateY(${yAngle}deg)`,
-    transition: 'all 150ms linear',
+    transition: 'transform 200ms ease',
   };
 }
 
 function handleMouseLeave() {
   boxStyle.value = {
     transform: 'perspective(525px) translateZ(0) rotateX(0deg) rotateY(0deg)',
-    transition: 'all 150ms linear',
+    transition: 'transform 200ms ease',
   };
 }
+
+function setService(serviceText) {
+  emit('open-contact-form', serviceText);
+}
 </script>
+
+
+

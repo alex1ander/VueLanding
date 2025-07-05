@@ -73,28 +73,4 @@
 }
 
 
-@media (max-width: 500px){
-    .nav-links {
-        &.related-doctors {
-            a {
-                .post-text {
-                    font-weight: 600;
-                    font-size: 14px;
-                    line-height: 1.2em;
-                }
-
-                &.prev-post {
-                    align-items: flex-start;
-                    flex-direction: column;
-                }
-
-                &.next-post {
-                    align-items: flex-end;
-                    flex-direction: column-reverse;
-                }
-            }
-        }
-    }
-}
-
 

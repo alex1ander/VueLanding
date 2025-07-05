@@ -105,6 +105,7 @@ $box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 20px;
   box-shadow: $box-shadow;
   border: 3px solid #797CCC;
+  transition: transform 0.4s ease,border 0.4s ease;
 
   &:hover, &.simulated-hover {
     border: 3px solid $hover-bg;

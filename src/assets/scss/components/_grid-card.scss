@@ -141,7 +141,7 @@ initial-value: #707070;
         }
 
         .card-text {
-            font-size: 14px;
+            // font-size: 14px;
         }
 
         &.page-card-grid{
@@ -149,7 +149,7 @@ initial-value: #707070;
                 font-size: 16px;
             }
             .card-text{
-                font-size: 14px;
+                // font-size: 14px;
             }
             .place-for-benefit-icon{
                 height: 40px;
@@ -185,7 +185,7 @@ initial-value: #707070;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
-    gap:25px;
+    gap:20px;
 
 }
 

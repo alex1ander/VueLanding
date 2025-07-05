@@ -7,9 +7,20 @@
                 <div class="pill-area">
                     <h2>{{ $t('consultTitle') }}</h2>
                 </div>
-                <a href="#" class="btn-160-circle pill-btn btn-pop-up">{{ $t('consultBtn') }}</a>
+                <button class="btn-160-circle pill-btn btn-pop-up" @click="$emit('open-contact-form', $t('PillArea'))">{{ $t('consultBtn') }}</button>
             </div>
 
         </div>
     </section>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    setService(serviceText) {
+      this.$emit('open-contact-form', serviceText)
+    }
+  }
+}
+</script>

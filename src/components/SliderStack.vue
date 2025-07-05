@@ -12,6 +12,7 @@
         :speed="800"
         :effect="'slide'"
         :modules="modules"
+        :breakpoints="breakpoints"
         class="swiper content sliderNumber-1"
         >
             <swiper-slide class="swiper-slide">
@@ -90,8 +91,27 @@ export default {
     SwiperSlide,
   },
   setup() {
+    const breakpoints = {
+        // Если ширина экрана больше 1200px
+        1200: {
+            slidesPerView: 8,
+            spaceBetween: 30,
+        },
+        // Если ширина экрана больше 992px
+        500: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+        },
+        // Для всех экранов меньше 576px
+        0: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    };
+
     return {
       modules: [Autoplay],
+      breakpoints
     };
   },
 };

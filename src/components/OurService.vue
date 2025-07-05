@@ -3,7 +3,7 @@
 
         <div class="content">
             <div class="servise-grid-wrapper animScroll">
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_1') }}</h3>
@@ -15,9 +15,9 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
 
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_2') }}</h3>
@@ -29,9 +29,9 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
 
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_3') }}</h3>
@@ -43,9 +43,9 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
 
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_4') }}</h3>
@@ -57,10 +57,10 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
 
 
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_5') }}</h3>
@@ -72,9 +72,9 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
 
-                <a href="#" class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
+                <div class="the-grid-card gr-transition page-card-grid cardAnim" ref="card">
                     <div class="row flex-start">
                         <div class="benefit-text-part">
                             <h3>{{ $t('serviceTitle_6') }}</h3>
@@ -86,7 +86,7 @@
                             </svg>
                         </div>
                     </div>
-                </a>  
+                </div>  
             </div>
             
         </div>

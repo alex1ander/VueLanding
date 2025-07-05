@@ -25,7 +25,7 @@ const updatePosition = () => {
     x: offsetX - 60,
     y: offsetY - 60,
     rotation,
-    duration: 0.5,
+    duration: 2,
     ease: 'power2.out',
   })
 }
@@ -65,8 +65,8 @@ onUnmounted(() => {
     0 0 20px rgba(62, 176, 212, 0.6),
     0 0 40px rgba(150, 99, 200, 0.4),
     0 0 60px rgba(150, 99, 200, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   mix-blend-mode: screen;
   transition: all 0.3s ease;
 }

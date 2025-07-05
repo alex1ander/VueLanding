@@ -1,34 +1,42 @@
 <template>
-    <div class="burger-menu btn-backarea" @click="toggleMenu">
-    <div :class="{ open: isOpen }" class="burger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
+  <div class="burger-menu btn-backarea mobile-circle">
+    <div :class="{ open: isOpen }" class="burger-icon" @click="toggleMenu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div v-if="isOpen" class="menu">
-        <!-- <MenuList /> -->
+    <div class="menu mobile-menu" :class="{ active: isOpen }">
+      <MenuList :isOpen="isOpen" />
+      <a :href="'tel:' + $t('phoneNumber')" class="text-with-svg btn-backarea">
+        <svg width="24" height="24" class="sprite-svg-fill">
+          <use href="#call"></use>
+        </svg>
+        <span>{{ $t('phoneNumber') }}</span>
+      </a>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-// import MenuList from './MenuList.vue';
+import MenuList from './MenuList.vue';
+
 export default {
-    name: 'BurgerMenu',
-    data() {
+  name: 'BurgerMenu',
+  components: { MenuList },
+  data() {
     return {
-        isOpen: false,
+      isOpen: false,
     };
-    },
-    methods: {
+  },
+  methods: {
     toggleMenu() {
-        this.isOpen = !this.isOpen;
+      this.isOpen = !this.isOpen;
     },
-    },
+  },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .burger-icon {
     width: 30px;
     height: 21px;
@@ -42,6 +50,9 @@ export default {
     height: 3px;
     background-color: #ffffff;
     transition: 0.3s;
+}
+.burger-icon.open span{
+    background-color:rgb(255, 189, 46);
 }
 .burger-icon.open span:nth-child(1) {
     transform: rotate(45deg)translate(6px,6px);
@@ -60,23 +71,24 @@ export default {
     padding: 1rem;
     z-index: 10;
     left: 0;
-    height: 100dvh;
-}
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    height: calc(100dvh - 68px);
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: space-between;
+
+    .btn-backarea{
+        border: 1px solid;
+        justify-content: center;
+    }
 }
-.menu li {
-    margin-bottom: 0.5rem;
-    text-align: center;
+.mobile-menu{
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
-.menu a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 26px;
+.mobile-menu.active{
+    opacity: 1;
+    pointer-events: all;
 }
+
 </style>

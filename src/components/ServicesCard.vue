@@ -20,10 +20,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_1') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                           <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
 
 
@@ -43,10 +43,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_2') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_2'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
 
                         <img src="../assets/upload/bg (6).png" alt="" class="bg-abs bg-abs-6">
@@ -65,10 +65,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_3') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_3'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
 
                         <img src="../assets/upload/bg (11).png" alt="" class="bg-abs bg-abs-11">
@@ -89,10 +89,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_4') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_4'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
 
 
@@ -107,10 +107,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_5') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_5'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
 
                     </div>
@@ -123,10 +123,10 @@
 
                         <div class="bottom-part">
                             <p class="price">{{ $t('serviceCardPrice_6') }}</p>
-                            <span class="btn-240 gr-fill btn-pop-up">
+                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_6'))">
                                 <span class="btn-text">{{ $t('consultBtn') }}</span>
                                 <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                            </span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,15 @@
 </template>
 
 
-<script></script>
+<script>
+export default {
+  methods: {
+    setService(serviceText) {
+      this.$emit('open-contact-form', serviceText)
+    }
+  }
+}
+</script>
 
 
 

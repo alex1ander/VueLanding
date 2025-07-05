@@ -1,18 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from '@/App.vue'
+import HomePage from '@/pages/HomePage.vue'
+import PrivacyPolicy from '@/pages/PrivacyPolicy.vue'
 
-export const routes = [
+const routes = [
   {
-    path: '/:lang',
+    path: '/:lang(ua|ru|en)?',
     name: 'Home',
-    component: App,
-    meta: { locale: 'ua' }, // Установим язык по умолчанию
+    component: HomePage,
+  },
+  {
+    path: '/:lang(ua|ru|en)/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/ua',
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // При возврате назад — позиция прокрутки сохраняется
+      return savedPosition
+    } else if (to.hash) {
+      // Плавно скроллим к якорю, если он есть
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    } else {
+      // По умолчанию скроллим вверх
+      return { top: 0 }
+    }
+  }
 })
 
 export default router

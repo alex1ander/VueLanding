@@ -13,8 +13,6 @@ export default {
         } else {
             gridCount = 3;
         }
-
-        this.setupObserver();
         this.setupObserverHeader();
         this.setupObserverFooter();
         this.setupObserverThreeBlock();
@@ -124,120 +122,67 @@ export default {
             });
         });
 
-        
 
-        
-          
-          
-          
-          
-                
+        const scrollAnimation = document.querySelectorAll('.scrollAnimation');
+
+        scrollAnimation.forEach((container) => {
+            const leftAnim = container.querySelectorAll('.leftAnim');
+            const rightAnim = container.querySelectorAll('.rightAnim');
+            const opacityAnim = container.querySelectorAll('.opacityAnim');
+
+            // Анимация слева
+            gsap.fromTo(leftAnim, {
+                x: '-100%',
+                transformOrigin: 'left center',
+            }, {
+                x: 0,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: container,
+                    start: `top bottom`,
+                    end: `center center`,
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+
+            // Анимация справа
+            gsap.fromTo(rightAnim, {
+                x: '100%',
+                transformOrigin: 'left center',
+            }, {
+                x: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: container,
+                    start: `top bottom`,
+                    end: `center center`,
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+
+            // Анимация появления
+            gsap.fromTo(opacityAnim, {
+                opacity: 0,
+            }, {
+                opacity: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: container,
+                    start: 'top center',
+                    end: 'bottom center',
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+        });
+
+
+
 
     },
     methods: {
-        setupObserver() {
-            // Общий IntersectionObserver для всех элементов
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-
-                    // Анимация для swiper-slide
-                    if (entry.target.classList.contains('sliderNumber-1')) {
-
-                        const children = entry.target.querySelectorAll('.swiper-slide');  // Замените .child-element на нужный селектор
-
-                        children.forEach((child, index) => {
-                            if (entry.isIntersecting) {                 
-                                gsap.to(child, {
-                                    y: 0,
-                                    duration: 1,
-                                    delay: index * 0.2,
-                                    ease: 'power3.out',
-                                });
-                            }else{
-                                gsap.to(child, {
-                                    y: '100%',
-                                    duration: 1,
-                                    delay: index * 0.2,
-                                    ease: 'power3.out',
-                                });
-                            }
-                        });
-                    }
-
-                    if (entry.target.classList.contains('sliderNumber-2')) {
-
-                        const children = entry.target.querySelectorAll('.swiper-slide');  // Замените .child-element на нужный селектор
-
-                        children.forEach((child, index) => {
-                            if (entry.isIntersecting) {                 
-                                gsap.to(child, {
-                                    y: 0,
-                                    duration: 1.5,
-                                    delay: index * 0.2,
-                                    ease: 'power3.out',
-                                });
-                            }else{
-                                gsap.to(child, {
-                                    y: '100%',
-                                    duration: 1.5,
-                                    delay: index * 0.2,
-                                    ease: 'power3.out',
-                                });
-                            }
-                        });
-                    }
-
-                    // Анимация для h2 (появление слева)
-                    if (entry.target.classList.contains('two-part-content')) {
-                        if (entry.isIntersecting) {
-                            gsap.to(entry.target, {
-                                opacity: 1,
-                                x: 0,  // сдвиг слева
-                                duration: 1.5,
-                                ease: 'power3.out',
-                            });
-                        } else {
-                            gsap.to(entry.target, {
-                                opacity: 0,
-                                x: '-100%',  // уходит влево
-                                duration: 1.5,
-                                ease: 'power3.out',
-                            });
-                        }
-                    }
-
-                    // Анимация для slider-buttons (появление справа)
-                    if (entry.target.classList.contains('slider-buttons')) {
-                        if (entry.isIntersecting) {
-                            gsap.to(entry.target, {
-                                opacity: 1,
-                                x: 0,  // сдвиг справа
-                                duration: 1.5,
-                                ease: 'power3.out',
-                            });
-                        } else {
-                            gsap.to(entry.target, {
-                                opacity: 0,
-                                x: 50,  // уходит вправо
-                                duration: 1.5,
-                                ease: 'power3.out',
-                            });
-                        }
-                    }   
-
-                   
-                });
-            }, {
-                threshold: 0.7,
-            });
-
-            // Наблюдение за всеми элементами, которые нужно анимировать
-            document.querySelectorAll('.sliderNumber-1,.sliderNumber-2,.service-card').forEach((element) => {
-                observer.observe(element);
-            });
-        },
-
-
         setupObserverHeader() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
@@ -316,13 +261,13 @@ export default {
 
                     if (entry.target.classList.contains('threeBlockAnim')) {
 
-                        const heroName = entry.target.querySelectorAll('.topAnim');
-                        const heroTitles = entry.target.querySelectorAll('.leftAnim');
-                        const codeSvg = entry.target.querySelectorAll('.rightAnim');                        
+                        const topAnim = entry.target.querySelectorAll('.topAnim');    
+                        const leftAnim = entry.target.querySelectorAll('.leftAnim');
+                        const rightAnim = entry.target.querySelectorAll('.rightAnim');                        
 
-                        if (entry.isIntersecting) {                 
-                            gsap.fromTo(heroName, 
-                                { y: '-600%' },
+                        if (entry.isIntersecting) {
+                            gsap.fromTo(topAnim, 
+                                { y: '-600%' }, 
                                 {
                                     y: 20,
                                     duration: 1.5,
@@ -330,8 +275,8 @@ export default {
                                     ease: 'power3.out',
                                 }
                             );
-                            gsap.fromTo(heroTitles, 
-                                { x: '-200%' },
+                            gsap.fromTo(leftAnim, 
+                                { x: '-200%' }, 
                                 {
                                     x: 0,
                                     duration: 1.5,
@@ -339,8 +284,8 @@ export default {
                                     ease: 'power3.out',
                                 }
                             );
-                            gsap.fromTo(codeSvg,
-                                { x: '200%' },
+                            gsap.fromTo(rightAnim, 
+                                { x: '200%' }, 
                                 {
                                     x: 0,
                                     duration: 1.5,
@@ -348,31 +293,26 @@ export default {
                                     ease: 'power3.out',
                                 }
                             );
-                        }else{
-                            gsap.to(heroName, 
-                                {
-                                    y: '-600%',
-                                    duration: 1.5,
-                                    delay: 0.1,
-                                    ease: 'power3.out',
-                                }
-                            );
-                            gsap.to(heroTitles, 
-                                {
-                                    x: '-200%',
-                                    duration: 1.5,
-                                    delay: 0.1,
-                                    ease: 'power3.out',
-                                }
-                            );
-                            gsap.to(codeSvg,
-                                {
-                                    x: '200%',
-                                    duration: 1.5,
-                                    delay: 0.1,
-                                    ease: 'power3.out',
-                                }
-                            );
+                        } else {
+                            gsap.to(topAnim, {
+                                y: '-600%',
+                                duration: 1.5,
+                                delay: 0.1,
+                                ease: 'power3.out',
+                            });
+                            gsap.to(leftAnim, {
+                                x: '-200%',
+                                duration: 1.5,
+                                delay: 0.1,
+                                ease: 'power3.out',
+                            });
+
+                            gsap.to(rightAnim, {
+                                x: '200%',
+                                duration: 1.5,
+                                delay: 0.1,
+                                ease: 'power3.out',
+                            });
                         }
                     }
 

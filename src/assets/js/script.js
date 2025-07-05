@@ -43,14 +43,3 @@ export function initAnchorLinks() {
     })
   })
 }
-
-// Обработка кнопок попапа
-export function initPopup() {
-  const popup = document.querySelector('#pop-up')
-  document.querySelectorAll('.btn-pop-up').forEach((button) => {
-    button.addEventListener('click', (event) => {
-      event.preventDefault()
-      popup?.classList.toggle('active')
-    })
-  })
-}

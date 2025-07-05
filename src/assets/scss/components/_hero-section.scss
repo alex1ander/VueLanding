@@ -96,7 +96,7 @@
     }
     .card-text{
         font-weight: 400;
-        font-size: 14px;
+        // font-size: 14px;
         text-wrap: nowrap;
     }
 }
@@ -173,7 +173,9 @@
 .hero-name { grid-area: hero-name; }
 .hero-titles { grid-area: hero-titles; }
 .code-svg { grid-area: code-svg; }
-
+.code-svg *{
+    font-family: "JetBrains Mono", monospace;
+}
 @media (max-width: 768px) {
     .hero-content {
         display: grid; 
