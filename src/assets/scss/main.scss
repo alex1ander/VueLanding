@@ -23,6 +23,7 @@
     font-weight:400;
     font-style: normal;
     box-sizing: border-box;
+    text-wrap: pretty;
 }
 
 body{
@@ -151,7 +152,7 @@ $content-padding: 20px;
     overflow: clip;
     margin: auto;
     width: 100%;
-    max-width: 1440px;
+    max-width: 1460px;
 }
 .container-small{
     overflow: hidden;

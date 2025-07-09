@@ -101,7 +101,7 @@ $box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     "img title"
     "text text";
   background: white;
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 20px;
   box-shadow: $box-shadow;
   border: 3px solid #797CCC;

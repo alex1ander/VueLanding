@@ -1,5 +1,5 @@
 <template>
-    <section id="hero-content" class="information-section">
+    <section id="hero-content" class="information-section"  @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
 
 
         <div class="hero-content threeBlockAnim">
@@ -27,7 +27,7 @@
 
 
 
-            <div class="code-svg box rightAnim" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+            <div class="code-svg box rightAnim">
                 
                 <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" :style="boxStyle" style="background:#1e1e1e; border-radius: 10px;">
                     <rect x="0" y="0" width="700" height="30" rx="10" fill="#2d2d2d"/>

@@ -163,19 +163,31 @@
 
 .hero-content {
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 3fr 1fr; 
     grid-template-rows: 50px 1fr;
     gap: 50px;
     grid-template-areas: 
         "hero-name code-svg"
         "hero-titles code-svg"; 
+
+
+    .code-svg {
+        position: relative;
+        z-index: -1;
+        svg{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        *{
+            font-family: "JetBrains Mono", monospace;
+        }
+    }
 }
 .hero-name { grid-area: hero-name; }
 .hero-titles { grid-area: hero-titles; }
 .code-svg { grid-area: code-svg; }
-.code-svg *{
-    font-family: "JetBrains Mono", monospace;
-}
+
 @media (max-width: 768px) {
     .hero-content {
         display: grid; 

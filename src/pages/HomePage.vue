@@ -1,30 +1,27 @@
 <template>
-    <HeaderSection />
-    <main>
-      <HeroSection @open-contact-form="handleOpenContactForm"/>
-      <SliderStack />
-      <OurBenefits />
-      <SliderProducts />
-      <OurAdvantages />
-      <PillArea @open-contact-form="handleOpenContactForm"/>
-      <ServicesCard @open-contact-form="handleOpenContactForm" />
-      <RunningString />
-      <FormSection />
-      <OurWorks />
-    </main>
-    <FooterSection />
-    <PopUp
-      :service="popupService"
-      :active="popupVisible"
-      @close="popupVisible = false"
-    />
+  <HeaderSection />
+  <main>
+    <HeroSection @open-contact-form="handleOpenContactForm" />
+    <SliderStack />
+    <OurBenefits />
+    <SliderProducts />
+    <OurAdvantages />
+    <PillArea @open-contact-form="handleOpenContactForm" />
+    <ServicesCard @open-contact-form="handleOpenContactForm" />
+    <RunningString />
+    <FormSection />
+    <OurWorks />
+  </main>
+  <FooterSection />
+  <PopUp
+    :service="popupService"
+    :active="popupVisible"
+    @close="popupVisible = false"
+  />
 
-    <ScriptJs />
-    <AnimationsJs />
-    <FigureFirst />
-    <FigureSecond />
-
-    <SvgSprite />
+  <FigureFirst />
+  <FigureSecond />
+  <SvgSprite />
 </template>
 
 <script>
@@ -49,9 +46,7 @@ import FigureSecond from '@/components/FigureSecond.vue'
 import SvgSprite from '@/components/SvgSprite.vue'
 
 import { initSmoothScroll } from '@/assets/js/script.js'
-
-import ScriptJs from '@/assets/js/script.js'
-import AnimationsJs from '@/assets/js/animations.js'
+import { initAnimations } from '@/assets/js/animations.js' // предполагается, что такая функция экспортируется
 
 export default {
   name: 'HomePage',
@@ -69,8 +64,6 @@ export default {
     ServicesCard,
     PopUp,
     FooterSection,
-    ScriptJs,
-    AnimationsJs,
     FigureFirst,
     FigureSecond,
     SvgSprite,
@@ -95,15 +88,16 @@ export default {
 
     onMounted(() => {
       initSmoothScroll()
+      initAnimations()
     })
   },
 
   data() {
-      return {
-        popupVisible: false,
-        popupService: '',
-      }
-    },
+    return {
+      popupVisible: false,
+      popupService: '',
+    }
+  },
 
   methods: {
     handleOpenContactForm(serviceName) {
