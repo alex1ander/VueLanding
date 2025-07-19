@@ -5,8 +5,8 @@
       <span></span>
       <span></span>
     </div>
-    <div class="menu mobile-menu" :class="{ active: isOpen }">
-      <MenuList :isOpen="isOpen" />
+    <div id="mobile-menu" class="menu mobile-menu" :class="{ active: isOpen }">
+      <MenuList :isOpen="isOpen" @close-menu="isOpen = false" />
       <a :href="'tel:' + $t('phoneNumber')" class="text-with-svg btn-backarea">
         <svg width="24" height="24" class="sprite-svg-fill">
           <use href="#call"></use>
@@ -65,16 +65,20 @@ export default {
 }
 .menu {
     position: absolute;
-    top: 68px;
+    top: -14px;
     right: 0;
-    background: rgba(17, 17, 17, 0.6);
-    padding: 1rem;
-    z-index: 10;
-    left: 0;
-    height: calc(100dvh - 68px);
+    padding: 20px;
+    padding-top: 96px;
+    z-index: -1;
+    left: -20px;
+    height: 100dvh;
+    width: 100dvw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: rgba(17, 17, 17, 0.6);
+    backdrop-filter: blur(6px) saturate(150%);
+    -webkit-backdrop-filter: blur(6px) saturate(150%);
 
     .btn-backarea{
         border: 1px solid;
@@ -90,5 +94,4 @@ export default {
     opacity: 1;
     pointer-events: all;
 }
-
 </style>

@@ -1,7 +1,12 @@
 <template>
     <section id="our-works" class="information-section">
+        <div class="content top-part-section">
+            <div class="two-part-content">
+                <h2>{{ $t('ourWorksTitle') }}</h2>
+            </div>
+        </div>
         <div class="content">
-            <div class="our-works-banner-prew-container">
+            <div class="our-works-banner-prew-container opacityAnim">
                 <div class="our-works-banner-prew">
                     <img class="card-image" src="../assets/upload/site1.png" alt="">
                     <img class="card-image" src="../assets/upload/site2.png" alt="">

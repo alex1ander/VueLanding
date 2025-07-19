@@ -2,7 +2,7 @@
     <section id="hero-content" class="information-section"  @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
 
 
-        <div class="hero-content threeBlockAnim">
+        <div class="hero-content threeBlockAnim from-bottom">
 
 
             <div class="hero-name topAnim">

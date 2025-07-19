@@ -29,7 +29,7 @@ export function initAnimations() {
         scrollTrigger: {
           trigger: card,
           start: `top+=${(index % gridCount) * 100} bottom`,
-          end: `bottom bottom`,
+          end: `-=150`,
           scrub: true,
         }
       });
@@ -100,9 +100,9 @@ export function initAnimations() {
     });
   });
 
-  const scrollAnimation = document.querySelectorAll('.scrollAnimation');
+  const scrollAnimation = document.querySelectorAll('#our-products,#advantages,#our-service,#price,#our-works');
   scrollAnimation.forEach((container) => {
-    const leftAnim = container.querySelectorAll('.leftAnim');
+    const leftAnim = container.querySelectorAll('.two-part-content h2');
     const rightAnim = container.querySelectorAll('.rightAnim');
     const opacityAnim = container.querySelectorAll('.opacityAnim');
 
@@ -112,7 +112,7 @@ export function initAnimations() {
       scrollTrigger: {
         trigger: container,
         start: `top bottom`,
-        end: `center center`,
+        end: '-=150',   
         scrub: true,
       }
     });
@@ -123,140 +123,136 @@ export function initAnimations() {
       scrollTrigger: {
         trigger: container,
         start: `top bottom`,
-        end: `center center`,
+        end: '-=150',   
         scrub: true,
       }
     });
 
     gsap.fromTo(opacityAnim, { opacity: 0 }, {
       opacity: 1,
-      ease: 'power2.out',
+      ease: 'power4.in',
       scrollTrigger: {
         trigger: container,
-        start: 'top center',
-        end: 'bottom center',
+        start: 'top bottom',
+        end: '-=150',   
         scrub: true,
       }
     });
   });
 
-  // Наблюдатель хедера
-  const setupObserverHeader = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.target.tagName.toLowerCase() === 'header') {
-          if (entry.isIntersecting) {
-            gsap.fromTo(entry.target, { y: -68 }, {
-              y: 0,
-              duration: 1.5,
-              delay: 0.1,
-              ease: 'power3.out',
-            });
-          } else {
-            gsap.to(entry.target, {
-              y: -68,
-              duration: 1.5,
-              ease: 'power3.out',
-            });
+
+  const threeBlockContainers = document.querySelectorAll('.threeBlockAnim');
+  threeBlockContainers.forEach((container) => {
+    const topAnim = container.querySelectorAll('.topAnim');
+    const leftAnim = container.querySelectorAll('.leftAnim');
+    const rightAnim = container.querySelectorAll('.rightAnim');
+
+    const isFromBottom = container.classList.contains('from-bottom');
+
+
+    if (!isFromBottom) {
+      // Обычная анимация (сверху вниз)
+      gsap.fromTo(topAnim, { y: '-600%' }, {
+        y: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+
+      gsap.fromTo(leftAnim, { x: '-200%' }, {
+        x: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+
+      gsap.fromTo(rightAnim, { x: '200%' }, {
+        x: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+    } else {
+      
+      gsap.fromTo(topAnim, 
+        { y: '0%', }, 
+        {
+          y: '-600%',
+          ease: 'power3.in',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top top+=150',
+            end: '+=250',
+            scrub: true,
           }
         }
-      });
-    }, { threshold: 0 });
+      );
 
-    document.querySelectorAll('header').forEach((element) => {
-      observer.observe(element);
-    });
-  };
-
-  const setupObserverFooter = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const container = entry.target.querySelector('.footer-container');
-        if (!container) return;
-
-        if (entry.isIntersecting) {
-          gsap.fromTo(container, { y: 200 }, {
-            y: 0,
-            duration: 1,
-            delay: 0.1,
-            ease: 'power3.out',
-          });
-        } else {
-          gsap.to(container, {
-            y: 200,
-            duration: 1,
-            ease: 'power3.out',
-          });
+      gsap.fromTo(leftAnim, 
+        { x: '0%', }, 
+        {
+          x: '-200%',
+          ease: 'power3.in',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          }
         }
-      });
-    }, { threshold: 0 });
+      );
 
-    document.querySelectorAll('footer').forEach((footerEl) => {
-      observer.observe(footerEl);
-    });
-  };
-
-  const setupObserverThreeBlock = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.target.classList.contains('threeBlockAnim')) return;
-
-        const topAnim = entry.target.querySelectorAll('.topAnim');
-        const leftAnim = entry.target.querySelectorAll('.leftAnim');
-        const rightAnim = entry.target.querySelectorAll('.rightAnim');
-
-        if (entry.isIntersecting) {
-          gsap.fromTo(topAnim, { y: '-600%' }, {
-            y: 20,
-            duration: 1.5,
-            delay: 0.1,
-            ease: 'power3.out',
-          });
-          gsap.fromTo(leftAnim, { x: '-200%' }, {
-            x: 0,
-            duration: 1.5,
-            delay: 0.1,
-            ease: 'power3.out',
-          });
-          gsap.fromTo(rightAnim, { x: '200%' }, {
-            x: 0,
-            duration: 1.5,
-            delay: 0.1,
-            ease: 'power3.out',
-          });
-        } else {
-          gsap.to(topAnim, { y: '-600%', duration: 1.5, delay: 0.1, ease: 'power3.out' });
-          gsap.to(leftAnim, { x: '-200%', duration: 1.5, delay: 0.1, ease: 'power3.out' });
-          gsap.to(rightAnim, { x: '200%', duration: 1.5, delay: 0.1, ease: 'power3.out' });
+      gsap.fromTo(rightAnim, 
+        { x: '0%', },
+        { 
+          x: '200%',
+          ease: 'power3.in',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            markers: true,
+          }
         }
-      });
-    }, { threshold: 0.7 });
+      );
 
-    document.querySelectorAll('.threeBlockAnim').forEach((element) => {
-      observer.observe(element);
-    });
-  };
 
-  setupObserverHeader();
-  setupObserverFooter();
-  setupObserverThreeBlock();
+    }
+  });
 
-  // Mobile only "hover" simulation
-  if (window.innerWidth < 500) {
-    const elementsBnf = document.querySelectorAll('.the-grid-card');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio === 1) {
-          entry.target.classList.add('simulated-hover');
-        } else {
-          entry.target.classList.remove('simulated-hover');
-        }
-      });
-    }, {
-      threshold: 1.0
-    });
 
-    elementsBnf.forEach(el => observer.observe(el));
-  }
+
+
+  // // Mobile only "hover" simulation
+  // if (window.innerWidth < 500) {
+  //   const elementsBnf = document.querySelectorAll('.the-grid-card');
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting && entry.intersectionRatio === 1) {
+  //         entry.target.classList.add('simulated-hover');
+  //       } else {
+  //         entry.target.classList.remove('simulated-hover');
+  //       }
+  //     });
+  //   }, {
+  //     threshold: 1.0
+  //   });
+
+  //   elementsBnf.forEach(el => observer.observe(el));
+  // }
 }

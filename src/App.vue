@@ -20,4 +20,7 @@ export default {
             flex: 1;
         }
     }
+    body:has(#mobile-menu.active){
+      overflow: hidden;
+    }
 </style>

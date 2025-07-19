@@ -2,9 +2,14 @@
     <section id="price" class="information-section">
         <div class="content">
 
+            <div class="two-part-content">
+                <h2>{{ $t('serviceTitle') }}</h2>
+            </div>
+
+            <p class="opacityAnim info-text">{{ $t('serviceText') }}</p>
 
             <input type="checkbox" id="toggle" class="toggleCheckbox" />
-            <label for="toggle" class='toggleContainer'>
+            <label for="toggle" class="toggleContainer">
                 <div>{{ $t('btnDevelopment') }}</div>   
                 <div>{{ $t('btnSupport') }}</div>
             </label>
@@ -34,7 +39,7 @@
                                 </div>
                             </div>
 
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>
@@ -62,7 +67,7 @@
                                     <div class="benefit">{{ $t('serviceCardBen_2_3') }}</div>
                                 </div>
                             </div>
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_2'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_2'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>
@@ -90,7 +95,7 @@
                                     <div class="benefit">{{ $t('serviceCardBen_3_3') }}</div>
                                 </div>
                             </div>
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>
@@ -105,27 +110,27 @@
                     
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev1.jpg" alt="">
+                            <img src="../assets/upload/prev4.jpg" alt="">
                         </div>
 
                         <div class="top-part"></div>
 
                         <div class="bottom-part">
                             <div class="title-area">
-                                <h3 v-html="$t('serviceCardTitle_1')"></h3>
-                                <div class="price">{{ $t('serviceCardPrice_1') }}</div>
+                                <h3 v-html="$t('serviceCardTitle_4')"></h3>
+                                <div class="price">{{ $t('serviceCardPrice_4') }}</div>
                             </div>
 
                             <div class="content-part">
-                                <p class="text">{{ $t('serviceCardText_1') }}</p>
+                                <p class="text">{{ $t('serviceCardText_4') }}</p>
                                 <div class="benefits">
-                                    <div class="benefit">{{ $t('serviceCardBen_1_1') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_1_2') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_1_3') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_4_1') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_4_2') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_4_3') }}</div>
                                 </div>
                             </div>
 
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_4'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>
@@ -135,25 +140,25 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev2.jpg" alt="">
+                            <img src="../assets/upload/prev5.jpg" alt="">
                         </div>
 
                         <div class="top-part"></div>
 
                         <div class="bottom-part">
                             <div class="title-area">
-                                <h3 v-html="$t('serviceCardTitle_2')"></h3>
-                                <div class="price">{{ $t('serviceCardPrice_2') }}</div>
+                                <h3 v-html="$t('serviceCardTitle_5')"></h3>
+                                <div class="price">{{ $t('serviceCardPrice_5') }}</div>
                             </div>
                             <div class="content-part">
-                                <p class="text">{{ $t('serviceCardText_2') }}</p>
+                                <p class="text">{{ $t('serviceCardText_5') }}</p>
                                 <div class="benefits">
-                                    <div class="benefit">{{ $t('serviceCardBen_2_1') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_2_2') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_2_3') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_5_1') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_5_2') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_5_3') }}</div>
                                 </div>
                             </div>
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_2'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_5'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>
@@ -163,28 +168,28 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev3.jpg" alt="">
+                            <img src="../assets/upload/prev6.jpg" alt="">
                         </div>
 
                         <div class="top-part"></div>
 
                         <div class="bottom-part">
                             <div class="title-area">
-                                <h3 v-html="$t('serviceCardTitle_3')"></h3>
-                                <div class="price">{{ $t('serviceCardPrice_3') }}</div>
+                                <h3 v-html="$t('serviceCardTitle_6')"></h3>
+                                <div class="price">{{ $t('serviceCardPrice_6') }}</div>
                             </div>
                             <div class="content-part">
-                                <p class="text">{{ $t('serviceCardText_3') }}</p>
+                                <p class="text">{{ $t('serviceCardText63') }}</p>
                                 <div class="benefits">
-                                    <div class="benefit">{{ $t('serviceCardBen_3_1') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_3_2') }}</div>
-                                    <div class="benefit">{{ $t('serviceCardBen_3_3') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_6_1') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_6_2') }}</div>
+                                    <div class="benefit">{{ $t('serviceCardBen_6_3') }}</div>
                                 </div>
                             </div>
-                            <button class="btn-240 gr-fill btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_6'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
-                                </button>
+                            </button>
                         </div>
                     </div>
                 
@@ -262,7 +267,7 @@ export default {
         padding: 20px;
         justify-content: space-between;
         gap:20px;
-        height: 50%;
+        min-height: 50%;
 
         .title-area{
             width: 100%;
@@ -309,13 +314,20 @@ export default {
 
 
 
-
+.info-text{
+    margin-top: 20px;
+    max-width: 60%;
+}
 
 
 @media (max-width: 768px) {
     .services {
         flex-direction: column;
         align-items: center;
+    }
+
+    .info-text{
+        max-width: 100%;
     }
 }
 
@@ -405,16 +417,16 @@ export default {
     height: 100%;
 }
 
-.developmentCards {
-    .service-card{
-        .btn-240{
-            background: var(--second-color);
-            .btn-text{
-                color: var(--prime-color);
-            }
+
+.service-card{
+    .btn-240{
+        background: var(--second-color);
+        .btn-text{
+            color: var(--prime-color);
         }
     }
 }
+
 
 
 </style>

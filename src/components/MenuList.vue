@@ -1,17 +1,16 @@
 <script setup>
-import { watch, ref, defineProps } from 'vue'
+import { watch, ref, defineProps, defineEmits } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
-  // Если передали isOpen — анимация включена, иначе меню всегда видимо без анимации
   isOpen: {
     type: Boolean,
     default: null
   }
 })
 
+const emit = defineEmits(['close-menu'])
 const { t } = useI18n()
-
 const animateMenu = ref(false)
 
 const menuItems = [
@@ -44,12 +43,16 @@ watch(() => props.isOpen, (newVal) => {
       class="menu-item"
       :style="props.isOpen !== null ? { '--delay': (index * 0.15) + 's' } : {}"
     >
-      <router-link :to="{ path: '/', hash: item.href }">
+      <router-link 
+        :to="{ path: '/', hash: item.href }" 
+        @click="emit('close-menu')"
+      >
         {{ t(item.labelKey) }}
       </router-link>
     </li>
   </ul>
 </template>
+
 
 
 <style scoped>

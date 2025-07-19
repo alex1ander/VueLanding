@@ -31,9 +31,7 @@
 
                     <div class="content-header-part">
                         <LanguageDropdown />
-                        <div class="content-header-part">
-                            <BurgerMenu />                        
-                        </div>
+                        <BurgerMenu />                        
                     </div>
                 </div>
             </div>
@@ -118,6 +116,7 @@ header{
     z-index: 1000;
     top: 0px;
     padding: 14px 20px;
+    background: none;
 }
 .header-container{
     max-width: 1440px;
@@ -128,14 +127,18 @@ header{
     align-items: center;
     height:  #{$header-height}px;
     border-radius: 20px;
-    
-    backdrop-filter: blur(6px) saturate(150%);
-    -webkit-backdrop-filter: blur(6px) saturate(150%);
     background: linear-gradient(134deg, rgba(62, 176, 212, 0.6) 0%, rgba(150, 99, 200, 0.6) 100%) !important;
-
-
-    .two-part-content{
-        z-index:1;
+    position: relative;
+    &::after{
+        content: '';
+        height: 100%;
+        width: 100%;
+        border-radius: 30px;
+        position: absolute;
+        backdrop-filter: blur(6px) saturate(150%);
+        -webkit-backdrop-filter: blur(6px) saturate(150%);
+        z-index: -1;
+        
     }
 
     .container{
@@ -175,9 +178,9 @@ header{
         padding-left: $content-padding;
         padding-right: $content-padding;
     }
-
-
 }
+
+
 
 @media (max-width: 1024px) {
 
