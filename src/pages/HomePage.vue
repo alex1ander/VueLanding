@@ -1,6 +1,8 @@
 <template>
   <HeaderSection />
+  <CursorCircle />
   <main>
+    <!-- <VolumeFigure /> -->
     <HeroSection @open-contact-form="handleOpenContactForm" />
     <SliderStack />
     <OurBenefits />
@@ -44,13 +46,16 @@ import FooterSection from '@/components/FooterSection.vue'
 import FigureFirst from '@/components/FigureFirst.vue'
 import FigureSecond from '@/components/FigureSecond.vue'
 import SvgSprite from '@/components/SvgSprite.vue'
-
+// import VolumeFigure from '@/components/VolumeFigure.vue'
+import CursorCircle from '@/components/CursorCircle.vue'
 import { initSmoothScroll } from '@/assets/js/script.js'
 import { initAnimations } from '@/assets/js/animations.js' // предполагается, что такая функция экспортируется
 
 export default {
   name: 'HomePage',
   components: {
+    // VolumeFigure,
+    CursorCircle,
     HeaderSection,
     HeroSection,
     RunningString,

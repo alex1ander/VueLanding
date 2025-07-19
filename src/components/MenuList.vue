@@ -1,5 +1,5 @@
 <script setup>
-import { watch, ref, defineProps, defineEmits } from 'vue'
+import { watch, ref, defineProps,  } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
@@ -9,7 +9,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['close-menu'])
+// const emit = defineEmits(['close-menu'])
 const { t } = useI18n()
 const animateMenu = ref(false)
 
@@ -44,8 +44,7 @@ watch(() => props.isOpen, (newVal) => {
       :style="props.isOpen !== null ? { '--delay': (index * 0.15) + 's' } : {}"
     >
       <router-link 
-        :to="{ path: '/', hash: item.href }" 
-        @click="emit('close-menu')"
+        :to="{hash: item.href }" 
       >
         {{ t(item.labelKey) }}
       </router-link>

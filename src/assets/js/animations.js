@@ -224,7 +224,6 @@ export function initAnimations() {
             start: 'top top',
             end: 'bottom top',
             scrub: true,
-            markers: true,
           }
         }
       );

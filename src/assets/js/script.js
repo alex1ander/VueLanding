@@ -23,7 +23,7 @@ export function initSmoothScroll() {
 
 // Плавный скролл по якорным ссылкам (например, .main-menu a)
 export function initAnchorLinks() {
-  if (!lenisInstance) return
+  // if (!lenisInstance) return
 
   document.querySelectorAll('.main-menu a, .logo-text').forEach((btn) => {
     btn.addEventListener('click', (e) => {
