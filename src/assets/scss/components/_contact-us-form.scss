@@ -11,6 +11,7 @@
         button{
             background: var(--support-color);
             color: var(--prime-color);
+            pointer-events: none;
         }
     }
     &:not(:has(input:invalid)){

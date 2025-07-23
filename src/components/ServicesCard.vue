@@ -9,9 +9,9 @@
             <p class="opacityAnim info-text">{{ $t('serviceText') }}</p>
 
             <input type="checkbox" id="toggle" class="toggleCheckbox" />
-            <label for="toggle" class="toggleContainer">
-                <div>{{ $t('btnDevelopment') }}</div>   
-                <div>{{ $t('btnSupport') }}</div>
+            <label for="toggle" class="toggleContainer opacityAnim">
+                <div class="cursor-hover">{{ $t('btnDevelopment') }}</div>   
+                <div class="cursor-hover">{{ $t('btnSupport') }}</div>
             </label>
 
             <div class="service-relative animScroll">

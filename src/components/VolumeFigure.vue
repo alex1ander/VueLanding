@@ -1,69 +1,113 @@
 <template>
-  <div ref="canvasContainer" style="width: 100%; height: 100vh;"></div>
+  <div style="height: 200vh; position: relative;">
+    <!-- SVG на всю ширину и высоту -->
+    <svg 
+      width="100vw" 
+      height="100vh" 
+      style="position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;"
+      viewBox="0 0 1000 1000"
+      preserveAspectRatio="none"
+    >
+      <path
+        id="motionPath"
+        d="
+          M 400 0
+          C 650 200, 350 400, 500 600
+          S 650 900, 500 1400
+        "
+        stroke="blue"
+        stroke-width="4"
+        fill="none"
+      />
+    </svg>
+
+    <model-viewer
+      camera-orbit="180deg 40deg 6m"
+      
+      ref="model"
+      src="/model/low_poly_helicopter.glb"
+      alt="Helicopter 3D Model"
+      autoplay
+      style="width: 400px; height: 200px; position: fixed; z-index: 9999; top: 0; left: 0; transform-origin: center;"
+    ></model-viewer>
+
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { ref, onMounted } from 'vue'
+import Lenis from '@studio-freight/lenis'
 
-const canvasContainer = ref(null)
+const model = ref(null)
 
-let scene, camera, renderer, controls, model, animationFrameId
-
-onMounted(() => {
-  scene = new THREE.Scene()
-  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000)
-  camera.position.set(0, 1.5, 3)
-
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  canvasContainer.value.appendChild(renderer.domElement)
-
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1)
-  dirLight.position.set(5, 10, 7)
-  scene.add(dirLight)
-  scene.add(new THREE.AmbientLight(0x404040))
-
-  controls = new OrbitControls(camera, renderer.domElement)
-  controls.enableDamping = true
-  controls.dampingFactor = 0.05
-
-  const loader = new GLTFLoader()
-  loader.load(
-    // Модель утки из официального репозитория glTF
-    'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf',
-    (gltf) => {
-      model = gltf.scene
-      scene.add(model)
-      animate()
-    },
-    undefined,
-    (error) => {
-      console.error('Ошибка загрузки модели:', error)
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${src}"]`)) {
+      resolve()
+      return
     }
-  )
-
-  window.addEventListener('resize', onWindowResize)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', onWindowResize)
-  if (animationFrameId) cancelAnimationFrame(animationFrameId)
-  renderer.dispose()
-  controls.dispose()
-})
-
-function animate() {
-  animationFrameId = requestAnimationFrame(animate)
-  controls.update()
-  renderer.render(scene, camera)
+    const script = document.createElement('script')
+    script.src = src
+    script.type = 'module'
+    script.onload = () => resolve()
+    script.onerror = () => reject()
+    document.head.appendChild(script)
+  })
 }
 
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight
-  camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight)
-}
+
+
+onMounted(async () => {
+  try {
+    await loadScript('https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js')
+  } catch {
+    console.error('Failed to load model-viewer script')
+  }
+
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => t * (2 - t),
+    smooth: true,
+  })
+
+  const path = document.getElementById('motionPath')
+  const pathLength = path.getTotalLength()
+
+  function raf(time) {
+    lenis.raf(time)
+    updateModelPosition(lenis.scroll)
+    requestAnimationFrame(raf)
+  }
+  requestAnimationFrame(raf)
+
+  function updateModelPosition(scroll) {
+    const maxScroll = document.body.scrollHeight - window.innerHeight
+    const t = Math.min(scroll / maxScroll, 1)
+
+    // Текущая точка на пути
+    const point = path.getPointAtLength(t * pathLength)
+    // Следующая точка для вычисления направления
+    const delta = 1
+    const nextT = Math.min(t * pathLength + delta, pathLength)
+    const nextPoint = path.getPointAtLength(nextT)
+
+    const dx = nextPoint.x - point.x
+    const dy = nextPoint.y - point.y
+    const angle = Math.atan2(dy, dx) * (180 / Math.PI)
+
+    if (model.value) {
+      // Переводим координаты SVG в координаты экрана с учётом размеров и позиции SVG
+      // SVG занимает весь экран с viewBox 1000x1000, координаты нормализуем:
+      const vw = window.innerWidth
+      const vh = window.innerHeight
+      const x = (point.x / 1000) * vw
+      const y = (point.y / 1000) * vh
+
+      model.value.style.left = `${x}px`
+      model.value.style.top = `${y}px`
+      model.value.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`
+    }
+  }
+})
 </script>

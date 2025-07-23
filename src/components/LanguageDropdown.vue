@@ -8,19 +8,19 @@
     </div>
     <div class="dropdown-body" @click.stop>
       <ul class="selected-list animated-list">
-        <li :class="{ active: locale.value === 'ua' }" @click.stop="switchLanguage('ua')">
+        <li class="cursor-hover" :class="{ active: locale.value === 'ua' }" @click.stop="switchLanguage('ua')"> 
           Українська
           <svg v-if="locale.value === 'ua'" width="16" height="16" class="sprite-svg-fill">
             <use href="#check"></use>
           </svg>
         </li>
-        <li :class="{ active: locale.value === 'ru' }" @click.stop="switchLanguage('ru')">
+        <li class="cursor-hover"  :class="{ active: locale.value === 'ru' }" @click.stop="switchLanguage('ru')">
           Русский
           <svg v-if="locale.value === 'ru'" width="24" height="24" class="sprite-svg-fill">
             <use href="#check"></use>
           </svg>
         </li>
-        <li :class="{ active: locale.value === 'en' }" @click.stop="switchLanguage('en')">
+        <li class="cursor-hover"  :class="{ active: locale.value === 'en' }" @click.stop="switchLanguage('en')">
           English
           <svg v-if="locale.value === 'en'" width="24" height="24" class="sprite-svg-fill">
             <use href="#check"></use>

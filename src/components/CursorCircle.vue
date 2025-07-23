@@ -1,7 +1,7 @@
 <template>
   <div 
     class="cursor-circle" 
-    :class="{ 'cursor-small': isHovering }" 
+    :class="{ 'cursor-hovered': isHovering }" 
     :style="{ left: x + 'px', top: y + 'px' }"
   ></div>
 </template>
@@ -18,17 +18,30 @@ function onMouseMove(e) {
   y.value = e.clientY
 }
 
+const hoverClasses = ['dropdown-head', 'another-class','slider-btn','btn-pop-up','cursor-hover',];
+const hoverTags = ['BUTTON', 'A']; // теги указываются в верхнем регистре
+
 function onMouseOver(e) {
-  if (e.target.classList.contains('hover-target')) {
-    isHovering.value = true
+  const el = e.target;
+  if (
+    hoverClasses.some(cls => el.classList.contains(cls)) ||
+    hoverTags.includes(el.tagName)
+  ) {
+    isHovering.value = true;
   }
 }
 
 function onMouseOut(e) {
-  if (e.target.classList.contains('hover-target')) {
-    isHovering.value = false
+  const el = e.target;
+  if (
+    hoverClasses.some(cls => el.classList.contains(cls)) ||
+    hoverTags.includes(el.tagName)
+  ) {
+    isHovering.value = false;
   }
 }
+
+
 
 onMounted(() => {
   window.addEventListener('mousemove', onMouseMove)
@@ -52,14 +65,14 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 1px solid #3EB0D4;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease;
   z-index: 100000;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
 }
 
-.cursor-small {
+.cursor-hovered {
   width: 20px;
   height: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgb(255, 50, 150);
 }
 </style>

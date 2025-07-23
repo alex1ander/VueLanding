@@ -386,6 +386,7 @@ $sizeCirlce: 5px;
 
 .sprite-svg-fill{
     fill:var(--second-color);
+    pointer-events: none;
 }
 .sprite-svg-stroke{
     fill:none;
@@ -452,6 +453,7 @@ $sizeCirlce: 5px;
     .btn-text{
         flex: 1;
         padding: 0 20px;
+        pointer-events: none;
     }
 
     &:has(.btn-after){
@@ -469,6 +471,8 @@ $sizeCirlce: 5px;
         aspect-ratio: 1;
         border-radius: 100%;
         transition: transform 0.2s ease-out;
+        pointer-events: none;
+
     }
     &:hover{
         .btn-after{

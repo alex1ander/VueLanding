@@ -100,45 +100,57 @@ export function initAnimations() {
     });
   });
 
-  const scrollAnimation = document.querySelectorAll('#our-products,#advantages,#our-service,#price,#our-works');
+  const scrollAnimation = document.querySelectorAll('#our-products, #advantages, #our-service, #price, #our-works');
+
+if (scrollAnimation.length > 0) {
   scrollAnimation.forEach((container) => {
+    if (!container) return;
+
     const leftAnim = container.querySelectorAll('.two-part-content h2');
     const rightAnim = container.querySelectorAll('.rightAnim');
     const opacityAnim = container.querySelectorAll('.opacityAnim');
 
-    gsap.fromTo(leftAnim, { x: '-100%' }, {
-      x: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: container,
-        start: `top bottom`,
-        end: '-=150',   
-        scrub: true,
-      }
-    });
+    if (leftAnim.length > 0) {
+      gsap.fromTo(leftAnim, { x: '-100%' }, {
+        x: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+    }
 
-    gsap.fromTo(rightAnim, { x: '100%' }, {
-      x: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container,
-        start: `top bottom`,
-        end: '-=150',   
-        scrub: true,
-      }
-    });
+    if (rightAnim.length > 0) {
+      gsap.fromTo(rightAnim, { x: '100%' }, {
+        x: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+    }
 
-    gsap.fromTo(opacityAnim, { opacity: 0 }, {
-      opacity: 1,
-      ease: 'power4.in',
-      scrollTrigger: {
-        trigger: container,
-        start: 'top bottom',
-        end: '-=150',   
-        scrub: true,
-      }
-    });
+    if (opacityAnim.length > 0) {
+      gsap.fromTo(opacityAnim, { opacity: 0 }, {
+        opacity: 1,
+        ease: 'power4.in',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: '-=150',
+          scrub: true,
+        }
+      });
+    }
   });
+}
+
 
 
   const threeBlockContainers = document.querySelectorAll('.threeBlockAnim');

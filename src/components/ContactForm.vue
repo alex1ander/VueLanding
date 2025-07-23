@@ -39,6 +39,7 @@
                 :class="{ active: type.value === currentType.value }"
                 :key="type.value"
                 @click.stop="selectType(type)"
+                class="cursor-hover"
               >
                 {{ type.label }}
                 <svg
