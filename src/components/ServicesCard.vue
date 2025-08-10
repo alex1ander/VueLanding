@@ -95,7 +95,7 @@
                                     <div class="benefit">{{ $t('serviceCardBen_3_3') }}</div>
                                 </div>
                             </div>
-                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_1'))">
+                            <button class="btn-240 btn-pop-up" @click="$emit('open-contact-form', $t('serviceCardTitle_3'))">
                                     <span class="btn-text">{{ $t('consultBtn') }}</span>
                                     <div class="btn-after"><svg width="14" height="14" class="sprite-svg-fill"><use href="#arrow-service"></use></svg></div>
                                 </button>

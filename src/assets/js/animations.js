@@ -46,8 +46,8 @@ export function initAnimations() {
       ease: 'none',
       scrollTrigger: {
         trigger: container,
-        start: `top+=150 bottom`,
-        end: `bottom+=50 center`,
+        start: `top bottom`,
+        end: `bottom+=150 center`,
         scrub: true,
       }
     });
@@ -57,8 +57,8 @@ export function initAnimations() {
       ease: 'none',
       scrollTrigger: {
         trigger: container,
-        start: `top+=150 bottom`,
-        end: `bottom+=50 center`,
+        start: `top bottom`,
+        end: `bottom+=150 center`,
         scrub: true,
       }
     });
@@ -244,26 +244,4 @@ if (scrollAnimation.length > 0) {
     }
   });
 
-
-
-
-
-  // // Mobile only "hover" simulation
-  // if (window.innerWidth < 500) {
-  //   const elementsBnf = document.querySelectorAll('.the-grid-card');
-
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting && entry.intersectionRatio === 1) {
-  //         entry.target.classList.add('simulated-hover');
-  //       } else {
-  //         entry.target.classList.remove('simulated-hover');
-  //       }
-  //     });
-  //   }, {
-  //     threshold: 1.0
-  //   });
-
-  //   elementsBnf.forEach(el => observer.observe(el));
-  // }
 }

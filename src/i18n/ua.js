@@ -132,5 +132,11 @@ export default {
     formMessageSuccess: "✅ Ваш запит успішно надіслано. Дякуємо за звернення!",
     formMessageErrorSend: "❌ Сталася помилка під час відправлення форми. Будь ласка, спробуйте пізніше.",
     formMessageErrorServer: "⚠️ Сервер тимчасово недоступний. Будь ласка, спробуйте пізніше.",
+
+    formIsWantsComment: "Бажаєте залишити коментар?", 
+    formLabelComment: "Коментар:", 
+    formPlaceholderComment: "Введіть ваш коментар тут...",
+
+    loading: "Завантаження..."
 };
   

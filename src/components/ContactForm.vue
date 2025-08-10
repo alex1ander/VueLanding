@@ -92,14 +92,21 @@
 
     <!-- Чекбокс оставить комментарий -->
     <div class="isWantsComment this-input-block">
-      <label>{{ $t('formIsWantsComment') }}</label>
-      <div class="wrapper-input">
+      <label>
+        {{ $t('formIsWantsComment') }}
+      </label>
+
+      <div class="wrapper-checbox-input">
         <input
           type="checkbox"
+          id="custom-checkbox"
           v-model="wantsComment"
+          class="checkbox-native"
         />
+        <span class="custom-checkbox"></span>
       </div>
     </div>
+
 
     <!-- Текстовое поле комментария, появляется только если wantsComment === true -->
     <transition name="expand">
@@ -115,16 +122,14 @@
       </div>
     </transition>
 
-
-
+    <!-- Сообщение об успехе или ошибке -->
+    <p v-if="message.text" :class="['form-message', message.type]">{{ message.text }}</p>
 
     <!-- Кнопка -->
     <button type="submit" class="btn-240 gr-transition" :disabled="loading">
       {{ loading ? $t('loading') : $t('consultBtn') }}
     </button>
 
-    <!-- Сообщение об успехе или ошибке -->
-    <p v-if="message.text" :class="['form-message', message.type]">{{ message.text }}</p>
   </form>
 </template>
 
@@ -144,6 +149,8 @@ export default {
       name: '',
       contactValue: '',
       currentTypeValue: 'tel',
+      wantsComment: false,
+      comment: '',
       isDropdownActive: false,
       honeypot: '', // для защиты от спама
       loading: false,
@@ -151,9 +158,6 @@ export default {
         text: '',
         type: '' // 'success' или 'error'
       },
-
-      wantsComment: false,
-      comment: '',
     }
   },
   computed: {
@@ -205,11 +209,11 @@ export default {
       try {
         const payload = {
           name: this.name,
-          contactType: this.currentType.value,
+          contactType: this.currentTypeValue, // вместо contactValue
           contactValue: this.contactValue,
           service: this.localService,
+          comment: this.comment.trim(),
         }
-
         // Добавляем комментарий, если пользователь хочет его оставить
         if (this.wantsComment && this.comment.trim() !== '') {
           payload.comment = this.comment.trim()
@@ -220,15 +224,6 @@ export default {
         if (res.data.success) {
           this.message.text = this.$t('formMessageSuccess')
           this.message.type = 'success'
-
-          // Сброс формы
-          this.name = ''
-          this.contactValue = ''
-          this.localService = ''
-          this.currentTypeValue = 'tel'
-          this.isDropdownActive = false
-          this.wantsComment = false
-          this.comment = ''
         } else {
           this.message.text = this.$t('formMessageErrorSend')
           this.message.type = 'error'
@@ -269,9 +264,72 @@ export default {
   flex-direction: row;
   align-items: center;
   align-self: start;
+  gap: 20px;
 }
 
 
+
+.wrapper-checbox-input {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.checkbox-native {
+  position: absolute;
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #888;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* Ховер эффекты */
+.wrapper-checbox-input:hover .custom-checkbox {
+  border-color: #3EB0D4
+}
+
+/* Состояние checked */
+.checkbox-native:checked + .custom-checkbox {
+  border-color: #3EB0D4
+}
+
+/* Галочка */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid rgb(255, 50, 150);;
+  border-width: 0 3px 3px 0;
+  opacity: 0;
+  transform: rotate(45deg) scale(0);
+  transition: all 0.4s ease;
+}
+
+/* Показываем галочку, если checked */
+.checkbox-native:checked + .custom-checkbox::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
 
 
 </style>

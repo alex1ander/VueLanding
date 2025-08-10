@@ -27,7 +27,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <router-link :to="`/${currentLang}`" class="logo-text">
+  <router-link :to="`/${currentLang}#top`" class="logo-text">
     <div class="char-container" ref="textContainer">
       <span v-for="(char, index) in textArray" :key="index" class="char">{{ char }}</span>
     </div>

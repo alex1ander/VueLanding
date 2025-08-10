@@ -25,11 +25,10 @@ const i18n = createI18n({
 const app = createApp(App);
 
 
-import { initSmoothScroll, initAnchorLinks } from '@/assets/js/script.js'
+import { initSmoothScroll } from '@/assets/js/script.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll()
-  initAnchorLinks()
 })
 
 

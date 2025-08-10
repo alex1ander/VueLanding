@@ -113,5 +113,11 @@ export default {
   formMessageErrorSend: "❌ An error occurred while sending the form. Please try again later.",
   formMessageErrorServer: "⚠️ The server is temporarily unavailable. Please try again later.",
 
+
+  formIsWantsComment: "Want to leave a comment?",
+  formLabelComment: "Comment:",
+  formPlaceholderComment: "Enter your comment here...",
+
+  loading: "Loading..."
 };
   

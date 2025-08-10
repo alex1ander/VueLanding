@@ -128,8 +128,6 @@ export default {
 
   formLabelName: 'Ваше имя:', 
   formLabelContact: 'Ваш контакт:', 
-  formLabelComment: '',
-  formIsWantsComment: 'Добавить комментарий:',
 
   phone: 'Телефон',
   formPlaceholderType: '+38 ____ ___ ___',
@@ -139,5 +137,11 @@ export default {
   formMessageSuccess: "✅ Ваш запрос успешно отправлен. Спасибо за обращение!",
   formMessageErrorSend: "❌ Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.",
   formMessageErrorServer: "⚠️ Сервер временно недоступен. Пожалуйста, попробуйте позже.",
+
+  formIsWantsComment: "Хотите оставить комментарий?",
+  formLabelComment: "Комментарий:",
+  formPlaceholderComment: "Введите ваш комментарий здесь...",
+
+  loading: "Загрузка..."
 };
     

@@ -1,5 +1,5 @@
 <template>
-   <div class="dark-style container">
+   <div id="top" class="dark-style container">
     <router-view />
   </div>
 </template>
