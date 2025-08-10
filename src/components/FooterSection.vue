@@ -20,7 +20,7 @@ const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
         <LogoText />
       </div>
       <MenuList />
-      <p>Copyright © 2025 BitLazur. All rights reserved.</p>
+      <p>Copyright © 2025 BitAlexis. All rights reserved.</p>
       <ul class="useful-links">
         <li>
           <router-link :to="`/${currentLang}/privacy-policy`">

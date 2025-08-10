@@ -90,6 +90,34 @@
       </div>
     </div>
 
+    <!-- Чекбокс оставить комментарий -->
+    <div class="isWantsComment this-input-block">
+      <label>{{ $t('formIsWantsComment') }}</label>
+      <div class="wrapper-input">
+        <input
+          type="checkbox"
+          v-model="wantsComment"
+        />
+      </div>
+    </div>
+
+    <!-- Текстовое поле комментария, появляется только если wantsComment === true -->
+    <transition name="expand">
+      <div class="this-input-block" v-if="wantsComment" style="overflow: hidden;">
+        <label for="comment">{{ $t('formLabelComment') }}</label>
+        <textarea
+          id="comment"
+          name="comment"
+          v-model="comment"
+          rows="4"
+          :placeholder="$t('formPlaceholderComment')"
+        ></textarea>
+      </div>
+    </transition>
+
+
+
+
     <!-- Кнопка -->
     <button type="submit" class="btn-240 gr-transition" :disabled="loading">
       {{ loading ? $t('loading') : $t('consultBtn') }}
@@ -122,7 +150,10 @@ export default {
       message: {
         text: '',
         type: '' // 'success' или 'error'
-      }
+      },
+
+      wantsComment: false,
+      comment: '',
     }
   },
   computed: {
@@ -140,7 +171,7 @@ export default {
   },
   watch: {
     service(newVal) {
-      this.localService = newVal  // синхронизируем локальную копию при изменении пропса
+      this.localService = newVal
     }
   },
   methods: {
@@ -174,26 +205,37 @@ export default {
       try {
         const payload = {
           name: this.name,
-          phone: `${this.currentType.label}: ${this.contactValue}`,
+          contactType: this.currentType.value,
+          contactValue: this.contactValue,
           service: this.localService,
+        }
+
+        // Добавляем комментарий, если пользователь хочет его оставить
+        if (this.wantsComment && this.comment.trim() !== '') {
+          payload.comment = this.comment.trim()
         }
 
         const res = await axios.post('http://localhost:3000/send-lead', payload)
 
         if (res.data.success) {
-          this.message.text = this.$t('formMessageSuccess')       // Ключ для успешной отправки
+          this.message.text = this.$t('formMessageSuccess')
           this.message.type = 'success'
 
+          // Сброс формы
           this.name = ''
           this.contactValue = ''
           this.localService = ''
+          this.currentTypeValue = 'tel'
+          this.isDropdownActive = false
+          this.wantsComment = false
+          this.comment = ''
         } else {
-          this.message.text = this.$t('formMessageErrorSend')      // Ключ для ошибки при отправке
+          this.message.text = this.$t('formMessageErrorSend')
           this.message.type = 'error'
         }
       } catch (error) {
         console.error('Ошибка при отправке:', error.response ? error.response.data : error.message)
-        this.message.text = this.$t('formMessageErrorServer')     // Ключ для ошибки сервера
+        this.message.text = this.$t('formMessageErrorServer')
         this.message.type = 'error'
       } finally {
         this.loading = false
@@ -222,4 +264,14 @@ export default {
 .form-message.error {
   color: red;
 }
+
+.isWantsComment{
+  flex-direction: row;
+  align-items: center;
+  align-self: start;
+}
+
+
+
+
 </style>

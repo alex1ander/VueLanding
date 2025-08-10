@@ -15,7 +15,7 @@ const animateMenu = ref(false)
 
 const menuItems = [
   { labelKey: 'menuOurServices', href: '#our-service' },
-  { labelKey: 'menuOurWorks', href: '#our-products' },
+  { labelKey: 'menuOurWorks', href: '#our-works' },
   { labelKey: 'menuAboutUs', href: '#advantages' },
   { labelKey: 'menuPrice', href: '#price' },
 ]

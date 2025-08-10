@@ -1,8 +1,8 @@
 export default {
   //static
   meta: {
-    title: 'BitLazur — turnkey websites for business in Ukraine, Europe, USA',
-    description: 'BitLazur is a web development team building full-cycle websites in Ukrainian, Russian, and English. We serve clients from Ukraine, Europe, and the USA — from concept to launch and beyond.'
+    title: 'BitAlexis — turnkey websites for business in Ukraine, Europe, USA',
+    description: 'BitAlexis is a web development team building full-cycle websites in Ukrainian, Russian, and English. We serve clients from Ukraine, Europe, and the USA — from concept to launch and beyond.'
   },
   currentLanguageCode: 'EN',
   currentLanguage: 'English',

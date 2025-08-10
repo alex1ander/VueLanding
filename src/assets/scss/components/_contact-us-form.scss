@@ -50,7 +50,7 @@
             line-height: 1.5em;
         }
 
-        input {
+        input,textarea {
             font-weight: 500;
             font-size: 16px;
             line-height: 1.5em;
@@ -68,6 +68,11 @@
                 -webkit-text-fill-color: var(--second-color);
                 caret-color: var(--second-color);
             }
+        }
+        textarea{
+            min-width: 100%!important;
+            resize: vertical;
+            min-height: 120px;
         }
     }
 

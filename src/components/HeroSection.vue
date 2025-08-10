@@ -6,7 +6,7 @@
 
 
             <div class="hero-name topAnim">
-                <p class="fw-700">Bitlazur Agency</p>
+                <p class="fw-700">BitAlexis Agency</p>
                 <p>{{ $t('studioText') }}</p>
             </div>
 

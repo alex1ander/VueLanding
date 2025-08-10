@@ -3,7 +3,7 @@ import { computed, ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { useRoute } from 'vue-router'
 
-const text = '<BITLAZUR/>'
+const text = '<BITALEXIS/>'
 const textArray = text.split('')
 const textContainer = ref(null)
 const route = useRoute()

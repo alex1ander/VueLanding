@@ -100,7 +100,7 @@ export function initAnimations() {
     });
   });
 
-  const scrollAnimation = document.querySelectorAll('#our-products, #advantages, #our-service, #price, #our-works');
+  const scrollAnimation = document.querySelectorAll('#our-works, #advantages, #our-service, #price, #our-works');
 
 if (scrollAnimation.length > 0) {
   scrollAnimation.forEach((container) => {

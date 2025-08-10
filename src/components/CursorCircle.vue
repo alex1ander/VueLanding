@@ -19,7 +19,7 @@ function onMouseMove(e) {
 }
 
 const hoverClasses = ['dropdown-head', 'another-class','slider-btn','btn-pop-up','cursor-hover','logo-text'];
-const hoverTags = ['BUTTON', 'A']; // теги указываются в верхнем регистре
+const hoverTags = ['BUTTON', 'A','INPUT']; // теги указываются в верхнем регистре
 
 function onMouseOver(e) {
   const el = e.target;
