@@ -302,12 +302,12 @@ export default {
 
 /* Ховер эффекты */
 .wrapper-checbox-input:hover .custom-checkbox {
-  border-color: #3EB0D4
+  border-color: rgb(62, 176, 212)
 }
 
 /* Состояние checked */
 .checkbox-native:checked + .custom-checkbox {
-  border-color: #3EB0D4
+  border-color: rgb(62, 176, 212)
 }
 
 /* Галочка */
@@ -318,7 +318,7 @@ export default {
   top: 1px;
   width: 6px;
   height: 12px;
-  border: solid rgb(255, 50, 150);;
+  border: solid rgb(255, 50, 150);
   border-width: 0 3px 3px 0;
   opacity: 0;
   transform: rotate(45deg) scale(0);
