@@ -179,7 +179,7 @@
                                 <div class="price">{{ $t('serviceCardPrice_6') }}</div>
                             </div>
                             <div class="content-part">
-                                <p class="text">{{ $t('serviceCardText63') }}</p>
+                                <p class="text">{{ $t('serviceCardText_6') }}</p>
                                 <div class="benefits">
                                     <div class="benefit">{{ $t('serviceCardBen_6_1') }}</div>
                                     <div class="benefit">{{ $t('serviceCardBen_6_2') }}</div>
@@ -328,6 +328,14 @@ export default {
 
     .info-text{
         max-width: 100%;
+    }
+    .service-relative{
+        margin-bottom: 80px;
+    }
+    .toggleContainer{
+        position: sticky!important;
+        top: calc(100dvh - 65px);
+        z-index: 100;
     }
 }
 

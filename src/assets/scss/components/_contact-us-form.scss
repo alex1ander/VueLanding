@@ -185,6 +185,9 @@
         height: 80%;
 
         .dropdown-head {
+            *{
+                pointer-events: n;
+            }
             padding: 8px 16px;
             span{
                 color: var(--prime-color);

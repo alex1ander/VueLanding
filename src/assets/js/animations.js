@@ -29,7 +29,7 @@ export function initAnimations() {
         scrollTrigger: {
           trigger: card,
           start: `top+=${(index % gridCount) * 100} bottom`,
-          end: `-=150`,
+          end: `+=50 center`,
           scrub: true,
         }
       });
@@ -47,7 +47,7 @@ export function initAnimations() {
       scrollTrigger: {
         trigger: container,
         start: `top+=150 bottom`,
-        end: `bottom+=150 center`,
+        end: `bottom+=50 center`,
         scrub: true,
       }
     });
@@ -58,7 +58,7 @@ export function initAnimations() {
       scrollTrigger: {
         trigger: container,
         start: `top+=150 bottom`,
-        end: `bottom+=150 center`,
+        end: `bottom+=50 center`,
         scrub: true,
       }
     });
@@ -117,7 +117,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });
@@ -130,7 +130,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });
@@ -143,7 +143,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });
@@ -170,7 +170,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });
@@ -181,7 +181,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });
@@ -192,7 +192,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '-=150',
+          end: '+=50 center',
           scrub: true,
         }
       });

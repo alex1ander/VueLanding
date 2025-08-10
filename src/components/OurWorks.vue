@@ -2,7 +2,7 @@
     <section id="our-works" class="information-section">
         <div class="content top-part-section">
             <div class="two-part-content">
-                <h2>{{ $t('ourWorksTitle') }}</h2>
+                <h2>{{ $t('ourCasesTitle') }}</h2>
             </div>
         </div>
         <div class="content">

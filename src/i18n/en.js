@@ -44,32 +44,59 @@ export default {
 
   consultTitle: 'Leave a request and we will create the website of your dreams',
 
+  serviceTitle: 'Website creation and development services',
+  serviceText: 'We will create a website or web application for you - from a landing page to an online store, and also provide design, promotion and support services. You can familiarize yourself with our basic services and leave a request with the option you need',
+    
   btnDevelopment: 'Development',
   btnSupport: 'Support',
 
-  serviceCardTitle_1: 'Landing Page Development',
-  serviceCardText_1: 'We will create a modern landing page or business card site for the effective presentation of your business.',
-  serviceCardPrice_1: 'From $150',
+  serviceCardTitle_1: 'Landing Page',
+  serviceCardText_1: 'A modern landing page or business card site to present your business and attract customers.',
+  serviceCardPrice_1: '$150',
 
-  serviceCardTitle_2: 'Business Site Development',
-  serviceCardText_2: 'We develop convenient sites for publishing articles and portfolios - an ideal solution for professionals.',
-  serviceCardPrice_2: 'From $499',
+  serviceCardBen_1_1: 'Design: 2 hrs',
+  serviceCardBen_1_2: 'Development: 8 hrs',
+  serviceCardBen_1_3: 'Goal: Attracting applications',
 
-  serviceCardTitle_3: 'Online Store Development',
-  serviceCardText_3: 'We will create a convenient online store or marketplace for successful online sales.',
-  serviceCardPrice_3: 'From $999',
+  serviceCardTitle_2: 'Business site',
+  serviceCardText_2: 'A convenient site for articles, portfolios or services — a solution for companies and specialists.',
+  serviceCardPrice_2: '$499',
 
-  serviceCardTitle_4: 'Website Design Creation',
-  serviceCardText_4: 'We create stylish and convenient designs that highlight your brand and hold users attention.',
-  serviceCardPrice_4: 'From $149',
+  serviceCardBen_2_1: 'Design: 4 hrs',
+  serviceCardBen_2_2: 'Development: 60 hr',
+  serviceCardBen_2_3: 'Purpose: Brand presentation',
 
-  serviceCardTitle_5: 'SEO & Website Promotion',
-  serviceCardText_5: 'We improve website rankings in search engines to increase traffic and business growth.',
-  serviceCardPrice_5: 'From $149',
+  serviceCardTitle_3: 'Online store',
+  serviceCardText_3: 'Online store on a popular platform or custom development for online sales.',
+  serviceCardPrice_3: '$999',
 
-  serviceCardTitle_6: 'IT services for business',
-  serviceCardText_6: 'We help companies set up online processes: from consultations to complete digitalization of business.',
+  serviceCardBen_3_1: 'Design: 8 hr',
+  serviceCardBen_3_2: 'Development: 80 hr',
+  serviceCardBen_3_3: 'Purpose: Selling products',
+
+  serviceCardTitle_4: 'Design creation',
+  serviceCardText_4: 'Stylish and convenient layouts that emphasize the brand and hold attention.',
+  serviceCardPrice_4: 'from $149',
+
+  serviceCardBen_4_1: 'Unique style',
+  serviceCardBen_4_2: 'User-friendly interface',
+  serviceCardBen_4_3: 'Adaptability',
+
+  serviceCardTitle_5: 'Website promotion',
+  serviceCardText_5: 'SEO and promotion strategy for traffic growth, requests and sales.',
+  serviceCardPrice_5: 'from $149',
+
+  serviceCardBen_5_1: 'Turnkey SEO',
+  serviceCardBen_5_2: 'Structure analysis',
+  serviceCardBen_5_3: 'Visibility growth',
+
+  serviceCardTitle_6: 'Website support',
+  serviceCardText_6: 'Technical support, updates and website protection.',
   serviceCardPrice_6: 'From $149',
+
+  serviceCardBen_6_1: 'Updates',
+  serviceCardBen_6_2: 'Bug fixes',
+  serviceCardBen_6_3: '24/7 monitoring',
 
   questionTitle: 'Do you have any questions?',
   questionText: 'If you have any questions or would like to receive a consultation, leave your details in the form. And we will be happy to contact you.',

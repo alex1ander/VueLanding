@@ -24,19 +24,22 @@ const router = createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      // При возврате назад — позиция прокрутки сохраняется
-      return savedPosition
+      return savedPosition; // назад/вперёд — позиция сохраняется
     } else if (to.hash) {
-      // Плавно скроллим к якорю, если он есть
       return {
         el: to.hash,
         behavior: 'smooth',
-      }
-    } else {
-      // По умолчанию скроллим вверх
-      return { top: 0 }
+      };
+    } 
+    // Если меняется только параметр lang (путь остался тот же, кроме языка) — не скроллим
+    else if (to.name === from.name && to.params.lang !== from.params.lang) {
+      return false; // запрещаем менять скролл
     }
-  }
-})
+    else {
+      return { top: 0 }; // иначе прокручиваем вверх
+    }
+  },
+});
+
 
 export default router

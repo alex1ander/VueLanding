@@ -18,7 +18,7 @@ function onMouseMove(e) {
   y.value = e.clientY
 }
 
-const hoverClasses = ['dropdown-head', 'another-class','slider-btn','btn-pop-up','cursor-hover',];
+const hoverClasses = ['dropdown-head', 'another-class','slider-btn','btn-pop-up','cursor-hover','logo-text'];
 const hoverTags = ['BUTTON', 'A']; // теги указываются в верхнем регистре
 
 function onMouseOver(e) {
@@ -74,5 +74,11 @@ onUnmounted(() => {
   width: 20px;
   height: 20px;
   border: 1px solid rgb(255, 50, 150);
+}
+
+@media (max-width: 768px) {
+  .cursor-circle{
+    display: none;
+  }
 }
 </style>

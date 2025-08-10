@@ -398,7 +398,12 @@ $sizeCirlce: 5px;
     align-items: center;
     gap:8px;
     cursor: pointer;
+
+    span{
+        pointer-events: none;
+    }
     svg{
+        pointer-events: none;
         transition: transform 0.4s ease;
     }
     &:hover, &.active{

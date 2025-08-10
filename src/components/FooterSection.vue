@@ -23,9 +23,9 @@ const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
       <p>Copyright © 2025 BitLazur. All rights reserved.</p>
       <ul class="useful-links">
         <li>
-          <a :href="`/${currentLang}/privacy-policy`">
+          <router-link :to="`/${currentLang}/privacy-policy`">
             {{ t('privacy_policy') }}
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

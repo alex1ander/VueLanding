@@ -28,9 +28,9 @@ onMounted(() => {
 
 <template>
   <router-link :to="`/${currentLang}`" class="logo-text">
-    <span ref="textContainer">
+    <div class="char-container" ref="textContainer">
       <span v-for="(char, index) in textArray" :key="index" class="char">{{ char }}</span>
-    </span>
+    </div>
   </router-link>
 </template>
 
@@ -41,5 +41,8 @@ onMounted(() => {
   font-weight: 700;
   color: rgb(255, 189, 46);
   font-size: 24px;
+}
+.char-container{
+  pointer-events: none;
 }
 </style>

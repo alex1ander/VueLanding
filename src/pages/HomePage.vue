@@ -2,17 +2,17 @@
   <HeaderSection />
   <CursorCircle />
   <main>
-    <VolumeFigure />
+    <!-- <VolumeFigure /> -->
     <HeroSection @open-contact-form="handleOpenContactForm" />
     <SliderStack />
     <OurBenefits />
-    <SliderProducts />
+    <!-- <SliderProducts /> -->
+    <OurWorks />
     <OurAdvantages />
     <PillArea @open-contact-form="handleOpenContactForm" />
     <ServicesCard @open-contact-form="handleOpenContactForm" />
     <RunningString />
     <FormSection />
-    <OurWorks />
   </main>
   <FooterSection />
   <PopUp
@@ -34,7 +34,7 @@ import HeaderSection from '@/components/HeaderSection.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import RunningString from '@/components/RunningString.vue'
 import OurBenefits from '@/components/OurService.vue'
-import SliderProducts from '@/components/SliderProducts.vue'
+// import SliderProducts from '@/components/SliderProducts.vue'
 import PillArea from '@/components/PillArea.vue'
 import SliderStack from '@/components/SliderStack.vue'
 import FormSection from '@/components/FormSection.vue'
@@ -46,7 +46,7 @@ import FooterSection from '@/components/FooterSection.vue'
 import FigureFirst from '@/components/FigureFirst.vue'
 import FigureSecond from '@/components/FigureSecond.vue'
 import SvgSprite from '@/components/SvgSprite.vue'
-import VolumeFigure from '@/components/VolumeFigure.vue'
+// import VolumeFigure from '@/components/VolumeFigure.vue'
 import CursorCircle from '@/components/CursorCircle.vue'
 import { initSmoothScroll } from '@/assets/js/script.js'
 import { initAnimations } from '@/assets/js/animations.js' // предполагается, что такая функция экспортируется
@@ -54,13 +54,13 @@ import { initAnimations } from '@/assets/js/animations.js' // предполаг
 export default {
   name: 'HomePage',
   components: {
-    VolumeFigure,
+    // VolumeFigure,
     CursorCircle,
     HeaderSection,
     HeroSection,
     RunningString,
     OurBenefits,
-    SliderProducts,
+    // SliderProducts,
     PillArea,
     SliderStack,
     FormSection,
