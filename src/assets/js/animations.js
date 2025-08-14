@@ -28,9 +28,10 @@ export function initAnimations() {
         opacity: 1,
         scrollTrigger: {
           trigger: card,
-          start: `top+=${(index % gridCount) * 100} bottom`,
-          end: `+=50 center`,
+          start: `top+=${(index % gridCount) * 100} bottom-=20`,
+          end: `+=100 center`,
           scrub: true,
+          //markers: true
         }
       });
     });
@@ -46,8 +47,8 @@ export function initAnimations() {
       ease: 'none',
       scrollTrigger: {
         trigger: container,
-        start: `top bottom`,
-        end: `bottom+=150 center`,
+        start: `top bottom-=150`,
+        end: `bottom center`,
         scrub: true,
       }
     });
@@ -58,7 +59,7 @@ export function initAnimations() {
       scrollTrigger: {
         trigger: container,
         start: `top bottom`,
-        end: `bottom+=150 center`,
+        end: `bottom+=100 center`,
         scrub: true,
       }
     });
@@ -117,7 +118,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });
@@ -130,7 +131,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });
@@ -143,7 +144,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });
@@ -170,7 +171,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });
@@ -181,7 +182,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });
@@ -192,7 +193,7 @@ if (scrollAnimation.length > 0) {
         scrollTrigger: {
           trigger: container,
           start: 'top bottom',
-          end: '+=50 center',
+          end: '+=100 center',
           scrub: true,
         }
       });

@@ -19,7 +19,7 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev1.jpg" alt="">
+                            <img src="../assets/upload/prev1.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>
@@ -49,7 +49,7 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev2.jpg" alt="">
+                            <img src="../assets/upload/prev2.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>
@@ -77,7 +77,7 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev3.jpg" alt="">
+                            <img src="../assets/upload/prev3.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>
@@ -110,7 +110,7 @@
                     
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev4.jpg" alt="">
+                            <img src="../assets/upload/prev4.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>
@@ -140,7 +140,7 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev5.jpg" alt="">
+                            <img src="../assets/upload/prev5.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>
@@ -168,7 +168,7 @@
 
                     <div class="service-card cardAnim ">
                         <div class="bg-image">
-                            <img src="../assets/upload/prev6.jpg" alt="">
+                            <img src="../assets/upload/prev6.webp" alt="">
                         </div>
 
                         <div class="top-part"></div>

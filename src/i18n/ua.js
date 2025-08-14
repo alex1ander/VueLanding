@@ -137,6 +137,28 @@ export default {
     formLabelComment: "Коментар:", 
     formPlaceholderComment: "Введіть ваш коментар тут...",
 
-    loading: "Завантаження..."
+    loading: "Завантаження...",
+    required: "(обов'язково)",
+    
+    //our_contacts
+    our_contacts: "Наші контакти",
+    contactTitle: "Зв'яжіться з нами",
+    contactIntro: "Ми будемо раді почути вашу думку! Зв'яжіться з нами будь-яким із наведених нижче способів.",
+
+    contactAddressTitle: "Наша адреса",
+    contactAddressText: "123 Main Street, City, Country",
+
+    contactPhoneTitle: "Телефон",
+    contactPhoneText: "+1 (555) 123-4567",
+
+    contactEmailTitle: "Електронна пошта",
+    contactEmailText: "info@example.com",
+
+    contactFormTitle: "Контактна форма",
+    contactFormText: "Заповніть форму на нашому вебсайті, і ми зв'яжемося з вами якомога швидше.",
+
+    contactUpdated: "Останнє оновлення: 14 серпня 2025 року"
+
+
 };
   

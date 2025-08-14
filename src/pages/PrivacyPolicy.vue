@@ -1,26 +1,25 @@
 <template>
     <HeaderSection />
+
     <main>
-        <section id="privacy-policy" class="information-section">
+        <section id="contact" class="information-section">
             <div class="content">
-                <h1>{{ $t('privacyPolicyTitle') }}</h1>
+                <h1>{{ $t('contactTitle') }}</h1>
 
-                <p>{{ $t('privacyPolicyIntro') }}</p>
+                <p>{{ $t('contactIntro') }}</p>
 
-                <h2>{{ $t('privacyCollectionTitle') }}</h2>
-                <ul>
-                <li>{{ $t('privacyCollectionName') }}</li>
-                <li>{{ $t('privacyCollectionEmail') }}</li>
-                <li>{{ $t('privacyCollectionCookies') }}</li>
-                </ul>
+                <h2>{{ $t('contactAddressTitle') }}</h2>
+                <p>{{ $t('contactAddressText') }}</p>
 
-                <h2>{{ $t('privacyUseTitle') }}</h2>
-                <p>{{ $t('privacyUseText') }}</p>
+                <h2>{{ $t('contactPhoneTitle') }}</h2>
+                <p>{{ $t('contactPhoneText') }}</p>
 
-                <h2>{{ $t('privacyRightsTitle') }}</h2>
-                <p>{{ $t('privacyRightsText') }}</p>
+                <h2>{{ $t('contactEmailTitle') }}</h2>
+                <p>{{ $t('contactEmailText') }}</p>
 
-                <p class="updated">{{ $t('privacyUpdated') }}</p>
+                <h2>{{ $t('contactFormTitle') }}</h2>
+                <p>{{ $t('contactFormText') }}</p>
+                
             </div>
         </section>
     </main>
@@ -59,7 +58,7 @@ export default {
 
   setup() {
     watchEffect(() => {
-      document.title = 'Privacy Policy'
+      document.title = 'Our contacts'
     })
   },
 

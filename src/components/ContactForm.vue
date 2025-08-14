@@ -5,9 +5,12 @@
     <input type="text" v-model="honeypot" name="honeypot" style="display:none" autocomplete="off" tabindex="-1" />
 
     <!-- Поле имени -->
-    <div class="this-input-block">
+    <div class="this-input-block required">
       <input type="hidden" v-model="localService" name="service" readonly />
-      <label for="name">{{ $t('formLabelName') }}</label>
+      <label for="name">
+        {{ $t('formLabelName') }}
+      <span class="requiredLabel">{{ $t('required') }}</span>
+      </label>
       <input
         type="text"
         id="name"
@@ -19,9 +22,11 @@
     </div>
 
     <!-- Кастомный дропдаун + поле -->
-    <div class="this-input-block">
-      <label>{{ $t('formLabelContact') }}</label>
-
+    <div class="this-input-block required">
+      <label>
+        {{ $t('formLabelContact') }}
+        <span class="requiredLabel">{{ $t('required') }}</span>
+      </label>
       <div class="wrapper-input">
         <div
           class="dropdown-list"
@@ -218,8 +223,10 @@ export default {
         if (this.wantsComment && this.comment.trim() !== '') {
           payload.comment = this.comment.trim()
         }
+        console.log('API URL:', process.env.VUE_APP_API_URL);
 
-        const res = await axios.post('http://localhost:3000/send-lead', payload)
+        const apiUrl = process.env.VUE_APP_API_URL;
+        const res = await axios.post(`${apiUrl}/send-lead`, payload);
 
         if (res.data.success) {
           this.message.text = this.$t('formMessageSuccess')

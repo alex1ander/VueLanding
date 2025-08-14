@@ -64,7 +64,7 @@ onUnmounted(() => {
   border-radius: 20%;
   pointer-events: none;
   transform: translate(0, -50%);
-  background: linear-gradient(134deg, rgba(255, 189, 46, 0.5) 0%, rgba(255, 50, 150, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(255, 189, 46, 0.5) 0%, rgba(255, 50, 150, 0.5) 100%);
   box-shadow:
     0 0 20px rgba(255, 189, 46, 0.6),
     0 0 40px rgba(255, 50, 150, 0.4),

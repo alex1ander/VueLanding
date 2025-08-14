@@ -8,12 +8,12 @@
         <div class="content">
             <div class="our-works-banner-prew-container opacityAnim">
                 <div class="our-works-banner-prew">
-                    <img class="card-image" src="../assets/upload/site1.png" alt="">
-                    <img class="card-image" src="../assets/upload/site2.png" alt="">
-                    <img class="card-image" src="../assets/upload/site3.png" alt="">
-                    <img class="card-image" src="../assets/upload/site4.png" alt="">
-                    <img class="card-image" src="../assets/upload/site5.png" alt="">
-                    <img class="card-image" src="../assets/upload/site6.png" alt="">
+                    <img class="card-image" src="../assets/upload/site1.webp" alt="">
+                    <img class="card-image" src="../assets/upload/site2.webp" alt="">
+                    <img class="card-image" src="../assets/upload/site3.webp" alt="">
+                    <img class="card-image" src="../assets/upload/site4.webp" alt="">
+                    <img class="card-image" src="../assets/upload/site5.webp" alt="">
+                    <img class="card-image" src="../assets/upload/site6.webp" alt="">
                 </div>
             </div>
         </div>

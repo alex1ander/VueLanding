@@ -1,5 +1,5 @@
 <script setup>
-import { watch, ref, defineProps,  } from 'vue'
+import { watch, ref, defineProps, defineEmits } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
@@ -9,8 +9,8 @@ const props = defineProps({
   }
 })
 
-// const emit = defineEmits(['close-menu'])
-const { t } = useI18n()
+const emit = defineEmits(['close-menu'])
+const { t, locale } = useI18n() // получаем текущий язык
 const animateMenu = ref(false)
 
 const menuItems = [
@@ -30,6 +30,14 @@ watch(() => props.isOpen, (newVal) => {
     animateMenu.value = false
   }
 })
+
+// Функция для закрытия меню при клике на ссылку
+const handleClick = () => {
+  emit('close-menu')
+}
+
+// Формируем путь с текущим языком
+const getLink = (href) => `/${locale.value}/${href}`
 </script>
 
 <template>
@@ -44,42 +52,11 @@ watch(() => props.isOpen, (newVal) => {
       :style="props.isOpen !== null ? { '--delay': (index * 0.15) + 's' } : {}"
     >
       <router-link 
-        :to="{hash: item.href }" 
+        :to="getLink(item.href)" 
+        @click="handleClick"
       >
         {{ t(item.labelKey) }}
       </router-link>
     </li>
   </ul>
 </template>
-
-
-
-<style scoped>
-.main-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Стили анимации — только для мобильного меню, когда isOpen передан */
-.main-menu.animate .menu-item {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transition-delay: var(--delay);
-}
-
-.main-menu:not(.animate) .menu-item {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transition-delay: var(--delay);
-}
-
-/* Если isOpen не передан — показываем все сразу без анимации */
-.main-menu.no-animate .menu-item {
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-  transition: none !important;
-}
-</style>

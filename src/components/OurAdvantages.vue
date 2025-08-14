@@ -153,7 +153,7 @@ $box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     width: 0;
     z-index: -1;
     border-radius: 100%;
-    background-image: linear-gradient(134deg, $gradient-start 0%, $gradient-end 100%);
+    background-image: linear-gradient(135deg, $gradient-start 0%, $gradient-end 100%);
     transition: height 0.5s ease-in, width 0.5s ease-in;
   }
 }

@@ -44,6 +44,20 @@
         gap: 4px;
         width: 100%;
 
+        &.required{
+            gap:14px;
+            label{
+                position: relative;
+                .requiredLabel{
+                    position: absolute;
+                    top: 15px;
+                    left: 0;
+                    font-size: 10px;
+                    opacity: 0.5;
+                }
+            }
+        }
+
         label {
             font-weight: 600;
             font-size: 16px;

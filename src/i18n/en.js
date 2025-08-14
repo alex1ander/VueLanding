@@ -118,6 +118,26 @@ export default {
   formLabelComment: "Comment:",
   formPlaceholderComment: "Enter your comment here...",
 
-  loading: "Loading..."
+  loading: "Loading...",
+  required: "(required)",
+
+  //our_contacts
+  our_contacts: "Our contacts",
+  contactTitle: "Contact Us", 
+  contactIntro: "We would love to hear from you! Reach out to us through any of the following ways.", 
+
+  contactAddressTitle: "Our Address", 
+  contactAddressText: "123 Main Street, City, Country", 
+
+  contactPhoneTitle: "Phone", 
+  contactPhoneText: "+1 (555) 123-4567", 
+
+  contactEmailTitle: "Email", 
+  contactEmailText: "info@example.com", 
+
+  contactFormTitle: "Contact Form", 
+  contactFormText: "Fill out the form on our website and we will get back to you as soon as possible.", 
+
+  contactUpdated: "Last updated: August 14, 2025"
 };
   

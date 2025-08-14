@@ -11,17 +11,9 @@
                     </div>
 
 
-                    <div class="content-header-part">
-                        
+                    <div class="content-header-part">   
                         <LanguageDropdown />
-                
-                        <a :href="'tel:' + $t('phoneNumber')" class="text-with-svg btn-backarea">
-                            <svg width="24" height="24" class="sprite-svg-fill">
-                                <use href="#call"></use>
-                            </svg>
-                            <span>{{ $t('phoneNumber') }}</span>
-                        </a>
-
+                        <ContactsDropDown />
                     </div>
                 </div>
                 <div class="content content-header mobile">
@@ -49,12 +41,14 @@ import LogoText from './LogoText.vue'
 <script>
 import BurgerMenu from './BurgerMenu.vue'
 import LanguageDropdown from './LanguageDropdown.vue';
+import ContactsDropDown from './ContactsDropDown.vue';
 import MenuList from './MenuList.vue';
 export default {
     name: 'App',
     components: {
         BurgerMenu,
         LanguageDropdown,
+        ContactsDropDown
     },
 }
 </script>
@@ -127,7 +121,7 @@ header{
     align-items: center;
     height:  #{$header-height}px;
     border-radius: 20px;
-    background: linear-gradient(134deg, rgba(62, 176, 212, 0.6) 0%, rgba(150, 99, 200, 0.6) 100%) !important;
+    background: linear-gradient(45deg, rgba(62, 176, 212, 0.6) 0%, rgba(150, 99, 200, 0.6) 100%) !important;
     position: relative;
     &::after{
         content: '';
@@ -185,7 +179,7 @@ header{
 @media (max-width: 1024px) {
 
     .header-container {
-        border-radius: 30px;
+        // border-radius: 30px;
     }
 }
 

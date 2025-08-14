@@ -60,7 +60,7 @@ onUnmounted(() => {
   pointer-events: none;
   top: 0;
   left: 0;
-  background: linear-gradient(134deg, rgba(62, 176, 212, 0.5) 0%, rgba(150, 99, 200, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(62, 176, 212, 0.5) 0%, rgba(150, 99, 200, 0.5) 100%);
   box-shadow:
     0 0 20px rgba(62, 176, 212, 0.6),
     0 0 40px rgba(150, 99, 200, 0.4),

@@ -142,6 +142,26 @@ export default {
   formLabelComment: "Комментарий:",
   formPlaceholderComment: "Введите ваш комментарий здесь...",
 
-  loading: "Загрузка..."
+  loading: "Загрузка...",
+  required: "(обязательно)",
+
+  //our_contacts
+  our_contacts: "Наши контакты",
+  contactTitle: "Свяжитесь с нами",
+  contactIntro: "Мы будем рады вашему обращению! Свяжитесь с нами любым из следующих способов.",
+
+  contactAddressTitle: "Наш адрес",
+  contactAddressText: "123 Main Street, City, Country",
+
+  contactPhoneTitle: "Телефон",
+  contactPhoneText: "+1 (555) 123-4567",
+
+  contactEmailTitle: "Электронная почта",
+  contactEmailText: "info@example.com",
+
+  contactFormTitle: "Контактная форма",
+  contactFormText: "Заполните форму на нашем сайте, и мы свяжемся с вами как можно скорее",
+
+  contactUpdated: "Последнее обновление: 14 августа 2025 г."
 };
     

@@ -21,10 +21,10 @@ const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
       </div>
       <MenuList />
       <p>Copyright © 2025 BitAlexis. All rights reserved.</p>
-      <ul class="useful-links">
+      <ul class="useful-links main-menu no-animate">
         <li>
           <router-link :to="`/${currentLang}/privacy-policy`">
-            {{ t('privacy_policy') }}
+            {{ t('our_contacts') }}
           </router-link>
         </li>
       </ul>
@@ -52,7 +52,7 @@ const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
         padding: 60px 0 30px;
         backdrop-filter: blur(6px) saturate(150%);
         -webkit-backdrop-filter: blur(6px) saturate(150%);
-        background: linear-gradient(134deg, rgba(62, 176, 212, 0.4) 0%, rgba(150, 99, 200, 0.4) 100%) !important;
+        background: linear-gradient(135deg, rgba(62, 176, 212, 0.4) 0%, rgba(150, 99, 200, 0.4) 100%) !important;
 
         $content-padding: 64px;
         &.content {
