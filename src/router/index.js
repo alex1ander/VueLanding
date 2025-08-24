@@ -9,7 +9,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/:lang(ua|ru|en)/privacy-policy',
+    path: '/:lang(ua|ru|en)/contacts',
     name: 'PrivacyPolicy',
     component: PrivacyPolicy,
   },

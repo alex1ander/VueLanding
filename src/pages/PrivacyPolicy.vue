@@ -1,67 +1,67 @@
 <template>
-    <HeaderSection />
+  <HeaderSection />
 
-    <main>
-        <section id="contact" class="information-section">
-            <div class="content">
-                <h1>{{ $t('contactTitle') }}</h1>
+  <main>
+    <section id="contact" class="information-section">
+      <div class="content">
+        <h1>{{ $t('contactTitle') }}</h1>
 
-                <p>{{ $t('contactIntro') }}</p>
+        <p>{{ $t('contactIntro') }}</p>
 
-                <h2>{{ $t('contactAddressTitle') }}</h2>
-                <p>{{ $t('contactAddressText') }}</p>
+        <h2>{{ $t('contactAddressTitle') }}</h2>
+        <p>{{ $t('contactAddressText') }}</p>
 
-                <h2>{{ $t('contactPhoneTitle') }}</h2>
-                <p>{{ $t('contactPhoneText') }}</p>
+        <h2>{{ $t('contactPhoneTitle') }}</h2>
+        <p>{{ $t('contactPhoneText') }}</p>
 
-                <h2>{{ $t('contactEmailTitle') }}</h2>
-                <p>{{ $t('contactEmailText') }}</p>
+        <h2>{{ $t('contactEmailTitle') }}</h2>
+        <p>{{ $t('contactEmailText') }}</p>
 
-                <h2>{{ $t('contactFormTitle') }}</h2>
-                <p>{{ $t('contactFormText') }}</p>
-                
-            </div>
-        </section>
-    </main>
+        <h2>{{ $t('contactFormTitle') }}</h2>
+        <p>{{ $t('contactFormText') }}</p>
+      </div>
+    </section>
+  </main>
 
-    <FooterSection />
+  <FooterSection />
 
-    <ScriptJs />
-    <AnimationsJs />
-    <FigureFirst />
-    <FigureSecond />
-
-    <SvgSprite />
+  <FigureFirst />
+  <FigureSecond />
+  <SvgSprite />
 </template>
 
 <script>
-import { watchEffect } from 'vue'
+import { onMounted } from 'vue'
 import HeaderSection from '@/components/HeaderSection.vue'
 import FooterSection from '@/components/FooterSection.vue'
-import ScriptJs from '@/assets/js/script.js'
-import AnimationsJs from '@/assets/js/animations.js'
 import FigureFirst from '@/components/FigureFirst.vue'
 import FigureSecond from '@/components/FigureSecond.vue'
 import SvgSprite from '@/components/SvgSprite.vue'
+
+import { initSmoothScroll } from '@/assets/js/script.js'
+import { initAnimations } from '@/assets/js/animations.js'
 
 export default {
   name: 'PrivacyPolicy',
   components: {
     HeaderSection,
     FooterSection,
-    ScriptJs,
-    AnimationsJs,
     FigureFirst,
     FigureSecond,
     SvgSprite,
   },
-
   setup() {
-    watchEffect(() => {
+    onMounted(() => {
       document.title = 'Our contacts'
+
+      // Инициализация анимаций и скролла
+      initSmoothScroll()
+      initAnimations()
     })
   },
-
 }
 </script>
 
+<style scoped>
+/* твои стили, если нужны */
+</style>

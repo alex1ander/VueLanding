@@ -5,9 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "prerender": "node prerender.js",
+    "build:prerender": "npm run build && npm run prerender",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@prerenderer/prerenderer": "^1.2.5",
+    "@prerenderer/renderer-puppeteer": "^1.2.4",
     "@studio-freight/lenis": "^1.0.42",
     "axios": "^1.8.4",
     "body-parser": "^2.2.0",
@@ -15,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "gsap": "^3.12.7",
+    "serve-static": "^2.2.0",
     "swiper": "^11.2.6",
     "three": "^0.178.0",
     "tsparticles": "^3.8.1",
@@ -33,6 +38,8 @@
     "babel-loader": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "prerender-spa-plugin": "^3.4.0",
+    "puppeteer": "^24.16.2",
     "sass": "^1.86.3",
     "sass-loader": "^16.0.5",
     "vue": "^3.5.13",

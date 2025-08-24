@@ -23,7 +23,7 @@ const currentLang = computed(() => (route.params.lang || 'ua').toLowerCase())
       <p>Copyright © 2025 BitAlexis. All rights reserved.</p>
       <ul class="useful-links main-menu no-animate">
         <li>
-          <router-link :to="`/${currentLang}/privacy-policy`">
+          <router-link :to="`/${currentLang}/contacts`">
             {{ t('our_contacts') }}
           </router-link>
         </li>
